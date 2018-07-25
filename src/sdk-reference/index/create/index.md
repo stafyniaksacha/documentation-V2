@@ -8,6 +8,4 @@ order: 200
 
 # Create
 
-Creates a new index in Kuzzle.
-
 [section=create]

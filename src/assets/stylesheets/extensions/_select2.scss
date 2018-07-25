@@ -37,7 +37,7 @@
         background-clip: padding-box;
         border: 1px solid rgba(0,0,0,.15);
         
-        padding: .5rem 0 1rem;
+        padding: .5rem 0 .6rem;
         font-size: 1rem;
         line-height: 1.5;
         background-color: transparent;
@@ -68,12 +68,10 @@
 
         .language-logo {
             position: relative;
-            top: 7px;
-            margin-right: .5rem;
         }
         .language-name {
             position: relative;
-            top: 4px;
+            top:-10px;
             text-transform: capitalize;
         }
     }
@@ -86,7 +84,7 @@
         
         .select2-selection__arrow {
             position: relative;
-            top: 9px;
+            top: 6px;
             float: right;
         }
     }
@@ -237,12 +235,11 @@
 
         .language-logo {
             position: relative;
-            margin-right: .5rem;
         }
 
         .language-name {
             position: relative;
-            top: -4px;
+            top:-10px;
             text-transform: capitalize;
         }
 
