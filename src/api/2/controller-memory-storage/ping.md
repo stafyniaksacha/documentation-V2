@@ -1,0 +1,56 @@
+---
+layout: full.html.hbs
+algolia: true
+
+title: ping
+---
+
+# ping
+
+{{{since "1.0.0"}}}
+
+
+
+
+---
+
+## Query Syntax
+
+### HTTP
+
+```http
+URL: http://kuzzle:7512/ms/_ping
+Method: GET
+```
+
+### Other protocols
+
+
+```json
+{
+  "controller": "ms",
+  "action": "ping"
+}
+```
+
+---
+
+## Response
+
+```javascript
+{
+  "requestId": "<unique request identifier>",
+  "status": 200,
+  "error": null,
+  "controller": "ms",
+  "action": "ping",
+  "collection": null,
+  "index": null,
+  "volatile": null,
+  "result": "PONG"
+}
+```
+
+Pings the memory storage database.
+
+[[_Redis documentation_]](https://redis.io/commands/ping)

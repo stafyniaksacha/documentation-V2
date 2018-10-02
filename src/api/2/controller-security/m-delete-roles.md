@@ -1,0 +1,69 @@
+---
+layout: full.html.hbs
+algolia: true
+
+title: mDeleteRoles
+---
+
+
+# mDeleteRoles
+
+{{{since "1.0.0"}}}
+
+
+
+---
+
+## Query Syntax
+
+### HTTP
+
+```http
+URL: http://kuzzle:7512/roles/_mDelete[?refresh=wait_for]
+Method: POST  
+Body:
+```
+
+
+```js
+{
+  // ids must be an array of profile ids
+  "ids": ["myFirstRole", "mySecondRole"]
+}
+```
+
+### Other protocols
+
+```json
+{
+  "controller": "security",
+  "action": "mDeleteRoles",
+  "refresh": "wait_for",
+  "body": {
+    "ids": ["myFirstRole", "mySecondRole"]
+  }
+}
+```
+
+---
+
+## Response
+
+```javascript
+{
+  "status": 200,
+  "error": null,
+  "action": "mDeleteRoles",
+  "controller": "security",
+  "requestId": "<unique request identifier>",
+  "result": [
+    "myFirstRole",
+    "mySecondRole"
+  ]
+}
+```
+
+Deletes a list of `roles` objects from Kuzzle given a list of role ids.
+
+The optional parameter `refresh` can be used
+with the value `wait_for` in order to wait for the roles' deletion to be indexed (indexed roles are available for `search`).

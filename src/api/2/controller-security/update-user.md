@@ -1,0 +1,75 @@
+---
+layout: full.html.hbs
+algolia: true
+
+title: updateUser
+---
+
+
+# updateUser
+
+{{{since "1.0.0"}}}
+
+
+
+---
+
+## Query Syntax
+
+### HTTP
+
+```http
+URL: http://kuzzle:7512/users/<kuid>/_update[?refresh=wait_for]
+Method: PUT  
+Body:
+```
+
+```js
+{
+    "foo": "bar", // Some properties to update
+    "name": "Walter Smith",
+    ...
+}
+```
+
+### Other protocols
+
+```json
+{
+  "controller": "security",
+  "action": "updateUser",
+  "refresh": "wait_for",
+  "_id": "<kuid>",
+  "body": {
+    "foo": "bar",    
+    "name": "Walter Smith",
+  }
+}
+```
+
+---
+
+## Response
+
+```javascript
+{
+  "status": 200,
+  "error": null,
+  "index": "%kuzzle",
+  "collection": "users",
+  "action": "updateUser",
+  "controller": "security",
+  "requestId": "<unique request identifier>",
+  "result": {
+    "_id": "<kuid>",
+    "_index": "%kuzzle",
+    "_type": "users",
+    "_version": 2
+  }
+}
+```
+
+Given a [`<kuid>`]({{ site_base_path }}guide/essentials/user-authentication/#kuzzle-user-identifier-kuid), updates the matching user object in Kuzzler.
+
+The optional parameter `refresh` can be used
+with the value `wait_for` in order to wait for the user to be indexed (indexed users are available for `search`).

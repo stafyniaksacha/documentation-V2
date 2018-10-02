@@ -1,0 +1,69 @@
+---
+layout: full.html.hbs
+algolia: true
+
+title: truncate
+---
+
+# truncate
+
+{{{since "1.0.0"}}}
+
+Empties a collection by removing all its documents, while keeping any associated mapping.  
+It is faster than deleting all documents from a collection.
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+---
+
+## Query Syntax
+
+### HTTP
+
+```http
+URL: http://kuzzle:7512/<index>/<collection>/_truncate
+Method: DELETE
+```
+
+### Other protocols
+
+
+```json
+{
+  "index": "<index>",
+  "collection": "<collection>",
+  "controller": "collection",
+  "action": "truncate"
+}
+```
+
+---
+
+## Response
+
+```javascript
+{
+  "status": 200,
+  "error": null,
+  "action": "truncate",
+  "controller": "collection",
+  "index": "<index>",
+  "collection": "<collection>",
+  "requestId": "<unique request identifier>",
+  "result": {
+    "acknowledged": true,
+  }
+}
+```
+
+---
+
+## Possible errors
+
+- [Common errors]({{ site_base_path }}api/2/errors/#common-errors)
+- [NotFoundError]({{ site_base_path }}api/2/errors/#notfounderror)
