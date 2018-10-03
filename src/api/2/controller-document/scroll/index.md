@@ -15,14 +15,13 @@ The response may contain a *different* cursor identifier, pointing to the next p
 The results that are returned from a `scroll` request reflect the state of the index at the time that the initial search request was made, like a snapshot in time. Subsequent changes
 to documents (index, update or delete) will only affect later search requests.
 
-
 ---
 
 ## Arguments
 
 * `collection`: data collection
 * `index`: data index
-* `scrollId`: cursor unique identifier, created by a search query
+* `scrollId`: cursor unique identifier, created by either a search or a scroll query
 
 **Options:**
 
@@ -42,7 +41,7 @@ Method: GET
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "document",
   "action": "scroll",

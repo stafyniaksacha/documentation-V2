@@ -41,7 +41,7 @@ Body:
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "auth",
   "action": "updateSelf",
@@ -57,20 +57,22 @@ Body:
 
 ## Response
 
-```json
+Return the following properties:
+
+* `_id`: current user's [kuid]({{site_base_path}}guide/2/essentials/user-authentication/#kuzzle-user-identifier-kuid)
+* `_source`: additional (and optional) user properties
+
+```js
 {
   "status": 200,
   "error": null,
   "action": "updateSelf",
   "controller": "auth",
-  "volatile": {},
   "requestId": "<unique request identifier>",
   "result": {
-    "_id": "<kuid>",// The kuzzle user identifier
+    "_id": "<kuid>",
     "_source": {
-      "foo": "bar",
-      "name": "Walter Smith",
-      ....
+      "fullname": "Walter Smith"
     }
   }
 }

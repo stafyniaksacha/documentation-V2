@@ -8,9 +8,11 @@ title: validateMyCredentials
 
 {{{since "1.0.0"}}}
 
-Validate the current user's credentials for the specified `<strategy>`. The `result` field is `true` if the provided credentials are valid; otherwise an error is triggered.
+Validate the current user's credentials for the specified authentication strategy. 
 
-This route does not actually create or modify the user's credentials. The credentials to send will depend on the authentication plugin and authentication strategy.
+This route does not actually create or modify the user's credentials. 
+
+The credentials to send will depend on the authentication plugin and authentication strategy.
 
 ---
 
@@ -42,7 +44,7 @@ Body:
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "auth",
   "action": "validateMyCredentials",
@@ -59,7 +61,9 @@ Body:
 
 ## Response
 
-```json
+Return a boolean telling whether the provided credentials are valid:
+
+```js
 {
   "status": 200,
   "error": null,

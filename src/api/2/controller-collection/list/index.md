@@ -37,13 +37,12 @@ Method: GET
 ### Other protocols
 
 
-```json
+```js
 {
   "index": "<index>",
   "controller": "collection",
   "action": "list",
-
-  "type": "<all|stored|realtime>",
+  "type": "stored",
   "from": 0,
   "size": 42
 }
@@ -53,7 +52,14 @@ Method: GET
 
 ## Response
 
-```json
+Return a `collections` array, listing collections described as objects with the following properties:
+
+* `name`: data collection name
+* `type`: either `stored` or `realtime`
+
+Example:
+
+```js
 {
   "status": 200,
   "error": null,

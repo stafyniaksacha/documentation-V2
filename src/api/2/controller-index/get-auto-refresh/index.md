@@ -1,0 +1,64 @@
+---
+layout: full.html.hbs
+algolia: true
+title: getAutoRefresh
+---
+
+# getAutoRefresh
+
+{{{since "1.0.0"}}}
+
+Return the current `autoRefresh` status for the given index.
+
+The `autoRefresh` flag, when set to true, forces Kuzzle to perform a
+[`refresh`](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/docs-refresh.html) request immediately after each change in the storage, causing documents to be immediately visible in a search.
+
+---
+
+## Arguments
+
+* `index`: data index
+
+---
+
+## Query Syntax
+
+### HTTP
+
+```http
+URL: http://kuzzle:7512/<index>/_autoRefresh
+Method: GET
+```
+
+### Other protocols
+
+```js
+{
+  "index": "<index>",
+  "controller": "index",
+  "action": "getAutoRefresh"
+}
+```
+
+---
+
+## Response
+
+```js
+{
+  "status": 200,
+  "error": null,
+  "requestId": "<unique request identifier>",
+  "index": "<index>",
+  "controller": "index",
+  "action": "getAutoRefresh",
+  "result":  true
+}
+```
+
+---
+
+## Possible errors
+
+- [Common errors]({{ site_base_path }}api/2/errors/#common-errors)
+- [NotFoundError]({{ site_base_path }}api/2/errors/#notfounderror)

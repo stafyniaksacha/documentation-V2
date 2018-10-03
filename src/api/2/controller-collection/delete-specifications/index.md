@@ -8,10 +8,11 @@ title: deleteSpecifications
 
 {{{since "1.0.0"}}}
 
-Deletes the validation specification for the <index>/<collection>.  
-It returns a `status` of 200 even if no validation specification exists.
+Delete validation specifications for a data collection.
 
-***Note:***  by default, an empty specification is implicitly applied to all collections. In a way, "no specification set" means "all documents are valid". This is why there is no error when we make this request and no specifications exist.
+The request succeeds even if no specification exist for that data collection.
+
+***Note:***  an empty specification is implicitly applied to all collections. In a way, "no specification set" means "all documents are valid". 
 
 ---
 
@@ -33,7 +34,7 @@ Method: DELETE
 
 ### Other protocols
 
-```json
+```js
 {
   "index": "<index>",
   "collection": "<collection>",
@@ -46,7 +47,9 @@ Method: DELETE
 
 ## Response
 
-```json
+Return a confirmation that the specifications are deleted:
+
+```js
 {
   "status": 200,
   "error": null,

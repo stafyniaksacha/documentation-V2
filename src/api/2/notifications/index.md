@@ -47,7 +47,7 @@ A document notification contains the following fields:
 
 Document notification example:
 
-```json
+```js
 {
   "status":200,
   "index":"foo",
@@ -103,7 +103,7 @@ By default, Kuzzle does not send these notifications. You have to provide an app
 
 Subscription notification example:
 
-```json
+```js
 {
   "error":null,
   "index":"<index name>",
@@ -112,7 +112,6 @@ Subscription notification example:
   "action":"subscribe",
   "protocol":"websocket",
   "timestamp":1497517009931,
-  "volatile": null,
   "user":"in",
   "result":{
     "count": 42
@@ -134,7 +133,7 @@ Server notifications are sent to all of a client's subscriptions when their [aut
 
 Server notification example:
 
-```json
+```js
 {
   "status":200,
   "info": "This is an automated server notification",

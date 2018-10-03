@@ -56,7 +56,7 @@ Body:
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "security",
   "action": "createUser",
@@ -75,7 +75,7 @@ Body:
 }
 ```
 
-```json
+```js
 {
   "controller": "security",
   "action": "createUser",

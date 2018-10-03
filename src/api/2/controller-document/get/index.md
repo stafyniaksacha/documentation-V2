@@ -36,7 +36,7 @@ Method: GET
 ### Other protocols
 
 
-```json
+```js
 {
   "index": "<index>",
   "collection": "<collection>",

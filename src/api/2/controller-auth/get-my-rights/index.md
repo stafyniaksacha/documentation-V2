@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: getMyRights
 ---
 
@@ -31,7 +30,7 @@ Headers: Authorization: "Bearer <authentication token>"
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "auth",
   "action": "getMyRights",
@@ -43,23 +42,43 @@ Headers: Authorization: "Bearer <authentication token>"
 
 ## Response
 
+The result contains a `hits` array, listing every rights for the current user.
+
+Each right is an object with the following properties:
+
+* `controller`: API controller
+* `action`: controller's action
+* `index`: authorized or denied data index
+* `collection`: authorized or denied data collection
+* `value`: one of the following value: `denied`, `allowed`, or `conditional`
+
 ```javascript
 {
   "status": 200,
   "error": null,
   "result": {
-    // An array of objects containing the user rights
     "hits": [
       {
-        "controller": "<ctrl_name|*>",
-        "action": "<action_name|*>",
-        "index": "<index_name|*>",
-        "collection": "<collection_name|*>",
-        "value": "<allowed|denied|conditional>"
+        "controller": "document",
+        "action": "get",
+        "index": "foo",
+        "collection": "bar",
+        "value": "allowed"
       },
       {
-        // Another rights item... and so on
+        "controller": "document",
+        "action": "search",
+        "index": "foo",
+        "collection": "bar",
+        "value": "allowed"
+      },
+      {
+        "controller": "document",
+        "action": "write",
+        "index": "foo",
+        "collection": "bar",
+        "value": "denied"
       }
-    ],
+    ]
 }
 ```

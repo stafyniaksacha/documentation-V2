@@ -1,0 +1,60 @@
+---
+layout: full.html.hbs
+algolia: true
+
+title: mget
+---
+
+# mget
+
+{{{since "1.0.0"}}}
+
+
+
+---
+
+## Query Syntax
+
+### HTTP
+
+```http
+URL: http://kuzzle:7512/ms/_mget?keys=key1,key2,...
+Method: GET
+```
+
+
+### Other protocols
+
+
+```js
+{
+  "controller": "ms",
+  "action": "mget",
+  "keys": ["key1", "key2", "..."]
+}
+```
+
+---
+
+## Response
+
+```javascript
+{
+  "requestId": "<unique request identifier>",
+  "status": 200,
+  "error": null,
+  "controller": "ms",
+  "action": "mget",
+  "collection": null,
+  "index": null,
+  "result": [
+    "value of key1",
+    "value of key2",
+    "..."
+  ]
+}
+```
+
+Returns the values of the provided keys.
+
+[[_Redis documentation_]](https://redis.io/commands/mget)

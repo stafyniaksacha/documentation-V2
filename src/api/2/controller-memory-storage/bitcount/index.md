@@ -1,0 +1,65 @@
+---
+layout: full.html.hbs
+algolia: true
+
+title: bitcount
+---
+
+# bitcount
+
+{{{since "1.0.0"}}}
+
+Count the number of set bits (population counting) in a string.  
+
+[[_Redis documentation_]](https://redis.io/commands/bitcount)
+
+---
+
+## Arguments
+
+* `key`: key to evaluate
+
+**Options:**
+
+* `start`: count starts at the provided offset
+* `end`: count ends at the provided offset
+
+---
+
+## Query Syntax
+
+### HTTP
+
+```http
+URL: http://kuzzle:7512/ms/_bitcount/<key>[?start=<integer>&end=<integer>]
+Method: GET  
+```
+
+### Other protocols
+
+```js
+{
+  "controller": "ms",
+  "action": "bitcount",
+  "_id": "<key>",
+  "start": <integer>,
+  "end": <integer>
+}
+```
+
+---
+
+## Response
+
+```javascript
+{
+  "requestId": "<unique request identifier>",
+  "status": 200,
+  "error": null,
+  "controller": "ms",
+  "action": "bitcount",
+  "collection": null,
+  "index": null,
+  "result": <count>
+}
+```

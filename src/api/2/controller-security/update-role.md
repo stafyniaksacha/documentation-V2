@@ -38,7 +38,7 @@ Body:
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "security",
   "action": "updateRole",

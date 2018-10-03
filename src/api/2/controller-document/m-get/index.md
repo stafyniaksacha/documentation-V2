@@ -36,7 +36,7 @@ Method: POST
 Body:
 ```
 
-```json
+```js
 {
   "ids": ["<documentId>", "<anotherDocumentId>"]
 }
@@ -46,7 +46,7 @@ Body:
 ### Other protocols
 
 
-```json
+```js
 {
   "index": "<index>",
   "collection": "<collection>",
@@ -64,7 +64,7 @@ Body:
 
 ## Response
 
-```json
+```js
 {
   "status": 200,
   "error": null,

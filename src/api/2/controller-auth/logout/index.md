@@ -33,7 +33,7 @@ Headers: Authorization: "Bearer <authentication token>"
 ### Other protocols
 
 
-```json
+```js
 {
   "controller": "auth",
   "action": "logout",
@@ -45,14 +45,13 @@ Headers: Authorization: "Bearer <authentication token>"
 
 ## Response
 
-```json
+```js
 {
   "status": 200,
   "error": null,
   "controller": "auth",
   "action": "logout",
   "requestId": "<unique request identifier>",
-  "volatile": {},
   "result": {}
 }
 ```

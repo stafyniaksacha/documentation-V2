@@ -42,7 +42,7 @@ Body:
 
 ### Other protocols
 
-```json
+```js
 {
   "index": "<index>",
   "collection": "<collection>",

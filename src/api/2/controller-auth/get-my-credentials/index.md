@@ -35,7 +35,7 @@ Headers: Authorization: "Bearer <authentication token>"
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "auth",
   "action": "getMyCredentials",
@@ -48,9 +48,12 @@ Headers: Authorization: "Bearer <authentication token>"
 
 ## Response
 
-```javascript
-// example with a "local" authentication
 
+The result content depends on the authentication strategy. 
+
+Example with the `local` authentication strategy:
+
+```javascript
 {
   "status": 200,
   "error": null,

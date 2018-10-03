@@ -1,13 +1,28 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: validate
 ---
 
 # validate
 
 {{{since "1.0.0"}}}
+
+Validate data against existing validation rules. 
+
+Return a boolean telling whether a provided document matches validation rules or not.  
+If not, a list of errors is returned with the detail of violated rules.
+
+Documents are always valid if no validation rules are defined on the provided index and collection.
+
+This request does **not** store or publish the document.
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
 
 ---
 
@@ -21,10 +36,9 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
-    // The message to send
+  // Document content to check
 }
 ```
 
@@ -32,7 +46,7 @@ Body:
 ### Other protocols
 
 
-```json
+```js
 {
   "index": "<index>",
   "collection": "<collection>",
@@ -46,7 +60,7 @@ Body:
 
 ## Response
 
-```javascript
+```js
 {
   "status": 200,
   "error": null,
@@ -56,17 +70,8 @@ Body:
   "action": "validate",
   "volatile": {},
   "result": {
-    "errorMessages": {}, // There is no error messages
-    "valid": true // The document complies with validation specifications
+    "errorMessages": {}, 
+    "valid": true 
   }  
 }
 ```
-
-Validates data against existing validation rules. 
-
-If the document is valid, the `result.valid` value is `true`, if not, it is `false`.
-If the document is not valid, the `result.errorMessages` will contain detailed hints on what is wrong with the document.
-
-Note that if no validation specifications are set for the `<data index>`/`<data collection>`, the document will always be valid.
-
-This request does **not** store or publish the document.

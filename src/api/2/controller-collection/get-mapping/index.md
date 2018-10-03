@@ -8,7 +8,7 @@ title: getMapping
 
 {{{since "1.0.0"}}}
 
-Returns the mapping for the given `collection`.
+Return the mapping for the given `collection`.
 
 ---
 
@@ -31,7 +31,7 @@ Method: GET
 ### Other protocols
 
 
-```json
+```js
 {
   "index": "<index>",
   "collection": "<collection>",
@@ -44,6 +44,21 @@ Method: GET
 
 ## Response
 
+Return an object with the following structure:
+
+```
+<index>
+   |- mappings
+         |- <collection>
+               |- properties
+                     |- mapping for field 1
+                     |- mapping for field 2
+                     |- ...
+                     |- mapping for field n
+```
+
+Example:
+
 ```javascript
 {
   "status": 200,
@@ -55,13 +70,19 @@ Method: GET
   "requestId": "<unique request identifier>",
   "result": {
     "<index>": {
-      "mappings": { // Data mapping using ElasticSearch mapping syntax
+      "mappings": {
         "<collection>": {
           "properties": {
-            "field1": {type: "field type", "...options..." },
-            "field2": {type: "field type", "...options..." },
-            ...
-            "fieldn": {type: "field type", "...options..." },
+            "field1": { 
+              "type": "integer"
+            },
+            "field2": {
+              "type": "keyword"
+            },
+            "field3": {
+                "type":   "date",
+                "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+            }
           }
         }
       }

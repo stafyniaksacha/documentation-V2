@@ -57,9 +57,11 @@ Body:
 
 ## Response
 
+The result content depends on the authentication strategy. 
+
 Example with the "local" authentication strategy:
 
-```json
+```js
 {
   "status": 200,
   "error": null,

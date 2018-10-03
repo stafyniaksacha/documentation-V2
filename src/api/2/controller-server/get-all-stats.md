@@ -24,7 +24,7 @@ Method: GET
 ### Other protocols
 
 
-```json
+```js
 {
   "controller": "server",
   "action": "getAllStats"

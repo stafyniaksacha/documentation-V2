@@ -23,7 +23,7 @@ Method: GET
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "auth",
   "action": "getStrategies"
@@ -34,9 +34,9 @@ Method: GET
 
 ## Response
 
-```javascript
-// example with a "local" and "facebook" strategy
+Result is an array of every available strategy names:
 
+```javascript
 {
   "status": 200,
   "error": null,

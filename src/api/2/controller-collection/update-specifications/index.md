@@ -43,7 +43,7 @@ Body:
 ### Other protocols
 
 
-```json
+```js
 {
   "controller": "collection",
   "action": "updateSpecifications",

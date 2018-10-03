@@ -29,20 +29,20 @@ Method: POST
 Body:  
 ```
 
-```json
+```js
 {
-  "token": "..."
+  "token": "<the JWT to check>"
 }
 ```
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "auth",
   "action": "checkToken",
   "body": {
-    "token": "..."
+    "token": "<the JWT to check>"
   }
 }
 ```
@@ -51,7 +51,15 @@ Body:
 
 ## Response
 
-```javascript
+The result contains the following properties:
+
+* `valid`: a boolean telling whether the provided token is valid
+* `state`: the reason why a token is invalid. Present only if `valid` is false
+* `expiresAt`: token expiration timestamp. Present only if `valid` is true
+
+Example:
+
+```js
 {
   "status": 200,
   "error": null,
@@ -59,16 +67,8 @@ Body:
   "action": "checkToken",
   "requestId": "<unique request identifier>",
   "result": {
-    "valid": "<boolean>",
-
-    // if "valid" is false, contains the reason why the provided token is
-    // invalid.
-    // This field is not present if "valid" is true.
-    "state": "Error message",
-
-    // if "valid" is true, contains the expiration timestamp.
-    // This field is not present if "valid" is false.
-    "expiresAt": "<timestamp>"
+    "valid": true,
+    "expiresAt": 1538557452248
   }
 }
 ```

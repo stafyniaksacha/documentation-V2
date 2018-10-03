@@ -49,15 +49,14 @@ Body:
     {"create": {}},
     {"another": "document"},
     {"create": {}},
-    {"and": {"another": "one"}},
-    {"...": "..."}
+    {"and": {"another": "one"}}
   ]
 }
 ```
 
 ### Other protocols
 
-```json
+```js
 {
   "index": "<index>",
   "collection": "<collection>",
@@ -71,8 +70,7 @@ Body:
       {"create": {}},
       {"another": "document"},
       {"create": {}},
-      {"and": {"another": "one"}},
-      {"...": "..."}
+      {"and": {"another": "one"}}
     ]
   }
 }
@@ -81,6 +79,13 @@ Body:
 ---
 
 ## Response
+
+Return a `hits` array containing the list of executed queries result, in the same order than in the query.
+
+Each query result contains the following properties:
+
+* `_id`: document unique identifier
+* `status`: HTTP status code for that query
 
 ```javascript
 {
@@ -92,24 +97,23 @@ Body:
   "action": "import",
   "requestId": "<unique request identifier>",
   "result": {
-    // The list of executed queries, with their status
     "hits": [
       {
         "create": {
           "_id": "<documentId>",
-          "status": "<HTTP status code>"
+          "status": 200
         }
       },
       {
         "create": {
           "_id": "<documentId>",
-          "status": "<HTTP status code>"
+          "status": 200
         }
       },
       {
         "create": {
           "_id": "<documentId>",
-          "status": "<HTTP status code>"
+          "status": 200
         }
       }
     ]

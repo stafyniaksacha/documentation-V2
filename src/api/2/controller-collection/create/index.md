@@ -12,7 +12,7 @@ Creates a new [collection]({{ site_base_path }}guide/2/essentials/persisted) in 
 
 {{{since "1.3.0"}}}
 
-You can also provide an optional body with a data mapping that allow you to exploit the full capabilities of ourpersistent data storage layer, [ElasticSearch](https://www.elastic.co/products/elasticsearch) (check here the [mapping capabilities of ElasticSearch](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/mapping.html)).  
+You can also provide an optional body with a data mapping that allow you to exploit the full capabilities of ourpersistent data storage layer, [ElasticSearch](https://www.elastic.co/products/elasticsearch) (check here the [mapping capabilities of ElasticSearch](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/mapping.html)).  
 
 This method will only update the mapping if the collection already exists.
 
@@ -37,20 +37,16 @@ Body:
 
 ```js
 {
-  // Data mapping using ElasticSearch mapping syntax
   "properties": {
-    "field1": {
-      "type": "field type",
-      "other": "...options..."
+    "field1": { 
+      "type": "integer"
     },
     "field2": {
-      "type": "field type",
-      "other": "...options..."
+      "type": "keyword"
     },
-    ...
-    "fieldn": {
-      "type": "field type",
-      "other": "...options..."
+    "field3": {
+        "type":   "date",
+        "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
     }
   }
 }
@@ -59,26 +55,23 @@ Body:
 ### Other protocols
 
 
-```json
+```js
 {
   "index": "<index>",
   "collection": "<collection>",
   "controller": "collection",
   "action": "create",
-
   "body": {
     "properties": {
-      "field1": {
-        "type": "field type",
-        "...options..."
+      "field1": { 
+        "type": "integer"
       },
       "field2": {
-        "type": "field type",
-        "...options..."
+        "type": "keyword"
       },
-      "fieldn": {
-        "type": "field type",
-        "...options..."
+      "field3": {
+          "type":   "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
       }
     }
   }
@@ -88,6 +81,8 @@ Body:
 ---
 
 ## Response
+
+Return a confirmation that the collection is being created:
 
 ```javascript
 {

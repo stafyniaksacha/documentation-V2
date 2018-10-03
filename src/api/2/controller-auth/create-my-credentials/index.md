@@ -41,7 +41,7 @@ Body:
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "auth",
   "action": "createMyCredentials",
@@ -58,9 +58,11 @@ Body:
 
 ## Response
 
-Example with the "local" authentication strategy:
+The result content depends on the authentication strategy. 
 
-```json
+Example with the `local` authentication strategy:
+
+```js
 {
   "status": 200,
   "error": null,

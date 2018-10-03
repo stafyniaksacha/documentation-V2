@@ -31,11 +31,11 @@ Headers: Authorization: "Bearer <authentication token>"
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "auth",
   "action": "getCurrentUser",
-  "jwt": "authentication token>"
+  "jwt": "<authentication token>"
 }
 ```
 
@@ -43,7 +43,14 @@ Headers: Authorization: "Bearer <authentication token>"
 
 ## Response
 
-```javascript
+Result contains the following properties:
+
+* `_id`: current user's [kuid]({{site_base_path}}guide/2/essentials/user-authentication/#kuzzle-user-identifier-kuid)
+* `_source`: additional (and optional) user properties
+* `profile`: current user's [profile]({{site_base_path}}guide/2/essentials/security/#users-profiles-and-roles)
+* `strategies`: available authentication strategies
+
+```js
 {
   "status": 200,
   "error": null,
@@ -51,21 +58,20 @@ Headers: Authorization: "Bearer <authentication token>"
   "action": "getCurrentUser",
   "requestId": "<unique request identifier>",
   "result": {
-    "_id": "<kuid>",// The kuzzle user identifier
+    "_id": "<kuid>",
     "_source": {
       "name": {
         "first": "Steve",
         "last": "Wozniak"
       },
-      ...   // The profile object content
       "profile": {
-        "_id":"<profileId>",
+        "_id": "admin",
         "roles": [
-          ...  // Users roles definitions
+          "admin"
         ]
       }
     },
-    "strategies": ["available", "strategies"]
+    "strategies": ["local"]
   }
 }
 ```

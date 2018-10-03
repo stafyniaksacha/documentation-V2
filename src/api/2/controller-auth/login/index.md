@@ -46,7 +46,7 @@ Body:
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "auth",
   "action": "login",
@@ -64,7 +64,7 @@ Body:
 
 ## Response
 
-The **_login** action returns the following:
+The result contains the following properties:
 
 * `_id`: user's [kuid]({{ site_base_path }}guide/2/kuzzle-depth/authentication#the-kuzzle-user-identifier) 
 * `jwt`: encrypted JSON Web Token, that must then be sent in the [requests headers]({{ site_base_path }}api/2/documentation/query-syntax/authorization-token/)
@@ -80,7 +80,7 @@ The **_login** action returns the following:
   "requestId": "<unique request identifier>",
   "volatile": {},
   "result": {
-    "_id": "<kuid>", // The kuzzle user identifier
+    "_id": "<kuid>",
     "jwt": "<JWT encrypted token>",
     "expiresAt": 1321085955000,
     "ttl": 360000

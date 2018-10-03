@@ -8,7 +8,7 @@ title: credentialsExist
 
 {{{since "1.0.0"}}}
 
-Check that the current user has credentials for the specified `<strategy>`.
+Check that the current authenticated user has credentials for the specified authentication `strategy`.
 
 ---
 
@@ -31,7 +31,7 @@ Headers: Authorization: "Bearer <authentication token>"
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "auth",
   "action": "credentialsExist",
@@ -44,7 +44,9 @@ Headers: Authorization: "Bearer <authentication token>"
 
 ## Response
 
-```json
+Result is a boolean telling whether credentials exist for the provided authentication strategy:
+
+```js
 {
   "status": 200,
   "error": null,

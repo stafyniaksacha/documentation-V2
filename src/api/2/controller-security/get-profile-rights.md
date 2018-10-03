@@ -25,7 +25,7 @@ Method: GET
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "security",
   "action": "getProfileRights",

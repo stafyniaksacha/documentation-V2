@@ -25,7 +25,7 @@ Method: DELETE
 
 ### Other protocols
 
-```json
+```js
 {
   "controller": "security",
   "action": "deleteProfile",

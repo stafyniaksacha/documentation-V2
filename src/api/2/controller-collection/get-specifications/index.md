@@ -31,12 +31,12 @@ Method: GET
 ### Other protocols
 
 
-```json
+```js
 {
   "index": "<index>",
   "collection": "<collection>",
   "controller": "collection",
-  "action": "getSpecifications",
+  "action": "getSpecifications"
 }
 ```
 
@@ -44,7 +44,13 @@ Method: GET
 
 ## Response
 
-```json
+Return an object with the following properties:
+
+* `collection`: specified data collection
+* `index`: specified data index
+* `validation`: validation specifications
+
+```js
 {
   "status": 200,
   "error": null,
@@ -62,7 +68,6 @@ Method: GET
           "mandatory": true,
           "type": "integer"
         }
-        ...
       },
       "strict": true
     }

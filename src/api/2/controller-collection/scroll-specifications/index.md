@@ -42,7 +42,7 @@ Method: GET
 ### Other protocols
 
 
-```json
+```js
 {
   "controller": "collections",
   "action": "scrollSpecifications",
@@ -55,6 +55,17 @@ Method: GET
 
 ## Response
 
+Return an object containing the following properties:
+
+* `hits`: an array of found documents. Each item is an object with the following properties:
+  * `_id`: specification unique identifier
+  * `_score`: search pertinence score
+  * `_source`: validation specification
+* `scrollId`: the cursor unique identifier for the next page of results. Scroll requests may return a new scroll identifier, so only the most recent one should be used
+* `total`: the *total* number of found specifications (usually greater than the number of items in the `hits` array)
+
+Example: 
+
 ```javascript
 {
   "status": 200,
@@ -63,15 +74,10 @@ Method: GET
   "controller": "collection",
   "requestId": "<unique request identifier>",
   "result": {
-    // scroll requests may return a new scroll identifier
-    // only the most recent scrollId should be used
     "scrollId": "<new scroll id>",
-
-    // An array of objects containing your retrieved documents
     "hits": [
       {
-        "_id": "myIndex#myCollection",
-        "_index": "%kuzzle",
+        "_id": "<specification unique ID>",
         "_score": 1,
         "_source": {
           "collection": "myCollection",
@@ -97,14 +103,10 @@ Method: GET
             },
             "strict": true
           }
-        },
-        "_type": "validations"
-      },
-      {
-        ...
+        }
       }
     ],
-    "total": <number of found specifications>
+    "total": 42
   }
 }
 ```
