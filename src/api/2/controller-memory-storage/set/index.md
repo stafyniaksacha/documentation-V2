@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: set
 ---
 
@@ -19,7 +18,7 @@ title: set
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_set/<key>
+URL: http://kuzzle:7512/ms/_set/<_id>
 Method: POST  
 Body:
 ```

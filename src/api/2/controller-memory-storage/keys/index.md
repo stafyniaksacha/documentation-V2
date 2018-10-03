@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: keys
 ---
 
@@ -10,7 +9,16 @@ title: keys
 
 {{{since "1.0.0"}}}
 
+Return all keys matching the provided pattern.
 
+[[_Redis documentation_]](https://redis.io/commands/keys)
+
+---
+
+## Arguments
+
+* `_id`: key identifier
+* `pattern`: match pattern
 
 ---
 
@@ -30,13 +38,15 @@ Method: GET
 {
   "controller": "ms",
   "action": "keys",
-  "pattern": "<pattern>"
+  "pattern": "foo*"
 }
 ```
 
 ---
 
 ## Response
+
+Return the list of matching keys.
 
 ```javascript
 {
@@ -48,13 +58,9 @@ Method: GET
   "collection": null,
   "index": null,
   "result": [
-    "key1",
-    "key2",
-    "..."
+    "fookey1",
+    "fookey2",
+    "foo..."
   ]
 }
 ```
-
-Returns all keys matching the provided pattern.
-
-[[_Redis documentation_]](https://redis.io/commands/keys)

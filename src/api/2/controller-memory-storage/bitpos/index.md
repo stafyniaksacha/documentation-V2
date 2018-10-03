@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: bitpos
 ---
 
@@ -9,6 +8,21 @@ title: bitpos
 
 {{{since "1.0.0"}}}
 
+Return the position of the first bit set to 1 or 0 in a string, or in a substring.
+
+[[_Redis documentation_]](https://redis.io/commands/bitpos)
+
+---
+
+## Arguments
+
+* `_id`: key to examine
+* `bit`: bit to look for. Accepted values: `0`, `1`
+
+**Options:**
+
+* `start`: search starts at the provided offset
+* `end`: search ends at the provided offset
 
 
 ---
@@ -18,7 +32,7 @@ title: bitpos
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_bitpos/<key>?bit=[0|1][&start=<integer>&end=<integer>]
+URL: http://kuzzle:7512/ms/_bitpos/<_id>?bit=[0|1][&start=<integer>&end=<integer>]
 Method: GET
 ```
 
@@ -40,6 +54,8 @@ Method: GET
 
 ## Response
 
+Return the position of the first bit found matching the searched value.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -49,10 +65,6 @@ Method: GET
   "action": "bitpos",
   "collection": null,
   "index": null,
-  "result": "<bit 1st position (integer)>"
+  "result": 42
 }
 ```
-
-Returns the position of the first bit set to 1 or 0 in a string, or in a substring.
-
-[[_Redis documentation_]](https://redis.io/commands/bitpos)

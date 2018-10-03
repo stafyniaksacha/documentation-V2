@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: llen
 ---
 
@@ -18,7 +17,7 @@ title: llen
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_llen/<key>
+URL: http://kuzzle:7512/ms/_llen/<_id>
 Method: GET
 ```
 

@@ -56,6 +56,8 @@ Method: POST
 
 ## Response
 
+Return a boolean confirming the new value of the `autoRefresh` index property.
+
 ```javascript
 {
   "status": 200,
@@ -64,8 +66,8 @@ Method: POST
   "controller": "index",
   "action": "setAutoRefresh",
   "requestId": "<unique request identifier>",
-  "result": <boolean> // new autoRefresh value
-
+  "result": true
+}
 ```
 
 ---

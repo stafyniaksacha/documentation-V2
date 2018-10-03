@@ -10,8 +10,6 @@ title: scroll
 
 This method moves a result set cursor forward, created by a [`search` query]({{ site_base_path }}api/2/controller-document/search/) with the `scroll` argument provided.
 
-The response may contain a *different* cursor identifier, pointing to the next page of results.
-
 The results that are returned from a `scroll` request reflect the state of the index at the time that the initial search request was made, like a snapshot in time. Subsequent changes
 to documents (index, update or delete) will only affect later search requests.
 
@@ -21,12 +19,11 @@ to documents (index, update or delete) will only affect later search requests.
 
 * `collection`: data collection
 * `index`: data index
-* `scrollId`: cursor unique identifier, created by either a search or a scroll query
+* `scrollId`: cursor unique identifier, obtained by either a search or a scroll query
 
 **Options:**
 
 * `scroll`: refresh the cursor duration, using the [time to live](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/common-options.html#time-units) syntax.
-
 
 ---
 
@@ -54,6 +51,15 @@ Method: GET
 
 ## Response
 
+Return a paginated search result set, with the following properties:
+
+* `hits`: array of found documents. Each document has the following properties:
+  * `_id`: document unique identifier
+  * `_score`: relevance score
+  * `_source`: new document content
+* `scrollId`: identifier to the next page of result. Can be different than the previous one(s)
+* `total`: total number of found documents. Usually greater than the number of documents in a result page
+
 ```javascript
 {
   "status": 200,
@@ -62,23 +68,23 @@ Method: GET
   "controller": "document",
   "requestId": "<unique request identifier>",
   "result": {
-    // scroll requests may return a new scroll identifier
-    // only the most recent scrollId should be used
     "scrollId": "<new scroll id>",
-
-    // An array of objects containing your retrieved documents
     "hits": [
       {
         "_id": "<document unique identifier>",
-        "_score": 0,          // Document search relevance score
-        "_source": { .. }     // Document content
+        "_score": 1,
+        "_source": { 
+          // document content
+        }
       },
       {
-        // Another document... and so on
+        "_id": "<another document unique identifier>",
+        "_score": 1,
+        "_source": { 
+          // document content
+        }
       }
     ],
-    // Total number of found documents (not the number of 
-    // returned documents in this single response page)
     "total": 42
   }
 }

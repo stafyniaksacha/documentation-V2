@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zinterstore
 ---
 
@@ -19,7 +18,7 @@ title: zinterstore
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zinterstore/<key>
+URL: http://kuzzle:7512/ms/_zinterstore/<_id>
 Method: POST  
 Body:
 ```

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: hexists
 ---
 
@@ -9,7 +8,16 @@ title: hexists
 
 {{{since "1.0.0"}}}
 
+Check if a field exists in a hash.
 
+[[_Redis documentation_]](https://redis.io/commands/hexists)
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+* `field`: field name to check
 
 ---
 
@@ -18,12 +26,11 @@ title: hexists
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_hexists/<key>/<field>
+URL: http://kuzzle:7512/ms/_hexists/<_id>/<field>
 Method: GET
 ```
 
 ### Other protocols
-
 
 ```js
 {
@@ -38,6 +45,8 @@ Method: GET
 
 ## Response
 
+Return either `0` (the field does not exist), or `1` (the field exist).
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -50,7 +59,3 @@ Method: GET
   "result": [0|1]
 }
 ```
-
-Checks if a field exists in a hash.
-
-[[_Redis documentation_]](https://redis.io/commands/hexists)

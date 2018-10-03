@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zcount
 ---
 
@@ -19,7 +18,7 @@ title: zcount
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zcount/<key>?min=<min score>&max=<max score>
+URL: http://kuzzle:7512/ms/_zcount/<_id>?min=<min score>&max=<max score>
 Method: GET
 ```
 

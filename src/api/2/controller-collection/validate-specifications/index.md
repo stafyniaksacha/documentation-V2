@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: validateSpecifications
 ---
 
@@ -32,9 +31,9 @@ Body:
 {
   "myindex": {
     "mycollection": {
-      "strict": "<true|false>",
+      "strict": <boolean>,
       "fields": {
-        // ... specification for each field
+        // specification
       }
     }
   }
@@ -51,8 +50,10 @@ Body:
   "body": {
     "myindex": {
       "mycollection": {
-        "strict": "<true|false>",
-        "fields": {}
+        "strict": <boolean>,
+        "fields": {
+          // ...
+        }
       }
     }
   }
@@ -63,6 +64,14 @@ Body:
 ---
 
 ## Response
+
+Return an object with the following properties:
+
+* `valid`: a boolean telling whether the provided specifications are valid
+* `details`: the exhaustive list of rejections and their reasons. Only present if the document is invalid
+* `description`: global error description. Only present if the document is invalid
+
+Example:
 
 ```javascript
 {
@@ -75,14 +84,11 @@ Body:
   "state": "done",
   "requestId": "<unique request identifier>",
   "result": {
-    "valid": "<true|false>",
-    "details": [ 
-      // provides details for each found errors, if any
-    ],
-    "description": "<string>" // global description if validation fails
+    "valid": true
   }
 }
 ```
+
 ---
 
 ## Possible errors

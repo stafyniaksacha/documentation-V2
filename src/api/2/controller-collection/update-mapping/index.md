@@ -36,20 +36,16 @@ Body:
 
 ```js
 {
-  // Data mapping using ElasticSearch mapping syntax
   "properties": {
-    "field1": {
-      "type": "field type",
-      "other": "...options..."
+    "field1": { 
+      "type": "integer"
     },
     "field2": {
-      "type": "field type",
-      "other": "...options..."
+      "type": "keyword"
     },
-    ...
-    "fieldn": {
-      "type": "field type",
-      "other": "...options..."
+    "field3": {
+        "type":   "date",
+        "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
     }
   }
 }
@@ -67,17 +63,15 @@ Body:
 
   "body": {
     "properties": {
-      "field1": {
-        "type": "field type",
-        "...options..."
+      "field1": { 
+        "type": "integer"
       },
       "field2": {
-        "type": "field type",
-        "...options..."
+        "type": "keyword"
       },
-      "fieldn": {
-        "type": "field type",
-        "...options..."
+      "field3": {
+          "type":   "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
       }
     }
   }

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: incrby
 ---
 
@@ -9,7 +8,15 @@ title: incrby
 
 {{{since "1.0.0"}}}
 
+Increment the number stored at `key` by the provided integer value. If the key does not exist, it is set to 0 before performing the operation.
 
+[[_Redis documentation_]](https://redis.io/commands/incrby)
+
+---
+
+## Arguments
+
+* `_id`: key identifier
 
 ---
 
@@ -18,22 +25,18 @@ title: incrby
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_incrby/<key>
+URL: http://kuzzle:7512/ms/_incrby/<_id>
 Method: POST  
 Body:
 ```
 
-
 ```js
 {
-  "value": "<increment value>"
+  "value": <increment integer value>
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -41,7 +44,7 @@ Body:
   "action": "incrby",
   "_id": "<key>",
   "body": {
-    "value": "<increment value>"
+    "value": <increment integer value>
   }
 }
 ```
@@ -49,6 +52,8 @@ Body:
 ---
 
 ## Response
+
+Return the incremented key value.
 
 ```javascript
 {
@@ -59,10 +64,6 @@ Body:
   "action": "incrby",
   "collection": null,
   "index": null,
-  "result": "<updated key value>"
+  "result": 7
 }
 ```
-
-Increments the number stored at `key` by the provided integer value. If the key does not exist, it is set to 0 before performing the operation.
-
-[[_Redis documentation_]](https://redis.io/commands/incrby)

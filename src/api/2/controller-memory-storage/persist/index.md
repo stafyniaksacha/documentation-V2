@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: persist
 ---
 
@@ -19,7 +18,7 @@ title: persist
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_persist/<key>
+URL: http://kuzzle:7512/ms/_persist/<_id>
 Method: POST
 ```
 

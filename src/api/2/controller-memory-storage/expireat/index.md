@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: expireat
 ---
 
@@ -9,7 +8,17 @@ title: expireat
 
 {{{since "1.0.0"}}}
 
+Set an expiration timestamp on a key. After the timestamp has been reached, the key will automatically be deleted.
 
+The `timestamp` parameter accepts an [Epoch time](https://en.wikipedia.org/wiki/Unix_time) value.
+
+[[_Redis documentation_]](https://redis.io/commands/expireat)
+
+---
+
+## Arguments
+
+* `_id`: key to update
 
 ---
 
@@ -18,22 +27,18 @@ title: expireat
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_expireat/<key>
+URL: http://kuzzle:7512/ms/_expireat/<_id>
 Method: POST  
 Body:
 ```
 
-
 ```js
 {
-  "timestamp": "<Epoch time>"
+  "timestamp": <Epoch time>
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -41,7 +46,7 @@ Body:
   "action": "expireat",
   "_id": "<key>",
   "body": {
-    "timestamp": "<Epoch time>"
+    "timestamp": <Epoch time>
   }
 }
 ```
@@ -49,6 +54,8 @@ Body:
 ---
 
 ## Response
+
+Return either `0` (command failed), or `1` (command succeeded).
 
 ```javascript
 {
@@ -59,11 +66,6 @@ Body:
   "action": "expireat",
   "collection": null,
   "index": null,
-  "result": [0|1] // success status
+  "result": 1
 }
 ```
-
-Sets an expiration timestamp on a key. After the timestamp has been reached, the key will automatically be deleted.  
-The `timestamp` parameter accepts an [Epoch time](https://en.wikipedia.org/wiki/Unix_time) value.
-
-[[_Redis documentation_]](https://redis.io/commands/expireat)

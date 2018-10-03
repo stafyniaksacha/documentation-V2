@@ -8,10 +8,9 @@ title: count
 
 {{{since "1.0.0"}}}
 
+Count documents matching the provided query.
 
-Given some filters, gets the number of matching documents from Kuzzle.
-
-Kuzzle uses the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/query-dsl.html) syntax.
+Uses the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl.html) syntax.
 
 ---
 
@@ -38,11 +37,7 @@ Body:
 
 ```js
 {
-  // A set of filters or queries matching documents you are looking for.
-  // Use "query" instead of "filter" if you want to perform a query instead.
-  "filter": {
-    ...
-  }
+  // Search query/filter following Elasticsearch's syntax
 }
 ```
 
@@ -54,11 +49,9 @@ Body:
   "collection": "<collection>",
   "controller": "document",
   "action": "count",
-
   "body": {
-    "filter": {}
+    // Search query/filter following Elasticsearch's syntax
   },
-
   "includeTrash": false
 }
 ```
@@ -66,6 +59,8 @@ Body:
 ---
 
 ## Response
+
+Return an object with the `count` property, an integer showing the number of documents matching the provided search query:
 
 ```js
 {
@@ -77,7 +72,7 @@ Body:
   "action": "count",
   "requestId": "<unique request identifier>",
   "result": {
-    "count": "<number of found documents>"
+    "count": 42
   }
 }
 ```

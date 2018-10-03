@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: truncate
 ---
 
@@ -45,6 +44,8 @@ Method: DELETE
 ---
 
 ## Response
+
+Return a confirmation that the collection is being emptied:
 
 ```javascript
 {

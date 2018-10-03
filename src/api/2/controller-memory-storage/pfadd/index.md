@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: pfadd
 ---
 
@@ -19,7 +18,7 @@ title: pfadd
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_pfadd/<key>
+URL: http://kuzzle:7512/ms/_pfadd/<_id>
 Method: POST  
 Body:
 ```

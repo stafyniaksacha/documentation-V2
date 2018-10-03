@@ -39,6 +39,8 @@ Method: POST
 
 ## Response
 
+Return a confirmation that the index is being refreshed:
+
 ```js
 {
   "status": 200,

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: hincrby
 ---
 
@@ -9,6 +8,15 @@ title: hincrby
 
 {{{since "1.0.0"}}}
 
+Increment the number stored in a hash field by the provided integer value.
+
+[[_Redis documentation_]](https://redis.io/commands/hincrby)
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
 
 ---
 
@@ -17,20 +25,17 @@ title: hincrby
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_hincrby/<key>
+URL: http://kuzzle:7512/ms/_hincrby/<_id>
 Method: POST  
 Body:
 ```
 
-
 ```js
 {
   "field": "field name",
-  "value": "<increment value>"
+  "value": <increment integer value>
 }
 ```
-
-
 
 ### Other protocols
 
@@ -42,7 +47,7 @@ Body:
   "_id": "<key>",
   "body": {
     "field": "field name",
-    "value": "<increment value>"
+    "value": <increment integer value>
   }
 }
 ```
@@ -50,6 +55,8 @@ Body:
 ---
 
 ## Response
+
+Return the updated value for the incremented hash field.
 
 ```javascript
 {
@@ -60,10 +67,6 @@ Body:
   "action": "hincrby",
   "collection": null,
   "index": null,
-  "result": "<new field value>"
+  "result": 42
 }
 ```
-
-Increments the number stored in a hash field by the provided integer value.
-
-[[_Redis documentation_]](https://redis.io/commands/hincrby)

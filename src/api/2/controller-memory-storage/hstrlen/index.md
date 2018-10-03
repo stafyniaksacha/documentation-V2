@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: hstrlen
 ---
 
@@ -9,7 +8,16 @@ title: hstrlen
 
 {{{since "1.0.0"}}}
 
+Return the string length of a field's value in a hash.
 
+[[_Redis documentation_]](https://redis.io/commands/hstrlen)
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+* `field`: hash field name
 
 ---
 
@@ -18,12 +26,11 @@ title: hstrlen
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_hstrlen/<key>/<field>
+URL: http://kuzzle:7512/ms/_hstrlen/<_id>/<field>
 Method: GET
 ```
 
 ### Other protocols
-
 
 ```js
 {
@@ -38,6 +45,8 @@ Method: GET
 
 ## Response
 
+Return the length of the requested hash field.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -47,10 +56,6 @@ Method: GET
   "action": "hstrlen",
   "collection": null,
   "index": null,
-  "result": "<value string length>"
+  "result": 42
 }
 ```
-
-Returns the string length of a field's value in a hash.
-
-[[_Redis documentation_]](https://redis.io/commands/hstrlen)

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: exists
 ---
 
@@ -9,6 +8,16 @@ title: exists
 
 {{{since "1.0.0"}}}
 
+Check if the specified keys exist in the database.
+
+[[_Redis documentation_]](https://redis.io/commands/exists)
+
+
+---
+
+## Arguments
+
+* `keys`: list of keys to verify
 
 ---
 
@@ -23,7 +32,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -36,6 +44,8 @@ Method: GET
 
 ## Response
 
+Return the number of existing keys.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -45,10 +55,6 @@ Method: GET
   "action": "exists",
   "collection": null,
   "index": null,
-  "result": "<number of existing keys>"
+  "result": 1
 }
 ```
-
-Checks if the specified keys exist in the database.
-
-[[_Redis documentation_]](https://redis.io/commands/exists)

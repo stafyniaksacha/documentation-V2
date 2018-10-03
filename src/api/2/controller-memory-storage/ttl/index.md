@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: ttl
 ---
 
@@ -19,7 +18,7 @@ title: ttl
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_ttl/<key>
+URL: http://kuzzle:7512/ms/_ttl/<_id>
 Method: GET
 ```
 

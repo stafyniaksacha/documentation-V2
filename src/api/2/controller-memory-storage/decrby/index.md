@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: decrby
 ---
 
@@ -9,7 +8,15 @@ title: decrby
 
 {{{since "1.0.0"}}}
 
+Decrement the number stored at `key` by a provided integer value. If the key does not exist, it is set to 0 before performing the operation.
 
+[[_Redis documentation_]](https://redis.io/commands/decrby)
+
+---
+
+## Arguments
+
+* `_id`: key to decrement
 
 ---
 
@@ -18,21 +25,18 @@ title: decrby
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_decrby/<key>
+URL: http://kuzzle:7512/ms/_decrby/<_id>
 Method: POST  
 Body:  
 ```
 
 ```js
 {
-  "value": "<decrement value>"
+  "value": <decrement value>
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -40,7 +44,7 @@ Body:
   "action": "decrby",
   "_id": "<key>",
   "body": {
-    "value": "<decrement value>"
+    "value": <decrement value>
   }
 }
 ```
@@ -48,6 +52,8 @@ Body:
 ---
 
 ## Response
+
+Updated key value.
 
 ```javascript
 {
@@ -58,10 +64,6 @@ Body:
   "action": "decrby",
   "collection": null,
   "index": null,
-  "result": "<updated key value>"
+  "result": 1337
 }
 ```
-
-Decrements the number stored at `key` by a provided integer value. If the key does not exist, it is set to 0 before performing the operation.
-
-[[_Redis documentation_]](https://redis.io/commands/decrby)

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: hkeys
 ---
 
@@ -9,7 +8,15 @@ title: hkeys
 
 {{{since "1.0.0"}}}
 
+Return all field names contained in a hash.
 
+[[_Redis documentation_]](https://redis.io/commands/hkeys)
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
 
 ---
 
@@ -18,7 +25,7 @@ title: hkeys
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_hkeys/<key>
+URL: http://kuzzle:7512/ms/_hkeys/<_id>
 Method: GET
 ```
 
@@ -37,6 +44,8 @@ Method: GET
 
 ## Response
 
+Return an array of hash field names.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -53,7 +62,3 @@ Method: GET
   ]
 }
 ```
-
-Returns all field names contained in a hash.
-
-[[_Redis documentation_]](https://redis.io/commands/hkeys)

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: sismember
 ---
 
@@ -19,7 +18,7 @@ title: sismember
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_sismember/<key>/<member>
+URL: http://kuzzle:7512/ms/_sismember/<_id>/<member>
 Method: GET
 ```
 

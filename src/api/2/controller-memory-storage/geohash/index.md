@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: geohash
 ---
 
@@ -9,6 +8,16 @@ title: geohash
 
 {{{since "1.0.0"}}}
 
+Convert a key's geopoints (see [geoadd]({{ site_base_path }}api/2/controller-memory-storage/geoadd/)) into [geohashes](https://en.wikipedia.org/wiki/Geohash).
+
+[[_Redis documentation_]](https://redis.io/commands/geohash)
+
+---
+
+## Arguments
+
+* `_id`: key containing the geopoints to convert
+* `members`: list of geopoint names to convert
 
 ---
 
@@ -17,12 +26,11 @@ title: geohash
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_geohash/<key>?members=member1,member2,...
+URL: http://kuzzle:7512/ms/_geohash/<_id>?members=member1,member2,...
 Method: GET
 ```
 
 ### Other protocols
-
 
 ```js
 {
@@ -37,6 +45,8 @@ Method: GET
 
 ## Response
 
+Return the converted geohashes, in the same order than the one provided in the query.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -49,7 +59,3 @@ Method: GET
   "result": ["geohash1", "geohash2", "..."]
 }
 ```
-
-Returns a valid [geohash](https://en.wikipedia.org/wiki/Geohash) for the provided key's members (see [geoadd]({{ site_base_path }}api/2/controller-memory-storage/geoadd/)).  
-
-[[_Redis documentation_]](https://redis.io/commands/geohash)

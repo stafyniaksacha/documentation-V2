@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: georadiusbymember
 ---
 
@@ -9,6 +8,26 @@ title: georadiusbymember
 
 {{{since "1.0.0"}}}
 
+Return the members (added with [geoadd]({{ site_base_path }}api/2/controller-memory-storage/geoadd/)) of a given key inside the provided geospatial radius, centered around one of a key's member.
+
+[[_Redis documentation_]](https://redis.io/commands/georadiusbymember)
+
+---
+
+## Arguments
+
+* `_id`: key containing the geopoints to fetch
+* `distance`: distance from the center of the radius
+* `member`: name of the point used as the radius center
+* `unit`: unit of the `distance` parameter value. Allowed values: `m`, `km`, `mi`, `ft`
+
+**Options:**
+* `options`: an array of one or multiple of the following values: `withcoord`, `withdist`, `count <count>`, `asc` and `desc`
+  * `asc`: sort the results in ascending order (from the nearest member to the farthest one)
+  * `count`: limit the number of returned results. The count value must be passed as a separate option (HTTP: `&options=count,<count value>`, Other protocols: `options: ['count', <count value>]`)
+  * `desc`: sort the results in descending order (from the farthest member to the nearest one)
+  * `withcoord`: include the position of the matched geopoint, in the following format: `[longitude, latitude]`
+  * `withdist`: include the calculated distance from the matched geopoint to the radius center
 
 ---
 
@@ -17,7 +36,7 @@ title: georadiusbymember
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_georadiusbymember/<key>?member=<member>&distance=<distance>&unit=[m|km|mi|ft][&options=option1,option2,...]
+URL: http://kuzzle:7512/ms/_georadiusbymember/<_id>?member=<member>&distance=<distance>&unit=[m|km|mi|ft][&options=option1,option2,...]
 Method: GET
 ```
 
@@ -29,10 +48,9 @@ Method: GET
   "controller": "ms",
   "action": "georadiusbymember",
   "_id": "<key>",
-  "member": "<member>",
-  "distance": "<distance>",
-  "unit": "[m|km|mi|ft]",
-  "options": ["(optional)", "option1", "option2", "..."]
+  "member": "kuzzle HQ",
+  "distance": "1500"
+  "unit": "m"
 }
 ```
 
@@ -40,7 +58,29 @@ Method: GET
 
 ## Response
 
+The response format depends on the passed options.
+
+Without neither `withcoord` nor `withdist`, the response consists only of a list of points names:
+
 ```javascript
+{
+ "requestId": "<unique request identifier>",
+ "status": 200,
+ "error": null,
+ "controller": "ms",
+ "action": "georadiusbymember",
+ "collection": null,
+ "index": null,
+ "result": [
+    "our other HQ",
+    "kuzzle HQ"
+ ]
+}
+```
+
+With the `withcoord` option, points coordinates are included to the response (format: `[longitude, latitude]`):
+
+```js
 {
   "requestId": "<unique request identifier>",
   "status": 200,
@@ -50,19 +90,76 @@ Method: GET
   "collection": null,
   "index": null,
   "result": [
-    "member1",
-    "member2",
-    "..."
+    [
+      "our other HQ",
+      [
+        "3.89710754156112671",
+        "43.60022152617014513"
+      ]
+    ],
+    [
+      "kuzzle HQ",
+      [
+        "3.91090482473373413",
+        "43.607392252329916"
+      ]
+    ]
   ]
 }
 ```
 
-Returns the members (added with [geoadd]({{ site_base_path }}api/2/controller-memory-storage/geoadd/)) of a given key inside the provided geospatial radius, centered around one of a key's member.
+With the `withdist` option, the distance from the queried radius center is added to the response. The unit used for that distance is the same one than the one provided to the `unit` argument:
 
-The `options` parameter accepts the following options: `withcoord`, `withdist`, `count <count>`, `asc` and `desc`.  
-The provided count value for the `count` option must be passed as a separate option.  
-For instance, `&options=count,<count>` for HTTP requests, or `options: ['count', <count>]` for other protocols.
+```js
+{
+  "requestId": "<unique request identifier>",
+  "status": 200,
+  "error": null,
+  "controller": "ms",
+  "action": "georadius",
+  "collection": null,
+  "index": null,
+  "result": [
+    [
+      "our other HQ",
+      "1367.8521"
+    ],
+    [
+      "kuzzle HQ",
+      "0.0000"
+    ]
+  ]
+}
+```
 
-The `result` format may change if `options` parameters are provided: instead of an array of values, the result may instead be an array of arrays (for instance with `withdist` or `withcoord` options).
+With both the `withcoord` and the `withdist` options:
 
-[[_Redis documentation_]](https://redis.io/commands/georadiusbymember)
+```js
+{
+  "requestId": "<unique request identifier>",
+  "status": 200,
+  "error": null,
+  "controller": "ms",
+  "action": "georadiusbymember",
+  "collection": null,
+  "index": null,
+  "result": [
+    [
+      "our other HQ",
+      "1367.8521",
+      [
+        "3.89710754156112671",
+        "43.60022152617014513"
+      ]
+    ],
+    [
+      "kuzzle HQ",
+      "0.0000",
+      [
+        "3.91090482473373413",
+        "43.607392252329916"
+      ]
+    ]
+  ]
+}
+```

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: sadd
 ---
 
@@ -19,7 +18,7 @@ title: sadd
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_sadd/<key>
+URL: http://kuzzle:7512/ms/_sadd/<_id>
 Method: POST  
 Body:
 ```

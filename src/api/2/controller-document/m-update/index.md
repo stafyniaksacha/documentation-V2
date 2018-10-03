@@ -42,18 +42,15 @@ Body:
     {
       "_id": "<documentId>",
       "body": {
-        "partial": "body",
-        ...
+        // document changes
       }
     },
     {
       "_id": "<anotherDocumentId>",
       "body": {
-        "partial": "body",
-        ...
+        // document changes
       }
-    },
-    ...
+    }
   ]
 }
 ```
@@ -71,15 +68,15 @@ Body:
       {
         "_id": "<documentId>",
         "body": {
-          "partial": "body",
+          // document changes
         }
       },
       {
         "_id": "<anotherDocumentId>",
         "body": {
-          "partial": "body",
+          // document changes
         }
-      },
+      }
     ]
   }
 }
@@ -89,6 +86,14 @@ Body:
 
 ## Response
 
+Return a `hits` array containing the list of updated documents.
+
+Each document has the following properties:
+
+* `_id`: document unique identifier
+* `_source`: updated document content
+* `_version`: version number of the document
+
 ```js
 {
   "status": 200,
@@ -96,38 +101,26 @@ Body:
   "index": "<index>",
   "collection": "<collection>",
   "action": "mUpdate",
-  "refresh": "wait_for",
-  "retryOnConflict": "<number of retries>",
   "controller": "document",
   "requestId": "<unique request identifier>",
   "result": {
     "hits": [
       {
         "_id": "<documentId>",
-        "_index": "<index>",
-        "_shards": {
-          "failed": 0,
-          "successful": 1,
-          "total": 2
-        },
-        "_type": "<collection>",
         "_version": 2,
-        "result": "updated"
+        "_source": {
+          // updated document content
+        }
       },
       {
         "_id": "<anotherDocumentId>",
-        "_index": "<index>",
-        "_shards": {
-          "failed": 0,
-          "successful": 1,
-          "total": 2
-        },
-        "_type": "<collection>",
-        "_version": 2,
-        "result": "updated"
+        "_version": 4,
+        "_source": {
+          // updated document content
+        }
       }
     ],
-    "total": "<number of updated documents>"
+    "total": 2
   }
 }
 ```

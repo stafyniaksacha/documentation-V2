@@ -8,15 +8,14 @@ title: delete
 
 {{{since "1.0.0"}}}
 
-
-Delete the document identified by the provided unique ID.
+Delete a document.
 
 ---
 
 ## Arguments
 
 * `collection`: data collection
-* `documentId`: unique ID of the document to delete
+* `documentId`: document unique identifier
 * `index`: data index
 
 **Options:**
@@ -36,15 +35,12 @@ Method: DELETE
 
 ### Other protocols
 
-
 ```js
 {
   "index": "<index>",
   "collection": "<collection>",
   "controller": "document",
   "action": "delete",
-  "refresh": "wait_for",
-
   "_id": "<documentId>"
 }
 ```
@@ -52,6 +48,8 @@ Method: DELETE
 ---
 
 ## Response
+
+Result contain the deleted document unique ID.
 
 ```javascript
 {
@@ -63,7 +61,7 @@ Method: DELETE
   "action": "delete",
   "requestId": "<unique request identifier>",
   "result": {
-    "_id": "<documentId>" // The deleted document identifier
+    "_id": "<documentId>"
   }
 }
 ```

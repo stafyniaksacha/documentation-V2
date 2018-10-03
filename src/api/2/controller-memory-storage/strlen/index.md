@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: strlen
 ---
 
@@ -19,7 +18,7 @@ title: strlen
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_strlen/<key>
+URL: http://kuzzle:7512/ms/_strlen/<_id>
 Method: GET
 ```
 

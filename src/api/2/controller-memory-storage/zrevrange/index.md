@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zrevrange
 ---
 
@@ -19,7 +18,7 @@ title: zrevrange
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zrevrange/<key>?start=<index start>&stop=<index stop>[&options=withscores]
+URL: http://kuzzle:7512/ms/_zrevrange/<_id>?start=<index start>&stop=<index stop>[&options=withscores]
 Method: GET
 ```
 

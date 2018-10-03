@@ -52,13 +52,20 @@ Body:
   "collection": "<collection>",
   "controller": "document",
   "action": "validate",
-  "body": {}
+  "body": {
+    // document content to check
+  }
 }
 ```
 
 ---
 
 ## Response
+
+Return the document validation status, with the following properties:
+
+* `errorMessages`: the exhaustive list of violated validation rules. Present only if `valid` is false
+* `valid`: a boolean telling whether the provided pass all validation rules
 
 ```js
 {
@@ -68,9 +75,7 @@ Body:
   "collection": "<collection>",
   "controller": "document",
   "action": "validate",
-  "volatile": {},
   "result": {
-    "errorMessages": {}, 
     "valid": true 
   }  
 }

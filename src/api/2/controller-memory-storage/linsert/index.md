@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: linsert
 ---
 
@@ -18,7 +17,7 @@ title: linsert
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_linsert/<key>
+URL: http://kuzzle:7512/ms/_linsert/<_id>
 Method: POST  
 Body:
 ```

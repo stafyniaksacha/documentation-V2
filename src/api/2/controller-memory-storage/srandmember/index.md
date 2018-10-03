@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: srandmember
 ---
 
@@ -19,7 +18,7 @@ title: srandmember
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_srandmember/<key>[?count=<count>]
+URL: http://kuzzle:7512/ms/_srandmember/<_id>[?count=<count>]
 Method: GET
 ```
 

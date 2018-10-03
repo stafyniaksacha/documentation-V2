@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: hvals
 ---
 
@@ -9,7 +8,15 @@ title: hvals
 
 {{{since "1.0.0"}}}
 
+Return all values contained in a hash.
 
+[[_Redis documentation_]](https://redis.io/commands/hvals)
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
 
 ---
 
@@ -18,12 +25,11 @@ title: hvals
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_hvals/<key>
+URL: http://kuzzle:7512/ms/_hvals/<_id>
 Method: GET
 ```
 
 ### Other protocols
-
 
 ```js
 {
@@ -36,6 +42,8 @@ Method: GET
 ---
 
 ## Response
+
+Return a list of hash values.
 
 ```javascript
 {
@@ -53,7 +61,3 @@ Method: GET
   ]
 }
 ```
-
-Returns all values contained in a hash.
-
-[[_Redis documentation_]](https://redis.io/commands/hvals)

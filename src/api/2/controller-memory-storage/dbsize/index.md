@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: dbsize
 ---
 
@@ -9,7 +8,9 @@ title: dbsize
 
 {{{since "1.0.0"}}}
 
+Return the number of keys in the application database.
 
+[[_Redis documentation_]](https://redis.io/commands/dbsize)
 
 ---
 
@@ -22,9 +23,7 @@ URL: http://kuzzle:7512/ms/_dbsize
 Method: GET  
 ```
 
-
 ### Other protocols
-
 
 ```js
 {
@@ -37,6 +36,8 @@ Method: GET
 
 ## Response
 
+Return the number of found keys.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -46,10 +47,6 @@ Method: GET
   "action": "dbsize",
   "collection": null,
   "index": null,
-  "result": "<number of keys>"
+  "result": 42
 }
 ```
-
-Returns the number of keys in the application database.
-
-[[_Redis documentation_]](https://redis.io/commands/dbsize)

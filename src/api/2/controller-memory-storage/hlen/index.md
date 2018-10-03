@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: hlen
 ---
 
@@ -9,7 +8,15 @@ title: hlen
 
 {{{since "1.0.0"}}}
 
+Return the number of fields contained in a hash.
 
+[[_Redis documentation_]](https://redis.io/commands/hlen)
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
 
 ---
 
@@ -18,12 +25,11 @@ title: hlen
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_hlen/<key>
+URL: http://kuzzle:7512/ms/_hlen/<_id>
 Method: GET
 ```
 
 ### Other protocols
-
 
 ```js
 {
@@ -37,6 +43,8 @@ Method: GET
 
 ## Response
 
+The number of fields stored in a hash.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -46,10 +54,6 @@ Method: GET
   "action": "hlen",
   "collection": null,
   "index": null,
-  "result": "<number of fields contained in the hash>"
+  "result": 4
 }
 ```
-
-Returns the number of fields contained in a hash.
-
-[[_Redis documentation_]](https://redis.io/commands/hlen)

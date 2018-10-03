@@ -44,6 +44,8 @@ Method: GET
 
 ## Response
 
+Return a boolean giving the current value of the `autoRefresh` flag.
+
 ```js
 {
   "status": 200,
@@ -52,7 +54,7 @@ Method: GET
   "index": "<index>",
   "controller": "index",
   "action": "getAutoRefresh",
-  "result":  true
+  "result":  false
 }
 ```
 

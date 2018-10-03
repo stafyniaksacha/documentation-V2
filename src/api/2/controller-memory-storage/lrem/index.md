@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: lrem
 ---
 
@@ -19,7 +18,7 @@ title: lrem
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_lrem/<key>
+URL: http://kuzzle:7512/ms/_lrem/<_id>
 Method: DELETE  
 Body:
 ```

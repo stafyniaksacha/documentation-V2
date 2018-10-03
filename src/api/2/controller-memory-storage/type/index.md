@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: type
 ---
 
@@ -19,7 +18,7 @@ title: type
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_type/<key>
+URL: http://kuzzle:7512/ms/_type/<_id>
 Method: GET
 ```
 

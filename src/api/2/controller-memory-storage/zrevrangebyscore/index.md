@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zrevrangebyscore
 ---
 
@@ -19,7 +18,7 @@ title: zrevrangebyscore
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zrevrangebyscore/<key>?min=<min interval>&max=<max interval>[&limit=offset,count][&options=withscores]
+URL: http://kuzzle:7512/ms/_zrevrangebyscore/<_id>?min=<min interval>&max=<max interval>[&limit=offset,count][&options=withscores]
 Method: GET
 ```
 

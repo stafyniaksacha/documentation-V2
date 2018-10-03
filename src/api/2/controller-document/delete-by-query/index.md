@@ -8,7 +8,7 @@ title: deleteByQuery
 
 {{{since "1.0.0"}}}
 
-Delete documents matching the provided search query, using the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/query-dsl.html) syntax.
+Delete documents matching the provided search query, using the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl.html) syntax.
 
 ---
 
@@ -31,10 +31,8 @@ Body:
 
 ```js
 {
-  // A set of filters or queries matching documents you are looking for.
-  // Use "query" instead of "filter" if you want to perform a query instead.
   "query": {
-    ...
+    // ...
   }
 }
 ```
@@ -47,9 +45,10 @@ Body:
   "collection": "<collection>",
   "controller": "document",
   "action": "deleteByQuery",
-
   "body": {
-    "query": {}
+    "query": {
+      // ...
+    }
   }
 }
 ```
@@ -57,6 +56,8 @@ Body:
 ---
 
 ## Response
+
+Return a `hits` array containing the list of deleted document identifiers.
 
 ```javascript
 {
@@ -68,8 +69,12 @@ Body:
   "action": "deleteByQuery",
   "requestId": "<unique request identifier>",
   "result": {
-    // Array of strings listing the IDs of removed documents
-    "hits": ["id1", "id2", ..., "idn"]
+    "hits": [
+      "id 1", 
+      "id 2", 
+      "id ...", 
+      "id n"
+    ]
   }
 }
 ```

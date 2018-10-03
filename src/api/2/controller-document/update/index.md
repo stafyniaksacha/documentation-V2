@@ -37,9 +37,7 @@ Body:
 
 ```js
 {
-  "field_to_update1": "new value",
-  "field_to_update2": "new value",
-  ...
+  // document changes
 }
 ```
 
@@ -51,13 +49,9 @@ Body:
   "collection": "<collection>",
   "controller": "document",
   "action": "update",
-  "refresh": "wait_for",
-  "retryOnConflict": "<number of retries>",
   "_id": "<documentId>",
-
   "body": {
-    "field_to_update1": "new value",
-    "field_to_update2": "new value",
+    // document changes
   }
 }
 ```
@@ -65,6 +59,11 @@ Body:
 ---
 
 ## Response
+
+Return information about the updated documents:
+
+* `_id`: document unique identifier
+* `_version`: updated document version
 
 ```javascript
 {
@@ -77,8 +76,7 @@ Body:
   "requestId": "<unique request identifier>",
   "result": {
     "_id": "<documentId>",
-    "_version": <number>, // The new version number of this document
-    "created": false
+    "_version": 2
   }
 }
 ```

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: get
 ---
 
@@ -9,7 +8,15 @@ title: get
 
 {{{since "1.0.0"}}}
 
+Return the value of a key, or `null` if the key doesn't exist.
 
+[[_Redis documentation_]](https://redis.io/commands/get)
+
+---
+
+## Arguments
+
+* `_id`: key to fetch
 
 ---
 
@@ -18,7 +25,7 @@ title: get
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/<key>
+URL: http://kuzzle:7512/ms/<_id>
 Method: GET
 ```
 
@@ -37,6 +44,8 @@ Method: GET
 
 ## Response
 
+Return the value stored at the provided key `key`.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -49,7 +58,3 @@ Method: GET
   "result": "value"
 }
 ```
-
-Returns the value of a key, or `null` if the key doesn't exist.
-
-[[_Redis documentation_]](https://redis.io/commands/get)

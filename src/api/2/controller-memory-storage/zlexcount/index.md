@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zlexcount
 ---
 
@@ -19,7 +18,7 @@ title: zlexcount
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zlexcount/<key>?min=<min value>&max=<max value>
+URL: http://kuzzle:7512/ms/_zlexcount/<_id>?min=<min value>&max=<max value>
 Method: GET
 ```
 

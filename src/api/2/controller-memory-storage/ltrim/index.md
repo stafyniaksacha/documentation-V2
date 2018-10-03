@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: ltrim
 ---
 
@@ -18,7 +17,7 @@ title: ltrim
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_ltrim/<key>
+URL: http://kuzzle:7512/ms/_ltrim/<_id>
 Method: POST  
 Body:
 ```

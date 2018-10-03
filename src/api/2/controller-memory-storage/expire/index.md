@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: expire
 ---
 
@@ -10,7 +9,15 @@ title: expire
 
 {{{since "1.0.0"}}}
 
+Set a timeout (in seconds) on a key. After the timeout has expired, the key is automatically deleted.
 
+[[_Redis documentation_]](https://redis.io/commands/expire)
+
+---
+
+## Arguments
+
+* `_id`: key to update
 
 ---
 
@@ -19,21 +26,16 @@ title: expire
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_expire/<key>
+URL: http://kuzzle:7512/ms/_expire/<_id>
 Method: POST  
 Body:
 ```
-
-
-
 
 ```js
 {
   "seconds": "<time to live>"
 }
 ```
-
-
 
 ### Other protocols
 
@@ -53,6 +55,8 @@ Body:
 
 ## Response
 
+Return either `0` (command failed), or `1` (command succeeded).
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -62,10 +66,6 @@ Body:
   "action": "expire",
   "collection": null,
   "index": null,
-  "result": [0|1] // success status
+  "result": 1
 }
 ```
-
-Sets a timeout (in seconds) on a key.  After the timeout has expired, the key will automatically be deleted.
-
-[[_Redis documentation_]](https://redis.io/commands/expire)

@@ -8,7 +8,7 @@ title: get
 
 {{{since "1.0.0"}}}
 
-Get a document using its provided unique ID.
+Get a document.
 
 ---
 
@@ -29,7 +29,7 @@ Get a document using its provided unique ID.
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/<index>/<collection>/<documentId>[?includeTrash=<true|false>]
+URL: http://kuzzle:7512/<index>/<collection>/<documentId>[?includeTrash=<boolean>]
 Method: GET
 ```
 
@@ -43,7 +43,6 @@ Method: GET
   "controller": "document",
   "action": "get",
   "_id": "<documentId>",
-
   "includeTrash": false
 }
 ```
@@ -51,6 +50,13 @@ Method: GET
 ---
 
 ## Response
+
+Return an object with the following properties:
+
+* `_id`: document unique identifier
+* `_source`: document content
+* `_version`: version of the created document (should be `1`)
+
 
 ```javascript
 {
@@ -63,8 +69,6 @@ Method: GET
   "requestId": "<unique request identifier>",
   "result": {
     "_id": "<documentId>",
-    "_index": "<index>",
-    "_type": "<collection>",
     "_version": 1,
     "_source": {
       "name": {
@@ -72,7 +76,6 @@ Method: GET
         "last": "Wozniak"
       },
       "hobby": "Segway polo",
-      // Kuzzle metadata
       "_kuzzle_info": {
         "author": "Bob",
         "createdAt": 1481816934209,
@@ -81,7 +84,6 @@ Method: GET
         "active": true,
         "deletedAt": null
       }
-      ...
     }
   }
 }

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: hincrbyfloat
 ---
 
@@ -9,7 +8,15 @@ title: hincrbyfloat
 
 {{{since "1.0.0"}}}
 
+Increment the number stored in a hash field by the provided float value.
 
+[[_Redis documentation_]](https://redis.io/commands/hincrbyfloat)
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
 
 ---
 
@@ -18,23 +25,19 @@ title: hincrbyfloat
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_hincrbyfloat/<key>
+URL: http://kuzzle:7512/ms/_hincrbyfloat/<_id>
 Method: POST  
 Body:
 ```
 
-
 ```js
 {
   "field": "field name",
-  "value": "<increment value>"
+  "value": <increment float value>
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -43,7 +46,7 @@ Body:
   "_id": "<key>",
   "body": {
     "field": "field name",
-    "value": "<increment value>"
+    "value": <increment float value>
   }
 }
 ```
@@ -51,6 +54,8 @@ Body:
 ---
 
 ## Response
+
+Return the updated value for the incremented hash field.
 
 ```javascript
 {
@@ -61,7 +66,7 @@ Body:
   "action": "hincrbyfloat",
   "collection": null,
   "index": null,
-  "result": "<new field value>"
+  "result": "3.14159"
 }
 ```
 

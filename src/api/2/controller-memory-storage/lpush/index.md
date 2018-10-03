@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: lpush
 ---
 
@@ -18,7 +17,7 @@ title: lpush
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_lpush/<key>
+URL: http://kuzzle:7512/ms/_lpush/<_id>
 Method: POST  
 Body:
 ```

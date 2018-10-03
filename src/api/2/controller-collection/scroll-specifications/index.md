@@ -8,7 +8,7 @@ title: scrollSpecifications
 
 {{{since "1.0.0"}}}
 
-This method moves a result set cursor forward, created by the [`searchSpecifications` request]({{ site_base_path }}api/2/controller-collection/search-specifications/) when the `scroll` argument is provided.
+Move a result set cursor forward, created by the [`searchSpecifications` request]({{ site_base_path }}api/2/controller-collection/search-specifications/) when the `scroll` argument is provided.
 
 The response may contain a *different* cursor identifier, pointing to the next page of the results.
 

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zremrangebylex
 ---
 
@@ -19,7 +18,7 @@ title: zremrangebylex
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zremrangebylex/<key>
+URL: http://kuzzle:7512/ms/_zremrangebylex/<_id>
 Method: DELETE  
 Body:
 ```

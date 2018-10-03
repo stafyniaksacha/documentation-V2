@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zscore
 ---
 
@@ -19,7 +18,7 @@ title: zscore
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zscore/<key>/<member>
+URL: http://kuzzle:7512/ms/_zscore/<_id>/<member>
 Method: GET
 ```
 

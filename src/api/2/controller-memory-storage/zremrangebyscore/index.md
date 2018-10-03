@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zremrangebyscore
 ---
 
@@ -19,7 +18,7 @@ title: zremrangebyscore
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zremrangebyscore/<key>
+URL: http://kuzzle:7512/ms/_zremrangebyscore/<_id>
 Method: DELETE  
 Body:
 ```

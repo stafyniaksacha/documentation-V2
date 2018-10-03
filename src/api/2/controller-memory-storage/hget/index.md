@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: hget
 ---
 
@@ -9,7 +8,16 @@ title: hget
 
 {{{since "1.0.0"}}}
 
+Return the field's value of a hash.
 
+[[_Redis documentation_]](https://redis.io/commands/hget)
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+* `field`: field name to retrieve
 
 ---
 
@@ -18,12 +26,11 @@ title: hget
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_hget/<key>/<field>
+URL: http://kuzzle:7512/ms/_hget/<_id>/<field>
 Method: GET
 ```
 
 ### Other protocols
-
 
 ```js
 {
@@ -38,6 +45,8 @@ Method: GET
 
 ## Response
 
+Return the field's value.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -50,7 +59,3 @@ Method: GET
   "result": "field value"
 }
 ```
-
-Returns the field's value of a hash.
-
-[[_Redis documentation_]](https://redis.io/commands/hget)

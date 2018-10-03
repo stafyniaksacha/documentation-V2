@@ -10,9 +10,9 @@ title: mCreate
 
 Create multiple documents. 
 
-If a document ID already exists, the creation fails for that document.
+If a document identifier already exists, the creation fails for that document.
 
-Return a [partial error]({{ site_base_path }}api/2/errors/#partialerror) if one or more documents creations fail.
+Return a [partial error]({{ site_base_path }}api/2/errors/#partialerror) if one or more document creations fail.
 
 ---
 
@@ -44,19 +44,16 @@ Body:
       // Optional. If not provided, will be generated automatically.
       "_id": "<documentId>", 
       "body": {
-        "document": "body",
-        ...
+        // document content
       }
     },
     {
       // Optional. If not provided, will be generated automatically.
       "_id": "<anotherDocumentId>", 
       "body": {
-        "document": "body",
-        ...
+        // document content
       }
-    },
-    ...
+    }
   ]
 }
 ```
@@ -69,16 +66,17 @@ Body:
   "collection": "<collection>",
   "controller": "document",
   "action": "mCreate",
-  "refresh": "wait_for",
   "body": {
     "documents": [
       {
+        // Optional. If not provided, will be generated automatically.
         "_id": "<documentId>",
         "body": {
           "document": "body"
         }
       },
       {
+        // Optional. If not provided, will be generated automatically.
         "_id": "<anotherDocumentId>",
         "body": {
           "document": "body"
@@ -93,6 +91,15 @@ Body:
 
 ## Response
 
+Return a `hits` array, containing the list of created documents, in the same order than the one provided in the query.
+
+Each created document is an object with the following properties:
+
+* `_id`: created document unique identifier
+* `_source`: document content
+* `_version`: version of the created document (should be `1`)
+* `created`: a boolean telling whether a document is created (should be `true`)
+
 ```javascript
 {
   "status": 200,
@@ -106,41 +113,21 @@ Body:
     "hits": [
       {
         "_id": "<documentId>",
-        "_index": "<index>",
-        "_shards": {
-          "failed": 0,
-          "successful": 1,
-          "total": 2
-        },
         "_source": {
-          "document": "body"
+          // document content
         },
-        "_type": "<collection>",
         "_version": 1,
-        "created": true,
-        "result": "created"
+        "created": true
       },
       {
         "_id": "<anotherDocumentId>",
-        "_index": "<index>",
-        "_shards": {
-          "failed": 0,
-          "successful": 1,
-          "total": 2
-        },
         "_source": {
-          "document": "body"
-        },
-        "_type": "<collection>",
+          "// document content
         "_version": 1,
-        "created": true,
-        "result": "created"
-      },
-      {
-        // Other created documents
+        "created": true
       }
     ],
-    "total": "<number of created documents>"
+    "total": 2
   }
 }
 ```

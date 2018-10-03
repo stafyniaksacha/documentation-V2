@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: hscan
 ---
 
@@ -9,7 +8,26 @@ title: hscan
 
 {{{since "1.0.0"}}}
 
+Iterates incrementally over fields contained in a hash, using a cursor.
 
+An iteration starts when the cursor is set to 0.  
+To get the next page of results, simply re-send the request with the updated cursor position provided in the result set.  
+
+The scan terminates when the cursor returned by the server is 0.
+
+[[_Redis documentation_]](https://redis.io/commands/hscan)
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+* `cursor`: cursor offset
+
+**Options:**
+
+* `count`: return an _approximate_ number of items per result set (the default is 10)
+* `match`: search only keys matching the provided pattern
 
 ---
 
@@ -18,28 +36,33 @@ title: hscan
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_hscan/<key>?cursor=<cursor>[&match=<pattern>][&count=<count>]
+URL: http://kuzzle:7512/ms/_hscan/<_id>?cursor=<cursor>[&match=<pattern>][&count=<count>]
 Method: GET
 ```
 
 ### Other protocols
-
 
 ```js
 {
   "controller": "ms",
   "action": "hscan",
   "_id": "<key>",
-  "cursor": "<cursor>",
-
-  "match": "<pattern>",
-  "count": "<count>"
+  "cursor": 0,
+  "match": "foo*bar",
+  "count": 20
 }
 ```
 
 ---
 
 ## Response
+
+Return an array containing the following two elements:
+
+* a new cursor position, to be used to get the next page of results (or `0` when at the end of the cursor)
+* an array of values alternating between field names and field values
+
+Example:
 
 ```javascript
 {
@@ -51,19 +74,14 @@ Method: GET
   "collection": null,
   "index": null,
   "result": [
-    "<new cursor position>",
+    13,
     [
       "field1",
-      "value of field1",
+      "field1 value",
       "field2",
-      "value of field2",
+      "field2 value",
       "..."
     ]
   ]
 }
 ```
-
-Identical to [scan]({{ site_base_path }}api/2/controller-memory-storage/scan), except that `hscan` iterates the fields contained in a hash.
-
-
-[[_Redis documentation_]](https://redis.io/commands/hscan)

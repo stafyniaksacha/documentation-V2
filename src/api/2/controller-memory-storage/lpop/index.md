@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: lpop
 ---
 
@@ -18,7 +17,7 @@ title: lpop
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_lpop/<key>
+URL: http://kuzzle:7512/ms/_lpop/<_id>
 Method: POST
 ```
 

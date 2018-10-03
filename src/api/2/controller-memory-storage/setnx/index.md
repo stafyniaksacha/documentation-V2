@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: setnx
 ---
 
@@ -19,7 +18,7 @@ title: setnx
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_setnx/<key>
+URL: http://kuzzle:7512/ms/_setnx/<_id>
 Method: POST  
 Body:
 ```

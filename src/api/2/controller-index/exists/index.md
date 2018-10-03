@@ -41,6 +41,8 @@ Method: GET
 
 ## Response
 
+Return a boolean telling whether the requested index exists.
+
 ```js
 {
   "status": 200,

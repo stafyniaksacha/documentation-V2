@@ -8,9 +8,9 @@ title: mDelete
 
 {{{since "1.0.0"}}}
 
-Delete a list of `indexes`.
+Delete multiple `indexes`.
 
-If no `indexes` is specified in the body, all indexes that the current user is allowed to delete will be removed.
+If no index is specified in the body, then all indexes that the current user is allowed to delete will be removed.
 
 The response contains the list of indexes that were actually deleted.
 
@@ -27,10 +27,12 @@ Body:
 ```
 
 ```js
-indexes: [
-  "index1",
-  "index2",
-  ...
+{
+  indexes: [
+    "index 1",
+    "index 2",
+    "index ..."
+  ]
 }
 ```
 
@@ -42,8 +44,9 @@ indexes: [
   "action": "mDelete",
   "body": {
     "indexes": [
-      "index1",
-      "index2"
+      "index 1",
+      "index 2",
+      "index ..."
     ]
   }
 }
@@ -52,6 +55,8 @@ indexes: [
 ---
 
 ## Response
+
+Return a `deleted` array listing all deleted indexes.
 
 ```js
 {

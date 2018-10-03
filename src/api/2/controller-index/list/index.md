@@ -35,6 +35,8 @@ Method: GET
 
 ## Response
 
+Return a `indexes` array listing all existing index names.
+
 ```js
 {
   "status": 200,

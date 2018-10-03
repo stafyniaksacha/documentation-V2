@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: smembers
 ---
 
@@ -19,7 +18,7 @@ title: smembers
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_smembers/<key>
+URL: http://kuzzle:7512/ms/_smembers/<_id>
 Method: GET
 ```
 

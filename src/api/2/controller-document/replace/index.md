@@ -48,14 +48,21 @@ Body:
   "collection": "<collection>",
   "controller": "document",
   "action": "replace",
-  "refresh": "wait_for",
-  "body": {}
+  "body": {
+    // new document content
+  }
 }
 ```
 
 ---
 
 ## Response
+
+Return an object containing updated document information, with the following properties:
+
+* `_id`: document unique identifier
+* `_source`: new document content
+* `_version`: updated document version number
 
 ```javascript
 {
@@ -69,10 +76,9 @@ Body:
   "result": {
     "_id": "<documentId>",
     "_source": { 
-      // The resulting document
+      // new document content
     },
-    "_version": "<number>", // The new version number of this document
-    "created": false
+    "_version": 13
   }
 }
 ```

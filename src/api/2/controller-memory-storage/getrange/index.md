@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: getrange
 ---
 
@@ -9,6 +8,19 @@ title: getrange
 
 {{{since "1.0.0"}}}
 
+Return a substring of a key's value.
+
+[[_Redis documentation_]](https://redis.io/commands/getrange)
+
+---
+
+## Arguments
+
+* `_id`: key identifier
+* `start`: substring starting position. 
+* `end`: substring ending position
+
+The arguments `start` and `end` can be negative. In that case, the offset is calculated from the end of the string, going backward. For instance, `-3` is the third character from the end of the string.
 
 ---
 
@@ -17,26 +29,27 @@ title: getrange
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_getrange/<key>?start=<start>&end=<end>
+URL: http://kuzzle:7512/ms/_getrange/<_id>?start=<start>&end=<end>
 Method: GET
 ```
 
 ### Other protocols
-
 
 ```js
 {
   "controller": "ms",
   "action": "getrange",
   "_id": "<key>",
-  "start": "<start position>",
-  "end": "<end position>"
+  "start": 1,
+  "end": -3
 }
 ```
 
 ---
 
 ## Response
+
+The calculated substring.
 
 ```javascript
 {
@@ -50,7 +63,3 @@ Method: GET
   "result": "<value substring>"
 }
 ```
-
-Returns a substring of a key's value.
-
-[[_Redis documentation_]](https://redis.io/commands/getrange)

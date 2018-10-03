@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: object
 ---
 
@@ -19,7 +18,7 @@ title: object
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_object/<key>?subcommand=[refcount|encoding|idletime]
+URL: http://kuzzle:7512/ms/_object/<_id>?subcommand=[refcount|encoding|idletime]
 Method: GET
 ```
 

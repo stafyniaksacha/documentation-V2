@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: mDelete
 ---
 
@@ -38,13 +37,11 @@ Body:
 
 ```js
 {
-  "ids": ["<documentId>", "<anotherDocumentId>", ...]
+  "ids": ["<documentId>", "<anotherDocumentId>"]
 }
 ```
 
-
 ### Other protocols
-
 
 ```js
 {
@@ -62,6 +59,8 @@ Body:
 
 ## Response
 
+Return an array with the list of successfully deleted document identifiers.
+
 ```js
 {
   "status": 200,
@@ -69,13 +68,11 @@ Body:
   "index": "<index>",
   "collection": "<collection>",
   "action": "mDelete",
-  ["refresh": "wait_for",]
   "controller": "document",
   "requestId": "<unique request identifier>",
   "result": [
     "<documentId>",
-    "<anotherDocumentId>",
-    ...
+    "<anotherDocumentId>"
   ]
 }
 ```

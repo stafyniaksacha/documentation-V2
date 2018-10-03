@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: spop
 ---
 
@@ -19,7 +18,7 @@ title: spop
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_spop/<key>
+URL: http://kuzzle:7512/ms/_spop/<_id>
 Method: POST  
 Body:
 ```

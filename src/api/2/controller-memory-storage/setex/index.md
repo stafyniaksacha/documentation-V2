@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: setex
 ---
 
@@ -19,7 +18,7 @@ title: setex
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_setex/<key>
+URL: http://kuzzle:7512/ms/_setex/<_id>
 Method: POST  
 Body:
 ```

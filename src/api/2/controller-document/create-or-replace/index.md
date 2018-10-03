@@ -8,8 +8,7 @@ title: createOrReplace
 
 {{{since "1.0.0"}}}
 
-Creates a new document in the persistent data storage, or replace it if it already exists.
-
+Create a new document in the persistent data storage, or replace its content if it already exists.
 
 ---
 
@@ -49,15 +48,23 @@ Body:
   "collection": "<collection>",
   "controller": "document",
   "action": "createOrReplace",
-  "refresh": "wait_for",
   "_id": "<documentId>",    
-  "body": {}
+  "body": {
+    // document content
+  }
 }
 ```
 
 ---
 
 ## Response
+
+Return an object with the following properties:
+
+* `_id`: created document unique identifier
+* `_source`: document content
+* `_version`: version of the created document
+* `created`: a boolean telling if a new document has been created
 
 ```javascript
 {
@@ -70,11 +77,11 @@ Body:
   "requestId": "<unique request identifier>",
   "result": {
     "_id": "<documentId>",
-    "_source": { // Document content
-      ...
+    "_source": {
+      // document content
     },
-    "_version": <number>,// The new version number of this document
-    "created": <boolean> // if false, an existing document has been replaced
+    "_version": 1, 
+    "created": true
   }
 }
 ```

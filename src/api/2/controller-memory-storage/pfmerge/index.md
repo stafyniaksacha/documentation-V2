@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: pfmerge
 ---
 
@@ -19,7 +18,7 @@ title: pfmerge
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_pfmerge/<key>
+URL: http://kuzzle:7512/ms/_pfmerge/<_id>
 Method: POST  
 Body:
 ```

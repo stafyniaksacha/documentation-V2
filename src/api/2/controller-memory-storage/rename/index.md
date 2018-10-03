@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: rename
 ---
 
@@ -19,7 +18,7 @@ title: rename
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_rename/<key>
+URL: http://kuzzle:7512/ms/_rename/<_id>
 Method: POST  
 Body:
 ```

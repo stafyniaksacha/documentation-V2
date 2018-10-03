@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: getset
 ---
 
@@ -9,7 +8,15 @@ title: getset
 
 {{{since "1.0.0"}}}
 
+Set a new value for a key, and return its previously stored value.
 
+[[_Redis documentation_]](https://redis.io/commands/getset)
+
+---
+
+## Arguments
+
+* `_id`: key to get and set
 
 ---
 
@@ -18,19 +25,16 @@ title: getset
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_getset/<key>
+URL: http://kuzzle:7512/ms/_getset/<_id>
 Method: POST  
 Body:
 ```
-
 
 ```js
 {
   "value": "new key value"
 }
 ```
-
-
 
 ### Other protocols
 
@@ -50,6 +54,8 @@ Body:
 
 ## Response
 
+Return the previously stored value.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -62,7 +68,3 @@ Body:
   "result": "key's previous value"
 }
 ```
-
-Sets a new value for a key and returns the previous stored value.
-
-[[_Redis documentation_]](https://redis.io/commands/getset)

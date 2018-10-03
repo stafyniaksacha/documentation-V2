@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zunionstore
 ---
 
@@ -19,7 +18,7 @@ title: zunionstore
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zunionstore/<key>
+URL: http://kuzzle:7512/ms/_zunionstore/<_id>
 Method: POST  
 Body:
 ```

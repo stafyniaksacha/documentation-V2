@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zcard
 ---
 
@@ -19,7 +18,7 @@ title: zcard
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zcard/<key>
+URL: http://kuzzle:7512/ms/_zcard/<_id>
 Method: GET
 ```
 

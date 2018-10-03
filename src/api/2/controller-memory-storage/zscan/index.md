@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zscan
 ---
 
@@ -19,7 +18,7 @@ title: zscan
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zscan/<key>?cursor=<cursor>[&match=<pattern>][&count=<count>]
+URL: http://kuzzle:7512/ms/_zscan/<_id>?cursor=<cursor>[&match=<pattern>][&count=<count>]
 Method: GET
 ```
 

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: hset
 ---
 
@@ -9,7 +8,19 @@ title: hset
 
 {{{since "1.0.0"}}}
 
+Set a field and its value in a hash. 
 
+If the key does not exist, a new key holding a hash is created. 
+
+If the field already exists, its value is overwritten.
+
+[[_Redis documentation_]](https://redis.io/commands/hset)
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
 
 ---
 
@@ -18,11 +29,10 @@ title: hset
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_hset/<key>
+URL: http://kuzzle:7512/ms/_hset/<_id>
 Method: POST  
 Body:
 ```
-
 
 ```js
 {
@@ -31,10 +41,7 @@ Body:
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -52,6 +59,8 @@ Body:
 
 ## Response
 
+Return either `0` (command failed), or `1` (command succeeded).
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -61,10 +70,6 @@ Body:
   "action": "hset",
   "collection": null,
   "index": null,
-  "result": [0|1]
+  "result": 1
 }
 ```
-
-Sets a field and its value in a hash. If the key does not exist, a new key holding a hash is created. If the field already exists, its value is overwritten.
-
-[[_Redis documentation_]](https://redis.io/commands/hset)

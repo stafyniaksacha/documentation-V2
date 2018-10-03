@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: hmset
 ---
 
@@ -9,7 +8,15 @@ title: hmset
 
 {{{since "1.0.0"}}}
 
+Set multiple fields at once in a hash.
 
+[[_Redis documentation_]](https://redis.io/commands/hmset)
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
 
 ---
 
@@ -18,11 +25,10 @@ title: hmset
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_hmset/<key>
+URL: http://kuzzle:7512/ms/_hmset/<_id>
 Method: POST  
 Body:
 ```
-
 
 ```js
 {
@@ -34,10 +40,7 @@ Body:
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -58,6 +61,8 @@ Body:
 
 ## Response
 
+Return an acknowledgement.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -70,7 +75,3 @@ Body:
   "result": "OK"
 }
 ```
-
-Sets multiple fields at once in a hash.
-
-[[_Redis documentation_]](https://redis.io/commands/hmset)

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: pexpireat
 ---
 
@@ -19,7 +18,7 @@ title: pexpireat
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_pexpireat/<key>
+URL: http://kuzzle:7512/ms/_pexpireat/<_id>
 Method: POST  
 Body:
 ```

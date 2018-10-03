@@ -8,7 +8,7 @@ title: searchSpecifications
 
 {{{since "1.0.0"}}}
 
-Allows to search in the persistence layer for collection specifications.
+Search collection specifications.
 
 ---
 
@@ -69,24 +69,29 @@ Body:
 
 ## Response
 
-```js
+Return an object containing the following properties:
+
+* `hits`: an array of found documents. Each item is an object with the following properties:
+  * `_id`: specification unique identifier
+  * `_score`: search pertinence score
+  * `_source`: validation specification
+* `scrollId`: the cursor unique identifier for the next page of results. Present only if the `scroll` argument has been set
+* `total`: the *total* number of found specifications (usually greater than the number of items in the `hits` array)
+
+Example: 
+
+```javascript
 {
   "status": 200,
   "error": null,
+  "action": "scrollSpecifications",
   "controller": "collection",
-  "action": "searchSpecifications",
-  "volatile": {},
   "requestId": "<unique request identifier>",
   "result": {
-    "_shards": {
-        "failed": 0,
-        "successful": 5,
-        "total": 5
-    },
+    "scrollId": "<new scroll id>",
     "hits": [
       {
-        "_id": "myIndex#myCollection",
-        "_index": "%kuzzle",
+        "_id": "<specification unique ID>",
         "_score": 1,
         "_source": {
           "collection": "myCollection",
@@ -112,11 +117,10 @@ Body:
             },
             "strict": true
           }
-        },
-        "_type": "validations"
+        }
       }
     ],
-    "total": <number of specifications>
+    "total": 42
   }
 }
 ```

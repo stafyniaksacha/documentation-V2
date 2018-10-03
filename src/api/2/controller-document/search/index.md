@@ -10,8 +10,7 @@ title: search
 
 Search documents.
 
-There is a limit to how many documents can be returned with a single search query. 
-
+There is a limit to how many documents can be returned by a single search query.  
 That limit is by default set at 10000 documents, and you can't get over it even with the `from` and `size` pagination options.
 
 To handle larger result sets, you have to either create a cursor by using the `scroll` option, or, if you sort the results, the Elasticsearch's [search_after command](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-request-search-after.html).
@@ -77,7 +76,6 @@ Body:
   "collection": "<collection>",
   "controller": "document",
   "action": "search",
-
   "body": {
     "query": {
       // ...
@@ -89,7 +87,6 @@ Body:
       // ...
     ]
   },
-
   "from": 0,
   "size": 42,
   "scroll": "1m",
@@ -101,6 +98,16 @@ Body:
 
 ## Response
 
+Return a paginated search result set, with the following properties:
+
+* `aggregations`: provides aggregation information. Present only if an `aggregations` object has been provided in the search body
+* `hits`: array of found documents. Each document has the following properties:
+  * `_id`: document unique identifier
+  * `_score`: relevance score
+  * `_source`: new document content
+* `scrollId`: identifier to the next page of result. Present only if the `scroll` argument has been set
+* `total`: total number of found documents. Can be greater than the number of documents in a result page, meaning that other matches than the one retrieved are available
+
 ```javascript
 {
   "status": 200,
@@ -111,21 +118,21 @@ Body:
   "controller": "document",
   "requestId": "<unique request identifier>",
   "result": {
-    // Present only if a "scroll" value has been provided
-    // The initial search request and each subsequent scroll request returns 
-    // a new "scrollId" value
-    // Only the most recent "scrollId" value should be used.
     "scrollId": "<scroll id>",
-
-    // An array of objects containing your retrieved documents
     "hits": [
       {
         "_id": "<document unique identifier>",
-        "_score": 0,          // Document search relevance score
-        "_source": { ... }    // Document content
+        "_score": 1,
+        "_source": { 
+          // document content
+        }
       },
       {
-        // Another document... and so on
+        "_id": "<another document unique identifier>",
+        "_score": 1,
+        "_source": { 
+          // document content
+        }
       }
     ],
     // Present only if aggregation parameters have been set
@@ -134,8 +141,6 @@ Body:
 
       }
     },
-    // Total number of found documents (not the number of 
-    // returned documents in this single response page)
     "total": 42
   }
 }

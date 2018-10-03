@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: hmget
 ---
 
@@ -9,7 +8,16 @@ title: hmget
 
 {{{since "1.0.0"}}}
 
+Return the values of the specified hash's fields.
 
+[[_Redis documentation_]](https://redis.io/commands/hmget)
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+* `fields`: the list of fields to fetch
 
 ---
 
@@ -18,7 +26,7 @@ title: hmget
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_hmget/<key>?fields=field1,field2,...
+URL: http://kuzzle:7512/ms/_hmget/<_id>?fields=<field1,field2,...>
 Method: GET
 ```
 
@@ -38,6 +46,8 @@ Method: GET
 
 ## Response
 
+Return the list of requested field values, in the same order than in the query.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -54,7 +64,3 @@ Method: GET
   ]
 }
 ```
-
-Returns the values of the specified hash's fields.
-
-[[_Redis documentation_]](https://redis.io/commands/hmget)

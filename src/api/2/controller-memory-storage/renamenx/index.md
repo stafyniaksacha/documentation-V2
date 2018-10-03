@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: renamenx
 ---
 
@@ -19,7 +18,7 @@ title: renamenx
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_renamenx/<key>
+URL: http://kuzzle:7512/ms/_renamenx/<_id>
 Method: POST  
 Body:
 ```

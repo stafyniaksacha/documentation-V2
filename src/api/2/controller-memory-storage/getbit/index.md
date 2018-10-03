@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: getbit
 ---
 
@@ -9,6 +8,16 @@ title: getbit
 
 {{{since "1.0.0"}}}
 
+Return the bit value at the provided offset, in the string value stored in a key.
+
+[[_Redis documentation_]](https://redis.io/commands/getbit)
+
+---
+
+## Arguments
+
+* `_id`: key containing the geopoints to fetch
+* `offset`: bit offset to return
 
 ---
 
@@ -17,7 +26,7 @@ title: getbit
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_getbit/<key>?offset=<offset>
+URL: http://kuzzle:7512/ms/_getbit/<_id>?offset=<offset>
 Method: GET
 ```
 
@@ -37,6 +46,8 @@ Method: GET
 
 ## Response
 
+Return the bit at the provided offset. The returned value can be either `0` or `1`.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -46,10 +57,6 @@ Method: GET
   "action": "getbit",
   "collection": null,
   "index": null,
-  "result": [0|1]
+  "result": 0
 }
 ```
-
-Returns the bit value at `offset`, in the string value stored in a key.
-
-[[_Redis documentation_]](https://redis.io/commands/getbit)

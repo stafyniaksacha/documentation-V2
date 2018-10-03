@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: incrbyfloat
 ---
 
@@ -9,7 +8,15 @@ title: incrbyfloat
 
 {{{since "1.0.0"}}}
 
+Increment the number stored at `key` by the provided float value. If the key does not exist, it is set to 0 before performing the operation.
 
+[[_Redis documentation_]](https://redis.io/commands/incrbyfloat)
+
+---
+
+## Arguments
+
+* `_id`: key identifier
 
 ---
 
@@ -18,22 +25,18 @@ title: incrbyfloat
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_incrbyfloat/<key>
+URL: http://kuzzle:7512/ms/_incrbyfloat/<_id>
 Method: POST  
 Body:
 ```
 
-
 ```js
 {
-  "value": "<increment value>"
+  "value": <increment float value>
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -41,7 +44,7 @@ Body:
   "action": "incrbyfloat",
   "_id": "<key>",
   "body": {
-    "value": "<increment value>"
+    "value": <increment float value>
   }
 }
 ```
@@ -49,6 +52,8 @@ Body:
 ---
 
 ## Response
+
+Return the incremented float value.
 
 ```javascript
 {
@@ -59,10 +64,6 @@ Body:
   "action": "incrbyfloat",
   "collection": null,
   "index": null,
-  "result": "<updated key value>"
+  "result": "3.1415"
 }
 ```
-
-Increments the number stored at `key` by the provided float value. If the key does not exist, it is set to 0 before performing the operation.
-
-[[_Redis documentation_]](https://redis.io/commands/incrbyfloat)

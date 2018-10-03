@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: sdiff
 ---
 
@@ -19,7 +18,7 @@ title: sdiff
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_sdiff/<key>?keys=key1,key2,...
+URL: http://kuzzle:7512/ms/_sdiff/<_id>?keys=key1,key2,...
 Method: GET
 ```
 

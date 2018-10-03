@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: create
 ---
 
@@ -63,6 +62,12 @@ Body:
 
 ## Response
 
+Return an object with the following properties:
+
+* `_id`: created document unique identifier
+* `_source`: document content
+* `_version`: version of the created document (should be `1`)
+
 ```javascript
 {
   "status": 200,
@@ -73,10 +78,10 @@ Body:
   "action": "create",
   "requestId": "<unique request identifier>",
   "result": {
-    "_id": "<documentId>",  // The generated or provided document id
-    "_version": 1 // The version of the document in the persistent data storage
-    "_source": { // The created document
-      ...
+    "_id": "<documentId>",
+    "_version": 1,
+    "_source": {
+      // ...
     },
   }
 }

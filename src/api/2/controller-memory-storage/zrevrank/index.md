@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zrevrank
 ---
 
@@ -19,7 +18,7 @@ title: zrevrank
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zrevrank/<key>/<member>
+URL: http://kuzzle:7512/ms/_zrevrank/<_id>/<member>
 Method: GET
 ```
 

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: mGet
 ---
 
@@ -55,7 +54,6 @@ Body:
   "body": {
     "ids": ["<documentId>", "<anotherDocumentId>"]
   },
-
   "includeTrash": false
 }
 ```
@@ -63,6 +61,15 @@ Body:
 ---
 
 ## Response
+
+Return a `hits` array with the list of retrieved documents.
+
+Each document is an object with the following properties:
+
+* `_id`: document unique identifier
+* `_source`: document content
+* `_version`: version number of the document
+
 
 ```js
 {
@@ -77,26 +84,20 @@ Body:
     "hits": [
       {
         "_id": "<documentId>",
-        "_index": "<index>",
         "_source": {
-          "some": "body"
+          // document content
         },
-        "_type": "<collection>",
-        "_version": 4,
-        "found": true
+        "_version": 4
       },
       {
         "_id": "<anotherDocumentId>",
-        "_index": "<index>",
         "_source": {
-          "some": "body"
+          // document content
         },
-        "_type": "<collection>",
-        "_version": 4,
-        "found": true
+        "_version": 2
       }
-    ],
-    "total": "<number of retrieved documents>"
+    ]
+    "total": 2
   }
 }
 ```

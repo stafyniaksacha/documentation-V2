@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zrangebylex
 ---
 
@@ -19,7 +18,7 @@ title: zrangebylex
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zrangebylex/<key>?min=<min interval>&max=<max interval>[&limit=offset,count]
+URL: http://kuzzle:7512/ms/_zrangebylex/<_id>?min=<min interval>&max=<max interval>[&limit=offset,count]
 Method: GET
 ```
 

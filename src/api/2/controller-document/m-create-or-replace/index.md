@@ -41,18 +41,15 @@ Body:
     {
       "_id": "<documentId>", 
       "body": {
-        "document": "body",
-        ...
+        // document content
       }
     },
     {
       "_id": "<anotherDocumentId>",
       "body": {
-        "document": "body",
-        ...
+        // document content
       }
-    },
-    ...
+    }
   ]
 }
 ```
@@ -65,19 +62,18 @@ Body:
   "collection": "<collection>",
   "controller": "document",
   "action": "mCreateOrReplace",
-  "refresh": "wait_for",
   "body": {
     "documents": [
       {
         "_id": "<documentId>",
         "body": {
-          "document": "body"
+          // document content
         }
       },
       {
         "_id": "<anotherDocumentId>",
         "body": {
-          "document": "body"
+          // document content
         }
       }
     ]
@@ -88,6 +84,15 @@ Body:
 ---
 
 ## Response
+
+Return a `hits` array, containing the list of created documents, in the same order than the one provided in the query.
+
+Each created document is an object with the following properties:
+
+* `_id`: created document unique identifier
+* `_source`: document content
+* `_version`: version number of the document 
+* `created`: a boolean telling whether a document is created 
 
 ```javascript
 {
@@ -102,41 +107,22 @@ Body:
     "hits": [
       {
         "_id": "<documentId>",
-        "_index": "<index>",
-        "_shards": {
-          "failed": 0,
-          "successful": 1,
-          "total": 2
-        },
         "_source": {
-          "document": "body"
+          // document content
         },
-        "_type": "<collection>",
         "_version": 2,
-        "created": false,
-        "result": "updated"
+        "created": false
       },
       {
         "_id": "<anotherDocumentId>",
-        "_index": "<index>",
-        "_shards": {
-          "failed": 0,
-          "successful": 1,
-          "total": 2
-        },
         "_source": {
-          "document": "body"
+          // document content
         },
-        "_type": "<collection>",
-        "_version": 2,
-        "created": false,
-        "result": "updated"
-      },
-      {
-       // Other created or replaced documents
+        "_version": 1,
+        "created": true
       }
     ],
-    "total": "<number of created or replaced documents>"
+    "total": 2
   }
 }
 ```

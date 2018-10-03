@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: lset
 ---
 
@@ -18,7 +17,7 @@ title: lset
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_lset/<key>
+URL: http://kuzzle:7512/ms/_lset/<_id>
 Method: POST  
 Body:
 ```

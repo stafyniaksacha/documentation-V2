@@ -25,7 +25,7 @@ Append a value to a key. If the key does not exist, it is created.
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_append/<key>
+URL: http://kuzzle:7512/ms/_append/<_id>
 Method: POST  
 Body:
 ```
@@ -53,6 +53,8 @@ Body:
 
 ## Response
 
+Return the updated value length.
+
 ```js
 {
   "requestId": "<unique request identifier>",
@@ -62,6 +64,6 @@ Body:
   "action": "append",
   "collection": null,
   "index": null,
-  "result": "<new value length after the append operation>"
+  "result": 42
 }
 ```

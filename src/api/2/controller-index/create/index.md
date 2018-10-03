@@ -41,6 +41,8 @@ Method: POST
 
 ## Response
 
+Return a confirmation that the index is being created:
+
 ```js
 {
   "status": 200,

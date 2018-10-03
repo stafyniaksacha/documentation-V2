@@ -31,7 +31,7 @@ Body:
 {
   "myindex": {
     "mycollection": {
-      "strict": <true|false>,
+      "strict": <boolean>,
       "fields": {
         // ... specification for each field
       }
@@ -42,7 +42,6 @@ Body:
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "collection",
@@ -51,8 +50,10 @@ Body:
   "body": {
     "myindex": {
       "mycollection": {
-        "strict": "<true|false>",
-        "fields": {}
+        "strict": <boolean>,
+        "fields": {
+          // ... specification for each field
+        }
       }
     }
   }
@@ -63,6 +64,8 @@ Body:
 ---
 
 ## Response
+
+Result contain the updated specification:
 
 ```javascript
 {
@@ -75,7 +78,7 @@ Body:
   "result": {
     "myindex": {
       "mycollection": {
-        "strict": "<true|false>",
+        "strict": <boolean>,
         "fields": {
           // ... specification for each field
         }

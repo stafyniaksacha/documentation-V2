@@ -41,18 +41,15 @@ Body:
     {
       "_id": "<documentId>", 
       "body": {
-        "document": "body",
-        ...
+        // new document content
       }
     },
     {
       "_id": "<anotherDocumentId>",
       "body": {
-        "document": "body",
-        ...
+        // new document content
       }
-    },
-    ...
+    }
   ]
 }
 ```
@@ -66,21 +63,20 @@ Body:
   "collection": "<collection>",
   "controller": "document",
   "action": "mReplace",
-  "refresh": "wait_for",
   "body": {
     "documents": [
       {
         "_id": "<documentId>",
         "body": {
-          "document": "body",
+          // new document content
         }
       },
       {
         "_id": "<anotherDocumentId>",
         "body": {
-          "document": "body",
+          // new document content
         }
-      },
+      }
     ]
   }
 }
@@ -89,6 +85,14 @@ Body:
 ---
 
 ## Response
+
+Return a `hits` array containing the list of replaced documents.
+
+Each document has the following properties:
+
+* `_id`: document unique identifier
+* `_source`: document content
+* `_version`: version number of the document
 
 ```js
 {
@@ -103,38 +107,20 @@ Body:
     "hits": [
       {
         "_id": "<documentId>",
-        "_index": "<index>",
-        "_shards": {
-          "failed": 0,
-          "successful": 1,
-          "total": 2
-        },
         "_source": {
-          "document": "body"
+          // new document content
         },
-        "_type": "<collection>",
-        "_version": 2,
-        "created": false,
-        "result": "updated"
+        "_version": 2
       },
       {
         "_id": "<anotherDocumentId>",
-        "_index": "<index>",
-        "_shards": {
-          "failed": 0,
-          "successful": 1,
-          "total": 2
-        },
         "_source": {
-          "document": "body"
+          // new document content
         },
-        "_type": "<collection>",
-        "_version": 2,
-        "created": false,
-        "result": "updated"
+        "_version": 4
       }
     ],
-    "total": "<number of replaced documents>"
+    "total": 2
   }
 }
 ```

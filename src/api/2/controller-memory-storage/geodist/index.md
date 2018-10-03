@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: geodist
 ---
 
@@ -9,6 +8,23 @@ title: geodist
 
 {{{since "1.0.0"}}}
 
+Return the distance between two geospatial members of a key (see [geoadd]({{ site_base_path }}api/2/controller-memory-storage/geoadd/)).
+
+The returned distance is expressed in meters by default.
+
+[[_Redis documentation_]](https://redis.io/commands/geodist)
+
+---
+
+## Arguments
+
+* `_id`: key containing the geopoints to compare
+* `member1`: first geopoint name
+* `member2`: second geopoint name
+
+**Options:**
+
+* `unit`: the unit used for the returned calculated distance. Accepted values: `m`, `km`, `mi`, `ft`
 
 ---
 
@@ -17,12 +33,11 @@ title: geodist
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_geodist/<key>/<member1>/<member2>[?unit=[m|km|mi|ft]]
+URL: http://kuzzle:7512/ms/_geodist/<_id>/<member1>/<member2>[?unit=[m|km|mi|ft]]
 Method: GET
 ```
 
 ### Other protocols
-
 
 ```javascript
 {
@@ -31,13 +46,15 @@ Method: GET
   "_id": "<key>",
   "member1": "first member name",
   "member2": "second member name",
-  "unit": "(optional)[m|km|mi|ft]"
+  "unit": "ft"
 }
 ```
 
 ---
 
 ## Response
+
+Return the calculated distance.
 
 ```javascript
 {
@@ -48,11 +65,6 @@ Method: GET
   "action": "geodist",
   "collection": null,
   "index": null,
-  "result": <calculated distance>
+  "result": 192.3
 }
 ```
-
-Returns the distance between two geospatial members of a key (see [geoadd]({{ site_base_path }}api/2/controller-memory-storage/geoadd/)).  
-The returned distance is expressed in meters by default.
-
-[[_Redis documentation_]](https://redis.io/commands/geodist)

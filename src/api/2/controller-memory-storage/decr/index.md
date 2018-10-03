@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: decr
 ---
 
@@ -9,7 +8,15 @@ title: decr
 
 {{{since "1.0.0"}}}
 
+Decrement the number stored at `key` by 1. If the key does not exist, it is set to 0 before performing the operation.
 
+[[_Redis documentation_]](https://redis.io/commands/decr)
+
+---
+
+## Arguments
+
+* `_id`: key to decrement
 
 ---
 
@@ -18,12 +25,11 @@ title: decr
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_decr/<key>
+URL: http://kuzzle:7512/ms/_decr/<_id>
 Method: POST  
 ```
 
 ### Other protocols
-
 
 ```js
 {
@@ -37,6 +43,8 @@ Method: POST
 
 ## Response
 
+Updated key value.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -46,10 +54,6 @@ Method: POST
   "action": "decr",
   "collection": null,
   "index": null,
-  "result": "<updated key value>"
+  "result": -13
 }
 ```
-
-Decrements the number stored at `key` by 1. If the key does not exist, it is set to 0 before performing the operation.
-
-[[_Redis documentation_]](https://redis.io/commands/decr)

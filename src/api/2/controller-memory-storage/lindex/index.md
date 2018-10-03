@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: lindex
 ---
 
@@ -9,7 +8,16 @@ title: lindex
 
 {{{since "1.0.0"}}}
 
+Return the element at the provided index in a list.
 
+[[_Redis documentation_]](https://redis.io/commands/lindex)
+
+---
+
+## Argument
+
+* `_id`: list key identifier
+* `index`: list index (integer, starts at `0`)
 
 ---
 
@@ -18,7 +26,7 @@ title: lindex
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_lindex/<key>/<index>
+URL: http://kuzzle:7512/ms/_lindex/<_id>/<index>
 Method: GET
 ```
 
@@ -30,13 +38,15 @@ Method: GET
   "controller": "ms",
   "action": "lindex",
   "_id": "<key>",
-  "index": "<index>"
+  "index": 3
 }
 ```
 
 ---
 
 ## Response
+
+Return the stored value at the provided list index.
 
 ```javascript
 {
@@ -47,10 +57,6 @@ Method: GET
   "action": "lindex",
   "collection": null,
   "index": null,
-  "result": "<value>"
+  "result": "value"
 }
 ```
-
-Returns the element at the provided index in a list.
-
-[[_Redis documentation_]](https://redis.io/commands/lindex)

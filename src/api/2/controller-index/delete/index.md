@@ -42,6 +42,8 @@ Method: DELETE
 
 ## Response
 
+Return a confirmation that the index is being deleted:
+
 ```js
 {
   "status": 200,

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: zincrby
 ---
 
@@ -19,7 +18,7 @@ title: zincrby
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_zincrby/<key>
+URL: http://kuzzle:7512/ms/_zincrby/<_id>
 Method: POST  
 Body:
 ```

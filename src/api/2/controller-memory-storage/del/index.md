@@ -1,10 +1,14 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: del
 ---
 
+{{{since "1.0.0"}}}
+
+Delete a list of keys.
+
+[[_Redis documentation_]](https://redis.io/commands/del)
 
 ---
 
@@ -14,7 +18,7 @@ title: del
 
 ```http
 URL: http://kuzzle:7512/ms
-Method: `DELETE
+Method: DELETE
 Method:  
 ```
 
@@ -24,10 +28,7 @@ Method:
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -43,6 +44,8 @@ Method:
 
 ## Response
 
+Return the number of deleted keys.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -52,10 +55,6 @@ Method:
   "action": "del",
   "collection": null,
   "index": null,
-  "result": "<number of deleted keys>"
+  "result": 3
 }
 ```
-
-Deletes a list of keys.
-
-[[_Redis documentation_]](https://redis.io/commands/del)

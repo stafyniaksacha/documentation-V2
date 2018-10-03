@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: lrange
 ---
 
@@ -18,7 +17,7 @@ title: lrange
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_lrange/<key>?start=<start>&stop=<stop>
+URL: http://kuzzle:7512/ms/_lrange/<_id>?start=<start>&stop=<stop>
 Method: GET
 ```
 

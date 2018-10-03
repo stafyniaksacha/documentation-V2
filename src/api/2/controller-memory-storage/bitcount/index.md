@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: bitcount
 ---
 
@@ -17,7 +16,7 @@ Count the number of set bits (population counting) in a string.
 
 ## Arguments
 
-* `key`: key to evaluate
+* `_id`: key to evaluate
 
 **Options:**
 
@@ -31,7 +30,7 @@ Count the number of set bits (population counting) in a string.
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_bitcount/<key>[?start=<integer>&end=<integer>]
+URL: http://kuzzle:7512/ms/_bitcount/<_id>[?start=<integer>&end=<integer>]
 Method: GET  
 ```
 
@@ -41,7 +40,7 @@ Method: GET
 {
   "controller": "ms",
   "action": "bitcount",
-  "_id": "<key>",
+  "_id": "<key>"
   "start": <integer>,
   "end": <integer>
 }
@@ -50,6 +49,8 @@ Method: GET
 ---
 
 ## Response
+
+Return the number of set bits.
 
 ```javascript
 {
@@ -60,6 +61,6 @@ Method: GET
   "action": "bitcount",
   "collection": null,
   "index": null,
-  "result": <count>
+  "result": 42
 }
 ```

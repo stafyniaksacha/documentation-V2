@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: geoadd
 ---
 
@@ -9,7 +8,15 @@ title: geoadd
 
 {{{since "1.0.0"}}}
 
+Add geospatial points to the specified key.
 
+[[_Redis documentation_]](https://redis.io/commands/geoadd)
+
+---
+
+## Arguments
+
+* `_id`: key to update
 
 ---
 
@@ -18,34 +25,29 @@ title: geoadd
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_geoadd/<key>
+URL: http://kuzzle:7512/ms/_geoadd/<_id>
 Method: POST  
 Body:
 ```
-
 
 ```js
 {
   "points": [
     {
-      "lon": "<float between -180 and 180>",
-      "lat": "<float between -85.05112878 and 85.05112878>",
-      "name": "point name"
+      "lon": 3.9109057,
+      "lat": 43.6073913,
+      "name": "kuzzle HQ"
     },
     {
-      "lon": "<float between -180 and 180>",
-      "lat": "<float between -85.05112878 and 85.05112878>",
-      "name": "point name"
-    },
-    ...
+      "lon": 3.897105,
+      "lat": 43.6002203, 
+      "name": "our other HQ"
+    }
   ]
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -55,15 +57,15 @@ Body:
   "body": {
     "points": [
       {
-        "lon": "<float between -180 and 180>",
-        "lat": "<float between -85.05112878 and 85.05112878>",
-        "name": "point name"
+        "lon": 3.9109057,
+        "lat": 43.6073913,
+        "name": "kuzzle HQ"
       },
       {
-        "lon": "<float between -180 and 180>",
-        "lat": "<float between -85.05112878 and 85.05112878>",
-        "name": "point name"
-      },
+        "lon": 43.6002203, 
+        "lat": 3.897105,
+        "name": "our other HQ"
+      }
     ]
   }
 }
@@ -72,6 +74,8 @@ Body:
 ---
 
 ## Response
+
+Return the number of points added to the key.
 
 ```javascript
 {
@@ -82,10 +86,6 @@ Body:
   "action": "geoadd",
   "collection": null,
   "index": null,
-  "result": "<number of points added>"
+  "result": 2
 }
 ```
-
-Adds geospatial points to the specified key.
-
-[[_Redis documentation_]](https://redis.io/commands/geoadd)

@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: rpushx
 ---
 
@@ -19,7 +18,7 @@ title: rpushx
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_rpushx/<key>
+URL: http://kuzzle:7512/ms/_rpushx/<_id>
 Method: POST  
 Body:
 ```

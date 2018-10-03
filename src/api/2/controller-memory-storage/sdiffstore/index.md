@@ -1,7 +1,6 @@
 ---
 layout: full.html.hbs
 algolia: true
-
 title: sdiffstore
 ---
 
@@ -19,7 +18,7 @@ title: sdiffstore
 ### HTTP
 
 ```http
-URL: http://kuzzle:7512/ms/_sdiffstore/<key>
+URL: http://kuzzle:7512/ms/_sdiffstore/<_id>
 Method: POST  
 Body:
 ```
