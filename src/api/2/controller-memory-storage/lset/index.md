@@ -8,7 +8,9 @@ title: lset
 
 {{{since "1.0.0"}}}
 
+Set the list element at `index` with the provided value.
 
+[[_Redis documentation_]](https://redis.io/commands/lset)
 
 ---
 
@@ -22,18 +24,14 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
-  "index": "<index>",
+  "index": 0,
   "value": "<value>"
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -41,7 +39,7 @@ Body:
   "action": "lset",
   "_id": "<key>",
   "body": {
-    "index": "<index>",
+    "index": 0,
     "value": "<value>"
   }
 }
@@ -49,7 +47,22 @@ Body:
 
 ---
 
+## Argument
+
+* `_id`: list key identifier
+
+---
+
+## Body properties
+
+* `index`: index of the list. Lists are 0-indexed. If negative, it goes backward from the end of the list
+* `value`: the new value to set
+
+---
+
 ## Response
+
+Return an acknowledgement.
 
 ```javascript
 {
@@ -63,7 +76,3 @@ Body:
   "result": "OK"
 }
 ```
-
-Sets the list element at `index` with the provided value.
-
-[[_Redis documentation_]](https://redis.io/commands/lset)

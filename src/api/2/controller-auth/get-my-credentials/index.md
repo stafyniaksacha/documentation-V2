@@ -16,13 +16,6 @@ The result can be an empty object.
 
 ---
 
-## Arguments
-
-* `jwt` / HTTP `Authorization` header: valid authentication token
-* `strategy`: name of the authentication strategy to retrieve
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -43,6 +36,13 @@ Headers: Authorization: "Bearer <authentication token>"
   "jwt": "<authentication token>"
 }
 ```
+
+---
+
+## Arguments
+
+* `jwt`: valid authentication token (for the HTTP protocol, the token is to be passed to the `Authorization` header instead)
+* `strategy`: name of the authentication strategy to retrieve
 
 ---
 

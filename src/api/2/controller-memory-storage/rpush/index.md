@@ -8,7 +8,11 @@ title: rpush
 
 {{{since "1.0.0"}}}
 
+Append values at the end of a list. 
 
+If the destination list does not exist, it is created holding an empty list before performing the operation.
+
+[[_Redis documentation_]](https://redis.io/commands/rpush)
 
 
 ---
@@ -23,17 +27,13 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "values": ["value1", "value2", "..."]
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -48,7 +48,21 @@ Body:
 
 ---
 
+## Argument
+
+* `_id`: list key identifier
+
+---
+
+## Body properties
+
+* `values`: an array of values to push to the list
+
+---
+
 ## Response
+
+Return the updated list length.
 
 ```javascript
 {
@@ -59,10 +73,6 @@ Body:
   "action": "rpush",
   "collection": null,
   "index": null,
-  "result": <updated number of elements in the list>
+  "result": 12
 }
 ```
-
-Appends the specified values at the end of a list. If the key does not exist, it is created holding an empty list before performing the operation.
-
-[[_Redis documentation_]](https://redis.io/commands/rpush)

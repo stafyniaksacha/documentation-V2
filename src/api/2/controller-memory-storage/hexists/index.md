@@ -14,13 +14,6 @@ Check if a field exists in a hash.
 
 ---
 
-## Arguments
-
-* `_id`: hash key identifier
-* `field`: field name to check
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -40,6 +33,13 @@ Method: GET
   "field": "field name"
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+* `field`: field name to check
 
 ---
 

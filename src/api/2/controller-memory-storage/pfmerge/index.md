@@ -8,8 +8,9 @@ title: pfmerge
 
 {{{since "1.0.0"}}}
 
+Merge multiple [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog) data structures into an unique HyperLogLog structure stored at `_id`, approximating the cardinality of the union of the source structures.
 
-
+[[_Redis documentation_]](https://redis.io/commands/pfmerge)
 
 ---
 
@@ -23,17 +24,13 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "sources": ["key1", "key2", "..."]
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -48,7 +45,21 @@ Body:
 
 ---
 
+## Argument
+
+* `_id`: hyperloglog destination key 
+
+---
+
+## Body properties
+
+* `sources`: an array of hyperloglog keys, used as sources for the merge
+
+---
+
 ## Response
+
+Return an acknowledgement.
 
 ```javascript
 {
@@ -62,7 +73,3 @@ Body:
   "result": "OK"
 }
 ```
-
-Merges multiple [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog) data structures into an unique HyperLogLog structure stored at `key`, approximating the cardinality of the union of the source structures.
-
-[[_Redis documentation_]](https://redis.io/commands/pfmerge)

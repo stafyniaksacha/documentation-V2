@@ -8,8 +8,9 @@ title: sdiff
 
 {{{since "1.0.0"}}}
 
+Return the difference between a reference set, and a list of other sets.
 
-
+[[_Redis documentation_]](https://redis.io/commands/sdiff)
 
 ---
 
@@ -36,7 +37,16 @@ Method: GET
 
 ---
 
+## Argument
+
+* `_id`: reference set key identifier
+* `keys`: list of sets to compare to the reference set
+
+---
+
 ## Response
+
+Return an array of differences.
 
 ```javascript
 {
@@ -54,7 +64,3 @@ Method: GET
   ]
 }
 ```
-
-Returns the difference between the set of unique values stored at `key` and the other provided sets.
-
-[[_Redis documentation_]](https://redis.io/commands/sdiff)

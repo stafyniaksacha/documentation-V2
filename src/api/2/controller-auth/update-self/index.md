@@ -14,12 +14,6 @@ The current user cannot update their security profile using this action. To chan
 
 ---
 
-## Arguments
-
-* `jwt` / HTTP `Authorization` header: valid authentication token
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -33,9 +27,8 @@ Body:
 
 ```js
 {
-    "foo": "bar",  // Some properties to update
-    "name": "Walter Smith",
-    ...
+    "foo": "bar",
+    "fullname": "Walter Smith"
 }
 ```
 
@@ -48,10 +41,22 @@ Body:
   "jwt": "<authentication token>",
   "body": {
     "foo": "bar",        
-    "name": "Walter Smith",
+    "name": "Walter Smith"
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `jwt`: valid authentication token (for the HTTP protocol, the token is to be passed to the `Authorization` header instead)
+
+---
+
+## Body properties
+
+User properties that can be set or updated depend on the application hosted by Kuzzle. This document is free of limitations.
 
 ---
 

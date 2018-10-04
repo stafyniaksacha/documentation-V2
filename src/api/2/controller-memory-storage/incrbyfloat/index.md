@@ -14,12 +14,6 @@ Increment the number stored at `key` by the provided float value. If the key doe
 
 ---
 
-## Arguments
-
-* `_id`: key identifier
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -48,6 +42,18 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key identifier
+
+---
+
+## Body properties
+
+* `value`: the float value to add to the key value
 
 ---
 

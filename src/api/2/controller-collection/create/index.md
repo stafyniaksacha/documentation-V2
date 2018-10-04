@@ -12,16 +12,9 @@ Creates a new [collection]({{ site_base_path }}guide/2/essentials/persisted) in 
 
 {{{since "1.3.0"}}}
 
-You can also provide an optional body with a data mapping that allow you to exploit the full capabilities of ourpersistent data storage layer, [ElasticSearch](https://www.elastic.co/products/elasticsearch) (check here the [mapping capabilities of ElasticSearch](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/mapping.html)).  
+You can also provide an optional body with a data mapping that allow you to exploit the full capabilities of our persistent data storage layer.
 
 This method will only update the mapping if the collection already exists.
-
----
-
-## Arguments
-
-* `collection`: data collection to create
-* `index`: data index that will host the new data collection
 
 ---
 
@@ -77,6 +70,21 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection to create
+* `index`: data index that will host the new data collection
+
+---
+
+## Body properties
+
+### Optional:
+
+* `properties`: object describing the data mapping to associate to the new collection, using [Elasticsearch mapping format](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/mapping.html).
 
 ---
 

@@ -8,8 +8,9 @@ title: pfadd
 
 {{{since "1.0.0"}}}
 
+Add elements to a [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog) data structure.
 
-
+[[_Redis documentation_]](https://redis.io/commands/pfadd)
 
 ---
 
@@ -23,17 +24,13 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "elements": ["element1", "element2", "..."]
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -48,7 +45,21 @@ Body:
 
 ---
 
+## Argument
+
+* `_id`: hyperloglog key identifier
+
+---
+
+## Body properties
+
+* `elements`: an array of values to add to the hyperloglog structure
+
+---
+
 ## Response
+
+Return either `0` (command failed), or `1` (command succeeded).
 
 ```javascript
 {
@@ -59,10 +70,6 @@ Body:
   "action": "pfadd",
   "collection": null,
   "index": null,
-  "result": [0|1]
+  "result": 1
 }
 ```
-
-Adds elements to a [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog) data structure.
-
-[[_Redis documentation_]](https://redis.io/commands/pfadd)

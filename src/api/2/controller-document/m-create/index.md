@@ -12,19 +12,6 @@ Create multiple documents.
 
 If a document identifier already exists, the creation fails for that document.
 
-Return a [partial error]({{ site_base_path }}api/2/errors/#partialerror) if one or more document creations fail.
-
----
-
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
-**Options:**
-
-* `refresh`: if set to `wait_for`, Kuzzle will not respond until the newly created documents are indexed
-
 ---
 
 ## Query Syntax
@@ -89,6 +76,25 @@ Body:
 
 ---
 
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+### Optional:
+
+* `refresh`: if set to `wait_for`, Kuzzle will not respond until the newly created documents are indexed
+
+---
+
+## Body properties
+
+* `documents`: an array of object. Each object describes a document to create, by exposing the following properties:
+  * `_id` (optional): document identifier. If not provided, an unique identifier is automatically attributed to the new document
+  * `body`: document content
+
+---
+
 ## Response
 
 Return a `hits` array, containing the list of created documents, in the same order than the one provided in the query.
@@ -99,6 +105,10 @@ Each created document is an object with the following properties:
 * `_source`: document content
 * `_version`: version of the created document (should be `1`)
 * `created`: a boolean telling whether a document is created (should be `true`)
+
+If one or more document changes fail, the response status is set to `206`, and the `error` object contain a [partial error]({{ site_base_path }}api/2/errors/#partialerror) error.
+
+### Example
 
 ```javascript
 {

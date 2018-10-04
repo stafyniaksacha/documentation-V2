@@ -8,7 +8,9 @@ title: pttl
 
 {{{since "1.0.0"}}}
 
+Return the remaining time to live of a key, in milliseconds.
 
+[[_Redis documentation_]](https://redis.io/commands/pttl)
 
 
 ---
@@ -24,7 +26,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -35,7 +36,15 @@ Method: GET
 
 ---
 
+## Argument
+
+* `_id`: key identifier
+
+---
+
 ## Response
+
+Return the remaining TTL, in milliseconds.
 
 ```javascript
 {
@@ -46,10 +55,6 @@ Method: GET
   "action": "pttl",
   "collection": null,
   "index": null,
-  "result": "<remaining time to live, in milliseconds>"
+  "result": 43728
 }
 ```
-
-Returns the remaining time to live of a key, in milliseconds.
-
-[[_Redis documentation_]](https://redis.io/commands/pttl)

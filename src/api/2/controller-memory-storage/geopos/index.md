@@ -14,13 +14,6 @@ Return the position (`[longitude, latitude]`) of the provided key's members (see
 
 ---
 
-## Arguments
-
-* `_id`: key containing the geopoints to fetch
-* `members`: list of geopoint names to fetch
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -40,6 +33,13 @@ Method: GET
   "members": ["member1", "member2", "..."]
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key containing the geopoints to fetch
+* `members`: list of geopoint names to fetch
 
 ---
 

@@ -12,18 +12,6 @@ Delete a document.
 
 ---
 
-## Arguments
-
-* `collection`: data collection
-* `documentId`: document unique identifier
-* `index`: data index
-
-**Options:**
-
-* `refresh`: if set to `wait_for`, Kuzzle will not respond until the deletion has been indexed
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -44,6 +32,18 @@ Method: DELETE
   "_id": "<documentId>"
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `documentId`: document unique identifier
+* `index`: data index
+
+### Optional:
+
+* `refresh`: if set to `wait_for`, Kuzzle will not respond until the deletion has been indexed
 
 ---
 

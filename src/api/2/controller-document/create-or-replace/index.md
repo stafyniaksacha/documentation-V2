@@ -12,18 +12,6 @@ Create a new document in the persistent data storage, or replace its content if 
 
 ---
 
-## Arguments
-
-* `collection`: data collection
-* `documentId`: unique identifier of the document to create or replace
-* `index`: data index
-
-**Options:**
-
-* `refresh`: if set to `wait_for`, Kuzzle will not respond until the created/replaced document is indexed
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -54,6 +42,24 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `documentId`: unique identifier of the document to create or replace
+* `index`: data index
+
+### Optional:
+
+* `refresh`: if set to `wait_for`, Kuzzle will not respond until the created/replaced document is indexed
+
+---
+
+## Body properties
+
+New document content.
 
 ---
 

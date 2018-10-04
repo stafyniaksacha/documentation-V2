@@ -10,19 +10,6 @@ title: mReplace
 
 Replace multiple documents.
 
-Return a [partial error]({{ site_base_path }}api/2/errors/#partialerror) if one or more documents cannot be replaced.
-
----
-
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
-**Options:**
-
-* `refresh`: if set to `wait_for`, Kuzzle will not respond until the replacements are indexed
-
 ---
 
 ## Query Syntax
@@ -84,6 +71,25 @@ Body:
 
 ---
 
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+### Optional:
+
+* `refresh`: if set to `wait_for`, Kuzzle will not respond until the replacements are indexed
+
+---
+
+## Body properties
+
+* `documents`: an array of object. Each object describes a document to replace, by exposing the following properties:
+  * `_id` : ID of the document to replace
+  * `body`: document content
+
+---
+
 ## Response
 
 Return a `hits` array containing the list of replaced documents.
@@ -93,6 +99,8 @@ Each document has the following properties:
 * `_id`: document unique identifier
 * `_source`: document content
 * `_version`: version number of the document
+
+If one or more document cannot be replaced, the response status is set to `206`, and the `error` object contain a [partial error]({{ site_base_path }}api/2/errors/#partialerror) error.
 
 ```js
 {

@@ -8,8 +8,9 @@ title: rpushx
 
 {{{since "1.0.0"}}}
 
+Append a value at the end of a list, only if the destination key already exists, and if it holds a list.
 
-
+[[_Redis documentation_]](https://redis.io/commands/rpushx)
 
 ---
 
@@ -23,17 +24,13 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "value": "<value>"
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -48,7 +45,21 @@ Body:
 
 ---
 
+## Argument
+
+* `_id`: list key identifier
+
+---
+
+## Body properties
+
+* `value`: the value to push to the list
+
+---
+
 ## Response
+
+Return the updated list length.
 
 ```javascript
 {
@@ -59,10 +70,6 @@ Body:
   "action": "rpushx",
   "collection": null,
   "index": null,
-  "result": "<updated number of elements in the list>"
+  "result": 12
 }
 ```
-
-Appends the specified value at the end of a list, only if the key already exists and if it holds a list.
-
-[[_Redis documentation_]](https://redis.io/commands/rpushx)

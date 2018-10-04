@@ -19,7 +19,7 @@ Delete a list of keys.
 ```http
 URL: http://kuzzle:7512/ms
 Method: DELETE
-Method:  
+Body:  
 ```
 
 ```js
@@ -39,6 +39,12 @@ Method:
   }
 }
 ```
+
+---
+
+## Body properties
+
+* `keys`: an array of keys to delete
 
 ---
 

@@ -12,19 +12,6 @@ Search collection specifications.
 
 ---
 
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
-**Options:**
-
-* `from` is usually used with the `size` argument, and defines the offset from the first result you want to fetch
-* `scroll` is used to fetch large result sets, and it must be set with a [time duration](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/common-options.html#time-units). If set, a forward-only cursor will be created (and automatically destroyed at the end of the set duration), and its identifier will be returned in the `scrollId` property, along with the first page of the results. This cursor can then be moved forward using the [`scrollSpecifications` API action]({{ site_base_path }}api/2/controller-collection/scroll-specifications)
-* `size` controls the maximum number of documents returned in the response
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -35,7 +22,6 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   // A set of filters or queries matching documents you are looking for.
@@ -45,9 +31,7 @@ Body:
 }
 ```
 
-
 ### Other protocols
-
 
 ```js
 {
@@ -64,6 +48,28 @@ Body:
   "scroll": "<time to live>"
 }
 ```
+
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+### Optional:
+
+* `from` is usually used with the `size` argument, and defines the offset from the first result you want to fetch
+* `scroll` is used to fetch large result sets, and it must be set with a [time duration](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/common-options.html#time-units). If set, a forward-only cursor will be created (and automatically destroyed at the end of the set duration), and its identifier will be returned in the `scrollId` property, along with the first page of the results. This cursor can then be moved forward using the [`scrollSpecifications` API action]({{ site_base_path }}api/2/controller-collection/scroll-specifications)
+* `size` controls the maximum number of documents returned in the response
+
+---
+
+## Body properties
+
+### Optional:
+
+* `query`: a search query filtering the result, using the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl.html)
 
 ---
 

@@ -14,12 +14,6 @@ Return the value of a key, or `null` if the key doesn't exist.
 
 ---
 
-## Arguments
-
-* `_id`: key to fetch
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -39,6 +33,12 @@ Method: GET
   "_id": "<key>"
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key to fetch
 
 ---
 

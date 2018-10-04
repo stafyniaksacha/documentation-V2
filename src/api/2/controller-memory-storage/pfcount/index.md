@@ -8,8 +8,9 @@ title: pfcount
 
 {{{since "1.0.0"}}}
 
+Return the probabilistic cardinality of a [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog) data structure, or of the merged HyperLogLog structures if more than 1 is provided (see [pfadd]({{ site_base_path }}api/2/controller-memory-storage/pfadd)).
 
-
+[[_Redis documentation_]](https://redis.io/commands/pfcount)
 
 ---
 
@@ -24,7 +25,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -35,7 +35,15 @@ Method: GET
 
 ---
 
+## Argument
+
+* `keys`: hyperloglog key identifiers
+
+---
+
 ## Response
+
+Return the probabilistic cardinality.
 
 ```javascript
 {
@@ -46,10 +54,6 @@ Method: GET
   "action": "pfcount",
   "collection": null,
   "index": null,
-  "result": "<probabilistic cardinality>"
+  "result": 6
 }
 ```
-
-Returns the probabilistic cardinality of a [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog) data structure, or of the merged HyperLogLog structures if more than 1 is provided (see [pfadd]({{ site_base_path }}api/2/controller-memory-storage/pfadd)).
-
-[[_Redis documentation_]](https://redis.io/commands/pfcount)

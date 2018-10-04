@@ -8,8 +8,9 @@ title: setnx
 
 {{{since "1.0.0"}}}
 
+Set a value on a key, only if it does not already exist.
 
-
+[[_Redis documentation_]](https://redis.io/commands/setnx)
 
 ---
 
@@ -23,17 +24,13 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "value": "<value>"
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -48,7 +45,21 @@ Body:
 
 ---
 
+## Argument
+
+* `_id`: key identifier
+
+---
+
+## Body properties
+
+* `value`: new key value
+
+---
+
 ## Response
+
+Return either `0` (command failed), or `1` (command succeeded).
 
 ```javascript
 {
@@ -59,10 +70,6 @@ Body:
   "action": "setnx",
   "collection": null,
   "index": null,
-  "result": [0|1]
+  "result": 1
 }
 ```
-
-Sets a value on a key, only if it does not already exist.
-
-[[_Redis documentation_]](https://redis.io/commands/setnx)

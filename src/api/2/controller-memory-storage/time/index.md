@@ -8,8 +8,9 @@ title: time
 
 {{{since "1.0.0"}}}
 
+Return the current server time.
 
-
+[[_Redis documentation_]](https://redis.io/commands/time)
 
 ---
 
@@ -24,7 +25,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -35,6 +35,13 @@ Method: GET
 ---
 
 ## Response
+ 
+Return the time as a two items array: 
+
+* a timestamp in [Epoch time](https://en.wikipedia.org/wiki/Unix_time) 
+* the number of microseconds already elapsed in the current second
+
+### Example
 
 ```javascript
 {
@@ -46,12 +53,8 @@ Method: GET
   "collection": null,
   "index": null,
   "result": [
-    "<Epoch time>",
-    "<microseconds>"
+    "1538640821",
+    "450704"
   ]
 }
 ```
-
-Returns the current server time as a two items list: a timestamp in [Epoch time](https://en.wikipedia.org/wiki/Unix_time) and the number of microseconds already elapsed in the current second.
-
-[[_Redis documentation_]](https://redis.io/commands/time)

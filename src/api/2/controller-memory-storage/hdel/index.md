@@ -15,12 +15,6 @@ Remove fields from a hash.
 
 ---
 
-## Arguments
-
-* `_id`: hash key identifier
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -50,6 +44,18 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+
+---
+
+## Body properties
+
+* `fields`: an array of hash fields to delete
 
 ---
 

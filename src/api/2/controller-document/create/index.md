@@ -14,18 +14,6 @@ Return an error if the document already exists.
 
 ---
 
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
-**Options:**
-
-* `documentId`: set the document unique ID to the provided value, instead of auto-generating a random ID
-* `refresh`: if set to `wait_for`, Kuzzle will not respond until the newly created document is indexed
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -43,7 +31,6 @@ Body:
 }
 ```
 
-
 ### Other protocols
 
 ```js
@@ -52,11 +39,30 @@ Body:
   "collection": "<collection>",
   "controller": "document",
   "action": "create",
-  "refresh": "wait_for",
   "_id": "<documentId>",            
-  "body": {}
+  "body": {
+    // document content
+  }
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+### Optional:
+
+* `documentId`: set the document unique ID to the provided value, instead of auto-generating a random ID
+* `refresh`: if set to `wait_for`, Kuzzle will not respond until the newly created document is indexed
+
+---
+
+## Body properties
+
+Document content to create.
 
 ---
 

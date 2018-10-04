@@ -8,7 +8,6 @@ title: shutdown
 
 {{{since "1.4.0"}}}
 
-
 Let you stop a Kuzzle instance after any remaining requests are processed.
 
 In a cluster environment, the shutdown action will be propagated across all nodes.
@@ -25,7 +24,6 @@ Method: POST
 ```
 
 ### Other protocols
-
 
 ```js
 {

@@ -8,8 +8,9 @@ title: sismember
 
 {{{since "1.0.0"}}}
 
+Check if a value is a member of a set of unique values.
 
-
+[[_Redis documentation_]](https://redis.io/commands/sismember)
 
 ---
 
@@ -24,7 +25,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -34,9 +34,19 @@ Method: GET
 }
 ```
 
+
+---
+
+## Argument
+
+* `_id`: set key identifier
+* `member`: member value to check
+
 ---
 
 ## Response
+
+Return either `1` (member belongs to the set), or `0`.
 
 ```javascript
 {
@@ -47,10 +57,6 @@ Method: GET
   "action": "sismember",
   "collection": null,
   "index": null,
-  "result": [0|1]
+  "result": 1
 }
 ```
-
-Checks if `member` is a member of the set of unique values stored at `key`.
-
-[[_Redis documentation_]](https://redis.io/commands/sismember)

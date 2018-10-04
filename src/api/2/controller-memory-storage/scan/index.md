@@ -8,8 +8,14 @@ title: scan
 
 {{{since "1.0.0"}}}
 
+Iterates incrementally over the set of keys in the database using a cursor.
 
+An iteration starts when the cursor is set to 0.  
+To get the next page of results, simply re-send the request with the updated cursor position provided in the result set.
 
+The scan ends when the cursor returned by the server is 0.
+
+[[_Redis documentation_]](https://redis.io/commands/scan)
 
 ---
 
@@ -24,21 +30,37 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
   "action": "scan",
-  "cursor": "<cursor>",
-
-  "match": "<pattern>",
-  "count": "<count>"
+  "cursor": 0,
+  "match": "foo*bar",
+  "count": 20
 }
 ```
 
 ---
 
+## Arguments
+
+* `cursor`: cursor offset (set it to `0` to start a new scan)
+
+### Optional:
+
+* `count`: return an _approximate_ number of items per result set (the default is 10)
+* `match`: search only keys matching the provided pattern
+
+---
+
 ## Response
+
+Return an array containing the following two elements:
+
+* a new cursor position, to be used to get the next page of results (or `0` when at the end of the cursor)
+* an array of found keys
+
+### Example
 
 ```javascript
 {
@@ -46,11 +68,11 @@ Method: GET
   "status": 200,
   "error": null,
   "controller": "ms",
-  "action": "scan",
+  "action": "hscan",
   "collection": null,
   "index": null,
   "result": [
-    "<new cursor position>",
+    13,
     [
       "key1",
       "key2",
@@ -59,17 +81,3 @@ Method: GET
   ]
 }
 ```
-
-Iterates incrementally over the set of keys in the database using a cursor.
-
-An iteration starts when the cursor is set to 0.  
-To get the next page of results, simply re-send the request with the updated cursor position provided in the result set.  
-The scan terminates when the cursor returned by the server is 0.
-
-Optional arguments:
-
-* `count`: return an _approximate_ number of items per result set (the default is 10)
-* `match`: search only keys matching the provided pattern
-
-
-[[_Redis documentation_]](https://redis.io/commands/scan)

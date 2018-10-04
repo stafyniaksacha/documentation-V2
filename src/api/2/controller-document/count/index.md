@@ -8,20 +8,9 @@ title: count
 
 {{{since "1.0.0"}}}
 
-Count documents matching the provided query.
+Count documents in a data collection.
 
-Uses the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl.html) syntax.
-
----
-
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
-**Options:**
-
-* `includeTrash`: include documents from the [trashcan]({{ site_base_path }}guide/2/essentials/document-metadata/)
+A query can be provided to alter the count result, otherwise return the total number of documents in the data collection.
 
 ---
 
@@ -37,7 +26,9 @@ Body:
 
 ```js
 {
-  // Search query/filter following Elasticsearch's syntax
+  "query": {
+        "match_all": {}
+    }
 }
 ```
 
@@ -50,11 +41,32 @@ Body:
   "controller": "document",
   "action": "count",
   "body": {
-    // Search query/filter following Elasticsearch's syntax
+    "query": {
+        "match_all": {}
+    }
   },
   "includeTrash": false
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+### Optional:
+
+* `includeTrash`: include documents from the [trashcan]({{ site_base_path }}guide/2/essentials/document-metadata/)
+
+---
+
+## Body properties
+
+### Optional:
+
+* `query`: if provided, will count only documents matching this search query. Uses the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl.html) syntax.
 
 ---
 

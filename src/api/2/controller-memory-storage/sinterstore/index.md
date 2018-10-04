@@ -8,8 +8,11 @@ title: sinterstore
 
 {{{since "1.0.0"}}}
 
+Compute the intersection of the provided sets of unique values, and store the result in a destination key.
 
+If the destination key already exists, it is overwritten.
 
+[[_Redis documentation_]](https://redis.io/commands/sinterstore)
 
 ---
 
@@ -23,7 +26,6 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "destination": "<destination key>",
@@ -31,10 +33,7 @@ Body:
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -49,7 +48,16 @@ Body:
 
 ---
 
+## Body properties
+
+* `destination`: new set to create, holding the intersection
+* `keys`: source sets to intersect with the reference set
+
+---
+
 ## Response
+
+Return the number of values stored in the destination key.
 
 ```javascript
 {
@@ -60,12 +68,6 @@ Body:
   "action": "sinterstore",
   "collection": null,
   "index": null,
-  "result": "<number of elements in the resulting set>"
+  "result": 3
 }
 ```
-
-Computes the intersection of the provided sets of unique values and stores the result in the `destination` key.
-
-If the destination key already exists, it is overwritten.
-
-[[_Redis documentation_]](https://redis.io/commands/sinterstore)

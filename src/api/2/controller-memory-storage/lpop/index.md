@@ -8,7 +8,9 @@ title: lpop
 
 {{{since "1.0.0"}}}
 
+Remove and return the first element of a list.
 
+[[_Redis documentation_]](https://redis.io/commands/lpop)
 
 ---
 
@@ -23,7 +25,6 @@ Method: POST
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -34,7 +35,15 @@ Method: POST
 
 ---
 
+## Argument
+
+* `_id`: list key identifier
+
+---
+
 ## Response
+
+Return the removed value.
 
 ```javascript
 {
@@ -45,10 +54,6 @@ Method: POST
   "action": "lpop",
   "collection": null,
   "index": null,
-  "result": "<removed value>"
+  "result": "foo"
 }
 ```
-
-Removes and returns the first element of a list.
-
-[[_Redis documentation_]](https://redis.io/commands/lpop)

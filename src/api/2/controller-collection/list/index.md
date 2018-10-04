@@ -12,19 +12,6 @@ Returns the complete list of realtime and stored data collections in requested i
 
 ---
 
-## Arguments
-
-
-* `collection`: data collection
-* `index`: data index
-
-**Options:**
-
-* `from` and `size`: response pagination
-* `type`: filters the returned collections. Allowed values: `all`, `stored` and `realtime` (default : `all`).  
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -47,6 +34,19 @@ Method: GET
   "size": 42
 }
 ```
+
+---
+
+## Arguments
+
+
+* `collection`: data collection
+* `index`: data index
+
+### Optional:
+
+* `from` and `size`: response pagination
+* `type`: filters the returned collections. Allowed values: `all`, `stored` and `realtime` (default : `all`).  
 
 ---
 

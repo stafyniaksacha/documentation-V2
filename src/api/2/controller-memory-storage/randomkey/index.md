@@ -8,8 +8,9 @@ title: randomkey
 
 {{{since "1.0.0"}}}
 
+Return a key identifier from the memory storage, at random.
 
-
+[[_Redis documentation_]](https://redis.io/commands/randomkey)
 
 ---
 
@@ -20,13 +21,9 @@ title: randomkey
 ```http
 URL: http://kuzzle:7512/ms/_randomkey
 Method: GET  
-Body:
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -39,6 +36,8 @@ Body:
 
 ## Response
 
+Return one of the database key, at random.
+
 ```javascript
 {
   "requestId": "<unique request identifier>",
@@ -48,10 +47,6 @@ Body:
   "action": "randomkey",
   "collection": null,
   "index": null,
-  "result": "<one of the database's key, at random>"
+  "result": "qux"
 }
 ```
-
-Returns a random key from the memory storage.
-
-[[_Redis documentation_]](https://redis.io/commands/randomkey)

@@ -8,8 +8,14 @@ title: sscan
 
 {{{since "1.0.0"}}}
 
+Iterates incrementally over members contained in a set of unique values, using a cursor.
 
+An iteration starts when the cursor is set to 0.  
+To get the next page of results, simply re-send the request with the updated cursor position provided in the result set.  
 
+The scan ends when the cursor returned by the server is 0.
+
+[[_Redis documentation_]](https://redis.io/commands/sscan)
 
 ---
 
@@ -24,22 +30,40 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
   "action": "sscan",
   "_id": "<key>",
-  "cursor": "<cursor>",
-
+  "cursor": 0,
   "match": "<pattern>",
-  "count": "<count>"
+  "count": 20
 }
 ```
 
 ---
 
+## Arguments
+
+* `_id`: hash key identifier
+* `cursor`: cursor offset
+
+### Optional:
+
+* `count`: return an _approximate_ number of items per result set (the default is 10)
+* `match`: search only keys matching the provided pattern
+
+
+---
+
 ## Response
+
+Return an array containing the following two elements:
+
+* a new cursor position, to be used to get the next page of results (or `0` when at the end of the cursor)
+* an array of found keys
+
+### Example
 
 ```javascript
 {
@@ -51,7 +75,7 @@ Method: GET
   "collection": null,
   "index": null,
   "result": [
-    "<new cursor position>",
+    13,
     [
       "member1",
       "member2",
@@ -60,8 +84,3 @@ Method: GET
   ]
 }
 ```
-
-Identical to [scan]({{ site_base_path }}api/2/controller-memory-storage/scan) but iterates members contained in a set of unique values.
-
-
-[[_Redis documentation_]](https://redis.io/commands/sscan)

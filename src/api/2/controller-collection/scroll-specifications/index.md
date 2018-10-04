@@ -17,19 +17,6 @@ Subsequent changes to documents (index, update or delete) will only affect later
 
 ---
 
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-* `scrollId`: cursor identifier, obtained with ({{ site_base_path }}api/2/controller-collection/search-specifications)
-
-**Options:**
-
-* `scroll`: reset the cursor TTL to the provided duration, using the [time to live](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/common-options.html#time-units) format.
-
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -50,6 +37,18 @@ Method: GET
   "scroll": "<time to live>"
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+* `scrollId`: cursor identifier, obtained with ({{ site_base_path }}api/2/controller-collection/search-specifications)
+
+### Optional:
+
+* `scroll`: reset the cursor TTL to the provided duration, using the [time to live](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/common-options.html#time-units) format.
 
 ---
 

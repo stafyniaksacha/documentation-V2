@@ -14,12 +14,6 @@ Perform a bitwise operation between multiple keys (containing string values) and
 
 ---
 
-## Arguments
-
-* `_id`: destination key to create
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -53,11 +47,22 @@ Body:
 
 ---
 
+## Arguments
+
+* `_id`: destination key to create
+
+---
+
+## Body properties
+
+* `keys`: the list of keys to combine
+* `operation`: the bitwise operand to use to combine keys. Allowed values: `AND`, `NOT`, `OR`, `XOR`
+
+---
+
 ## Response
 
 Return the new destination key length, as an integer.
-
-Example:
 
 ```js
 {

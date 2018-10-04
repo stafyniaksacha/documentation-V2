@@ -10,20 +10,6 @@ title: mUpdate
 
 Update multiple documents.
 
-Return a partial error (with status 206) if one or more documents cannot be updated.
-
----
-
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
-**Options:**
-
-* `refresh`: if set to `wait_for`, Kuzzle will not respond until the updates are indexed
-* `retryOnConflict`: conflicts may occur if the same document gets updated multiple times within a short timespan in a database cluster. You can set the `retryOnConflict` optional argument (with a retry count), to tell Kuzzle to retry the failing updates the specified amount of times before rejecting the request with an error.
-
 ---
 
 ## Query Syntax
@@ -84,6 +70,26 @@ Body:
 
 ---
 
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+### Optional:
+
+* `refresh`: if set to `wait_for`, Kuzzle will not respond until the updates are indexed
+* `retryOnConflict`: conflicts may occur if the same document gets updated multiple times within a short timespan in a database cluster. You can set the `retryOnConflict` optional argument (with a retry count), to tell Kuzzle to retry the failing updates the specified amount of times before rejecting the request with an error.
+
+---
+
+## Body properties
+
+* `documents`: an array of object. Each object describes a document to update, by exposing the following properties:
+  * `_id` : ID of the document to replace
+  * `body`: partial changes to apply to the document
+
+---
+
 ## Response
 
 Return a `hits` array containing the list of updated documents.
@@ -93,6 +99,8 @@ Each document has the following properties:
 * `_id`: document unique identifier
 * `_source`: updated document content
 * `_version`: version number of the document
+
+If one or more document cannot be updated, the response status is set to `206`, and the `error` object contain a [partial error]({{ site_base_path }}api/2/errors/#partialerror) error.
 
 ```js
 {

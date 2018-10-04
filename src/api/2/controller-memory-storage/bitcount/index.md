@@ -14,17 +14,6 @@ Count the number of set bits (population counting) in a string.
 
 ---
 
-## Arguments
-
-* `_id`: key to evaluate
-
-**Options:**
-
-* `start`: count starts at the provided offset
-* `end`: count ends at the provided offset
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -45,6 +34,17 @@ Method: GET
   "end": <integer>
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key to evaluate
+
+### Optional:
+
+* `start`: count starts at the provided offset
+* `end`: count ends at the provided offset
 
 ---
 

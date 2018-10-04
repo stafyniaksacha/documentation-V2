@@ -8,14 +8,7 @@ title: credentialsExist
 
 {{{since "1.0.0"}}}
 
-Check that the current authenticated user has credentials for the specified authentication `strategy`.
-
----
-
-## Arguments
-
-* `jwt` / HTTP `Authorization` header: valid authentication token
-* `strategy`: name of the authentication strategy to be tested
+Check that the current authenticated user has credentials for the specified authentication strategy.
 
 ---
 
@@ -39,6 +32,13 @@ Headers: Authorization: "Bearer <authentication token>"
   "jwt": "<authentication token>"
 }
 ```
+
+---
+
+## Arguments
+
+* `jwt`: valid authentication token (for the HTTP protocol, the token is to be passed to the `Authorization` header instead)
+* `strategy`: name of the authentication strategy to be tested
 
 ---
 

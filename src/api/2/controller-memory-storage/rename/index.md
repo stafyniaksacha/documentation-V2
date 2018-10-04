@@ -8,8 +8,11 @@ title: rename
 
 {{{since "1.0.0"}}}
 
+Rename a key.
 
+If the new key name is already used, then it is overwritten.
 
+[[_Redis documentation_]](https://redis.io/commands/rename)
 
 ---
 
@@ -23,17 +26,13 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "newkey": "<new key name>"
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -46,9 +45,24 @@ Body:
 }
 ```
 
+
+---
+
+## Argument
+
+* `_id`: key to rename
+
+---
+
+## Body properties
+
+* `newkey`: the new key name
+
 ---
 
 ## Response
+
+Return an acknowledgement.
 
 ```javascript
 {
@@ -62,7 +76,3 @@ Body:
   "result": "OK"
 }
 ```
-
-Renames a key to `newkey`. If `newkey` already exists, it is overwritten.
-
-[[_Redis documentation_]](https://redis.io/commands/rename)

@@ -8,7 +8,9 @@ title: smembers
 
 {{{since "1.0.0"}}}
 
+Return the members of a set of unique values.
 
+[[_Redis documentation_]](https://redis.io/commands/smembers)
 
 
 ---
@@ -24,7 +26,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -35,7 +36,15 @@ Method: GET
 
 ---
 
+## Argument
+
+* `_id`: set key identifier
+
+---
+
 ## Response
+
+Return the list of the set's members.
 
 ```javascript
 {
@@ -53,7 +62,3 @@ Method: GET
   ]
 }
 ```
-
-Returns the members of a set of unique values.
-
-[[_Redis documentation_]](https://redis.io/commands/smembers)

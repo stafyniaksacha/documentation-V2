@@ -14,13 +14,6 @@ Return the string length of a field's value in a hash.
 
 ---
 
-## Arguments
-
-* `_id`: hash key identifier
-* `field`: hash field name
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -40,6 +33,13 @@ Method: GET
   "field": "<field>"
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+* `field`: hash field name
 
 ---
 

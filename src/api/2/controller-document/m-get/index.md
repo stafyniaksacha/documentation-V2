@@ -10,19 +10,6 @@ title: mGet
 
 Get multiple documents.
 
-Return a [partial error]({{ site_base_path }}api/2/errors/#partialerror) if one or more documents cannot be retrieved.
-
----
-
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
-**Options:**
-
-* `includeTrash`: if set, documents in the [trashcan]({{ site_base_path }}guide/2/essentials/document-metadata/) can be returned.
-
 ---
 
 ## Query Syntax
@@ -41,9 +28,7 @@ Body:
 }
 ```
 
-
 ### Other protocols
-
 
 ```js
 {
@@ -60,6 +45,23 @@ Body:
 
 ---
 
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+### Optional:
+
+* `includeTrash`: if set, documents in the [trashcan]({{ site_base_path }}guide/2/essentials/document-metadata/) can be returned.
+
+---
+
+## Body properties
+
+* `ids`: an array of document identifiers to fetch
+
+---
+
 ## Response
 
 Return a `hits` array with the list of retrieved documents.
@@ -69,6 +71,8 @@ Each document is an object with the following properties:
 * `_id`: document unique identifier
 * `_source`: document content
 * `_version`: version number of the document
+
+If one or more document retrievals fail, the response status is set to `206`, and the `error` object contain a [partial error]({{ site_base_path }}api/2/errors/#partialerror) error.
 
 
 ```js

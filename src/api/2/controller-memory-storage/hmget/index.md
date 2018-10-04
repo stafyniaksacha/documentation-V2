@@ -14,13 +14,6 @@ Return the values of the specified hash's fields.
 
 ---
 
-## Arguments
-
-* `_id`: hash key identifier
-* `fields`: the list of fields to fetch
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -41,6 +34,13 @@ Method: GET
   "fields": ["field1", "field2", "..."]
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+* `fields`: the list of fields to fetch
 
 ---
 

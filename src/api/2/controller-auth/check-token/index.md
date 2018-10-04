@@ -9,13 +9,8 @@ title: checkToken
 {{{since "1.0.0"}}}
 
 Checks a JWT validity.
+
 This API route does not require the caller to be logged in.
-
----
-
-## Arguments
-
-* `token`: the JWT to be tested
 
 ---
 
@@ -46,6 +41,12 @@ Body:
   }
 }
 ```
+
+---
+
+## Body properties
+
+* `token`: the JWT to be tested
 
 ---
 

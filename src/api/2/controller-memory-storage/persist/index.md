@@ -8,8 +8,9 @@ title: persist
 
 {{{since "1.0.0"}}}
 
+Remove the expiration delay or timestamp from a key, making it persistent.
 
-
+[[_Redis documentation_]](https://redis.io/commands/persist)
 
 ---
 
@@ -22,9 +23,7 @@ URL: http://kuzzle:7512/ms/_persist/<_id>
 Method: POST
 ```
 
-
 ### Other protocols
-
 
 ```js
 {
@@ -36,7 +35,15 @@ Method: POST
 
 ---
 
+## Argument
+
+* `_id`: key to persist
+
+---
+
 ## Response
+
+Return either `0` (command failed), or `1` (command succeeded).
 
 ```javascript
 {
@@ -47,10 +54,6 @@ Method: POST
   "action": "persist",
   "collection": null,
   "index": null,
-  "result": [0|1]
+  "result": 1
 }
 ```
-
-Removes the expiration delay or timestamp from a key, making it persistent.
-
-[[_Redis documentation_]](https://redis.io/commands/persist)

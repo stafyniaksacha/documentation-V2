@@ -8,8 +8,9 @@ title: smove
 
 {{{since "1.0.0"}}}
 
+Move a member from a set of unique values to another.
 
-
+[[_Redis documentation_]](https://redis.io/commands/smove)
 
 ---
 
@@ -23,7 +24,6 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "destination": "<destination key>",
@@ -31,10 +31,7 @@ Body:
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -50,7 +47,22 @@ Body:
 
 ---
 
+## Argument
+
+* `_id`: source set identifier
+
+---
+
+## Body properties
+
+* `destination`: destination set identifier
+* `member`: member value to move
+
+---
+
 ## Response
+
+Return either `0` (command failed), or `1` (command succeeded).
 
 ```javascript
 {
@@ -61,10 +73,6 @@ Body:
   "action": "smove",
   "collection": null,
   "index": null,
-  "result": [0|1]
+  "result": 1
 }
 ```
-
-Moves a member from a set of unique values to another.
-
-[[_Redis documentation_]](https://redis.io/commands/smove)

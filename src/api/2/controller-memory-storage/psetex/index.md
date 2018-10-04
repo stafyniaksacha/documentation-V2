@@ -8,8 +8,9 @@ title: psetex
 
 {{{since "1.0.0"}}}
 
+Set a key with the provided value, and an expiration delay expressed in milliseconds. If the key does not exist, it is created beforehand.
 
-
+[[_Redis documentation_]](https://redis.io/commands/psetex)
 
 ---
 
@@ -23,18 +24,14 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
-  "milliseconds": "<time to live>",
-  "value": "<value to set>"
+  "milliseconds": 60000,
+  "value": "<value>"
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -42,15 +39,30 @@ Body:
   "action": "psetex",
   "_id": "<key>",
   "body": {
-    "milliseconds": "<time to live>",
-    "value": "<value to set>"
+    "milliseconds": 60000,
+    "value": "<value>"
   }
 }
 ```
 
 ---
 
+## Argument
+
+* `_id`: key identifier
+
+---
+
+## Body properties
+
+* `milliseconds`: the key time to live, in milliseconds
+* `value`: new value
+
+---
+
 ## Response
+
+Return an acknowledgement.
 
 ```javascript
 {
@@ -64,7 +76,3 @@ Body:
   "result": "OK"
 }
 ```
-
-Sets a key with the provided value, and an expiration delay expressed in milliseconds. If the key does not exist, it is created beforehand.
-
-[[_Redis documentation_]](https://redis.io/commands/psetex)

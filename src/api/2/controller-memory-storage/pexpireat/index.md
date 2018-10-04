@@ -8,8 +8,17 @@ title: pexpireat
 
 {{{since "1.0.0"}}}
 
+Set an expiration timestamp on a key. After the timestamp has been reached, the key will automatically be deleted.
 
+The `timestamp` parameter accepts an [Epoch time](https://en.wikipedia.org/wiki/Unix_time) value, in milliseconds.
 
+[[_Redis documentation_]](https://redis.io/commands/pexpireat)
+
+---
+
+## Argument
+
+* `_id`: key identifier
 
 ---
 
@@ -23,17 +32,13 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
-  "timestamp": "<Epoch time in milliseconds>"
+  "timestamp": 1538640821799
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -41,14 +46,28 @@ Body:
   "action": "pexpireat",
   "_id": "<key>",
   "body": {
-    "timestamp": "<Epoch time in milliseconds>"
+    "timestamp": 1538640821799
   }
 }
 ```
 
 ---
 
+## Argument
+
+* `_id`: key identifier
+
+---
+
+## Body properties
+
+* `timestamp`: the key expiration timestamp, using the Epoch-millis format
+
+---
+
 ## Response
+
+Return either `0` (command failed), or `1` (command succeeded).
 
 ```javascript
 {
@@ -59,11 +78,6 @@ Body:
   "action": "pexpireat",
   "collection": null,
   "index": null,
-  "result": [0|1]
+  "result": 1
 }
 ```
-
-Sets an expiration timestamp on a key. After the timestamp has been reached, the key will automatically be deleted.  
-The `timestamp` parameter accepts an [Epoch time](https://en.wikipedia.org/wiki/Unix_time) value, in milliseconds.
-
-[[_Redis documentation_]](https://redis.io/commands/pexpireat)

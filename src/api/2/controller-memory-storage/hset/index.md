@@ -18,12 +18,6 @@ If the field already exists, its value is overwritten.
 
 ---
 
-## Arguments
-
-* `_id`: hash key identifier
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -54,6 +48,19 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+
+--- 
+
+## Body properties
+
+* `field`: hash field name to set
+* `value`: hash field value
 
 ---
 

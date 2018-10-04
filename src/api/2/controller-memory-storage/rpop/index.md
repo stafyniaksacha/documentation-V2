@@ -8,8 +8,9 @@ title: rpop
 
 {{{since "1.0.0"}}}
 
+Remove the last element of a list and returns it.
 
-
+[[_Redis documentation_]](https://redis.io/commands/rpop)
 
 ---
 
@@ -24,7 +25,6 @@ Method: POST
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -35,7 +35,15 @@ Method: POST
 
 ---
 
+## Argument
+
+* `_id`: list key identifier
+
+---
+
 ## Response
+
+Return the removed element.
 
 ```javascript
 {
@@ -46,10 +54,6 @@ Method: POST
   "action": "rpop",
   "collection": null,
   "index": null,
-  "result": "<removed element value>"
+  "result": "bar"
 }
 ```
-
-Removes the last element of a list and returns it.
-
-[[_Redis documentation_]](https://redis.io/commands/rpop)

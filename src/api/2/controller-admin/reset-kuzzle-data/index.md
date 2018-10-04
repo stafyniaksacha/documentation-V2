@@ -8,7 +8,6 @@ title: resetKuzzleData
 
 {{{since "1.4.0"}}}
 
-
 Asynchronously start the following sequence in Kuzzle, in this order:
 
 * Invalidate and delete all users along with their credentials

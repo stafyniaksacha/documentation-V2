@@ -14,12 +14,6 @@ Set a field and its value in a hash, only if the field does not already exist.
 
 ---
 
-## Arguments
-
-* `_id`: hash key identifier
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -50,6 +44,19 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+
+---
+
+## Body properties
+
+* `field`: new hash field name
+* `value`: hash field value
 
 ---
 

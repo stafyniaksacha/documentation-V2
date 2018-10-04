@@ -8,8 +8,9 @@ title: pexpire
 
 {{{since "1.0.0"}}}
 
+Set a timeout (in milliseconds) on a key. After the timeout has expired, the key will automatically be deleted.
 
-
+[[_Redis documentation_]](https://redis.io/commands/pexpire)
 
 ---
 
@@ -23,17 +24,13 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
-  "milliseconds": <time to live>
+  "milliseconds": 60000
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -41,14 +38,27 @@ Body:
   "action": "pexpire",
   "_id": "<key>",
   "body": {
-    "milliseconds": "<time to live>"
-  }
+    "milliseconds": 60000
 }
 ```
 
 ---
 
+## Argument
+
+* `_id`: key identifier
+
+---
+
+## Body properties
+
+* `milliseconds`: the number of milliseconds after which the key is deleted
+
+---
+
 ## Response
+
+Return either `0` (command failed), or `1` (command succeeded).
 
 ```javascript
 {
@@ -59,10 +69,6 @@ Body:
   "action": "pexpire",
   "collection": null,
   "index": null,
-  "result": [0|1]
+  "result": 1
 }
 ```
-
-Sets a timeout (in milliseconds) on a key. After the timeout has expired, the key will automatically be deleted.
-
-[[_Redis documentation_]](https://redis.io/commands/pexpire)

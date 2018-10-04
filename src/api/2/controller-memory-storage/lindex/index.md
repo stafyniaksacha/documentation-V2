@@ -14,13 +14,6 @@ Return the element at the provided index in a list.
 
 ---
 
-## Argument
-
-* `_id`: list key identifier
-* `index`: list index (integer, starts at `0`)
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -41,6 +34,13 @@ Method: GET
   "index": 3
 }
 ```
+
+---
+
+## Argument
+
+* `_id`: list key identifier
+* `index`: index of the list. Lists are 0-indexed. If negative, it goes backward from the end of the list
 
 ---
 

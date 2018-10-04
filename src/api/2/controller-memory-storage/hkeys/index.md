@@ -14,12 +14,6 @@ Return all field names contained in a hash.
 
 ---
 
-## Arguments
-
-* `_id`: hash key identifier
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -39,6 +33,12 @@ Method: GET
   "_id": "<key>"
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
 
 ---
 

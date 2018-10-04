@@ -8,14 +8,7 @@ title: deleteByQuery
 
 {{{since "1.0.0"}}}
 
-Delete documents matching the provided search query, using the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl.html) syntax.
-
----
-
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
+Delete documents matching the provided search query.
 
 ---
 
@@ -52,6 +45,19 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+---
+
+## Body properties
+
+* `query`: documents matching this search query will be deleted. Uses the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl.html) syntax.
 
 ---
 

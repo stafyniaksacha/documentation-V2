@@ -8,8 +8,9 @@ title: spop
 
 {{{since "1.0.0"}}}
 
+Remove and return one or more elements at random from a set of unique values. If multiple elements are removed, the result set will be an array of removed elements, instead of a string.
 
-
+[[_Redis documentation_]](https://redis.io/commands/spop)
 
 ---
 
@@ -23,18 +24,14 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   // optional
-  "count": "<number of elements to remove>"
+  "count": 2
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -42,14 +39,31 @@ Body:
   "action": "spop",
   "_id": "<key>",
   "body": {
-    "count": "<number of elements to remove>"
+    // optional
+    "count": 2
   }
 }
 ```
 
 ---
 
+## Argument
+
+* `_id`: key identifier
+
+---
+
+## Body properties
+
+### Optional:
+
+* `count`: number of elements to remove (default: `1`)
+
+---
+
 ## Response
+
+If `count` is not set or equal to `1`, return the removed element as a string:
 
 ```javascript
 {
@@ -64,6 +78,21 @@ Body:
 }
 ```
 
-Removes and returns one or more elements at random from a set of unique values. If multiple elements are removed, the result set will be an array of removed elements, instead of a string.
+If multiple elements are removed (`count > 1`), an array of removed elements is returned instead:
 
-[[_Redis documentation_]](https://redis.io/commands/spop)
+```javascript
+{
+  "requestId": "<unique request identifier>",
+  "status": 200,
+  "error": null,
+  "controller": "ms",
+  "action": "spop",
+  "collection": null,
+  "index": null,
+  "result": [
+    "removed element 1",
+    "removed element 2", 
+    "..."
+  ]
+}
+```

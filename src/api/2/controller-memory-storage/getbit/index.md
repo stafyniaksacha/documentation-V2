@@ -14,13 +14,6 @@ Return the bit value at the provided offset, in the string value stored in a key
 
 ---
 
-## Arguments
-
-* `_id`: key containing the geopoints to fetch
-* `offset`: bit offset to return
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -41,6 +34,13 @@ Method: GET
   "offset": "<offset>"
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key containing the geopoints to fetch
+* `offset`: bit offset to return
 
 ---
 

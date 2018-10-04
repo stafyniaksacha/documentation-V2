@@ -12,12 +12,6 @@ Delete an [index]({{ site_base_path }}guide/2/essentials/persisted).
 
 ---
 
-## Arguments
-
-* `index`: index name to delete
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -37,6 +31,12 @@ Method: DELETE
   "action": "delete"
 }
 ```
+
+---
+
+## Arguments
+
+* `index`: index name to delete
 
 ---
 

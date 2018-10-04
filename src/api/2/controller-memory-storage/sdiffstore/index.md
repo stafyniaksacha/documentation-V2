@@ -8,8 +8,11 @@ title: sdiffstore
 
 {{{since "1.0.0"}}}
 
+Compute the difference between a reference set of unique values, and other sets. The differences are then stored in the provided destination key.
 
+If the destination key already exists, it is overwritten.
 
+[[_Redis documentation_]](https://redis.io/commands/sdiffstore)
 
 ---
 
@@ -23,7 +26,6 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "destination": "<key>",
@@ -31,10 +33,7 @@ Body:
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -50,7 +49,22 @@ Body:
 
 ---
 
+## Argument
+
+* `_id`: reference set identifier
+
+---
+
+## Body properties
+
+* `destination`: the new set to create
+* `keys`: source sets to diff with the reference set
+
+---
+
 ## Response
+
+Return the number of elements stored in the resulting set.
 
 ```javascript
 {
@@ -61,12 +75,6 @@ Body:
   "action": "sdiffstore",
   "collection": null,
   "index": null,
-  "result": "<number of elements stored in the resulting set>"
+  "result": 4
 }
 ```
-
-Computes the difference between the set of unique values stored at `key` and the other provided sets, and stores the result in the key stored at `destination`.
-
-If the destination key already exists, it is overwritten.
-
-[[_Redis documentation_]](https://redis.io/commands/sdiffstore)

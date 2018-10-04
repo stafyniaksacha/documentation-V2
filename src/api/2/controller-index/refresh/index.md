@@ -17,12 +17,6 @@ By default, this operation can take up to 1 second.
 
 ---
 
-## Arguments
-
-* `index`: data index to refresh
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -31,7 +25,6 @@ By default, this operation can take up to 1 second.
 URL: http://kuzzle:7512/<index>/_refresh
 Method: POST
 ```
-
 
 ### Other protocols
 
@@ -43,6 +36,12 @@ Method: POST
   "action": "refresh"
 }
 ```
+
+---
+
+## Arguments
+
+* `index`: data index to refresh
 
 ---
 

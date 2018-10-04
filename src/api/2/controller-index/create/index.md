@@ -12,12 +12,6 @@ Create a new [index]({{ site_base_path }}guide/2/essentials/persisted) in Kuzzle
 
 ---
 
-## Arguments
-
-* `index`: index name to create
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -36,6 +30,12 @@ Method: POST
   "action": "create"
 }
 ```
+
+---
+
+## Arguments
+
+* `index`: index name to create
 
 ---
 

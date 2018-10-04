@@ -17,32 +17,6 @@ To handle larger result sets, you have to either create a cursor by using the `s
 
 ---
 
-## Body properties
-
-All of the following body properties are optional: 
-
-* `query`: the search query itself, using the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl.html) syntax.
-* `aggregations`: control how the search result should be [aggregated](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-aggregations.html)
-* `sort`: contains a list of fields, used to [sort search results](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-request-sort.html), in order of importance
-
-An empty body matches all documents in the queried collection.
-
----
-
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
-**Options:**
-
-* `from`: paginates search results by defining the offset from the first result you want to fetch. Usually used with the `size` argument
-* `includeTrash`: if true, include documents in the [trashcan]({{ site_base_path }}guide/essentials/document-metadata/)
-* `scroll`: create a new forward-only result cursor. This option must be set with a [time duration](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/common-options.html#time-units), at the end of which the cursor is destroyed. If set, a cursor identifier named `scrollId` will be returned in the results. This cursor can then be moved forward using the [`scroll` API action]({{ site_base_path }}api/2/controller-document/scroll)
-* `size`: set the maximum number of documents returned per result page
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -67,7 +41,6 @@ Body:
 }
 ```
 
-
 ### Other protocols
 
 ```js
@@ -87,12 +60,40 @@ Body:
       // ...
     ]
   },
-  "from": 0,
-  "size": 42,
-  "scroll": "1m",
-  "includeTrash": false
+
+  // optional:
+  "from": <starting offset>,
+  "size": <page size>,
+  "scroll": "<scroll duration>",
+  "includeTrash": <boolean>
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+### Optional:
+
+* `from`: paginates search results by defining the offset from the first result you want to fetch. Usually used with the `size` argument
+* `includeTrash`: if true, include documents in the [trashcan]({{ site_base_path }}guide/essentials/document-metadata/)
+* `scroll`: create a new forward-only result cursor. This option must be set with a [time duration](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/common-options.html#time-units), at the end of which the cursor is destroyed. If set, a cursor identifier named `scrollId` will be returned in the results. This cursor can then be moved forward using the [`scroll` API action]({{ site_base_path }}api/2/controller-document/scroll)
+* `size`: set the maximum number of documents returned per result page
+
+---
+
+## Body properties
+
+### Optional: 
+
+* `query`: the search query itself, using the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl.html) syntax.
+* `aggregations`: control how the search result should be [aggregated](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-aggregations.html)
+* `sort`: contains a list of fields, used to [sort search results](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-request-sort.html), in order of importance
+
+An empty body matches all documents in the queried collection.
 
 ---
 

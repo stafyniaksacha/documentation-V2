@@ -8,8 +8,9 @@ title: ping
 
 {{{since "1.0.0"}}}
 
+Ping the memory storage database.
 
-
+[[_Redis documentation_]](https://redis.io/commands/ping)
 
 ---
 
@@ -24,7 +25,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -35,6 +35,8 @@ Method: GET
 ---
 
 ## Response
+
+Return a `"PONG"` response.
 
 ```javascript
 {
@@ -48,7 +50,3 @@ Method: GET
   "result": "PONG"
 }
 ```
-
-Pings the memory storage database.
-
-[[_Redis documentation_]](https://redis.io/commands/ping)

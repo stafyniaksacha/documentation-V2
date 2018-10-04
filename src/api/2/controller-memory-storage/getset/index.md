@@ -14,12 +14,6 @@ Set a new value for a key, and return its previously stored value.
 
 ---
 
-## Arguments
-
-* `_id`: key to get and set
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -49,6 +43,18 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key to get and set
+
+---
+
+## Body properties
+
+* `value`: the new key value
 
 ---
 

@@ -8,8 +8,9 @@ title: msetnx
 
 {{{since "1.0.0"}}}
 
+Set the provided keys to their respective values, only if they do not exist. If a key exists, then the whole operation is aborted and no key is set.
 
-
+[[_Redis documentation_]](https://redis.io/commands/msetnx)
 
 ---
 
@@ -23,7 +24,6 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "entries": [
@@ -34,10 +34,7 @@ Body:
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -55,7 +52,17 @@ Body:
 
 ---
 
+## Body properties
+
+* `entries`: an array of objects. Each object describes a new key-value pair to set, using the following properties:
+  * `key`: key identifier
+  * `value`: new value
+
+---
+
 ## Response
+
+Return either `0` (command failed), or `1` (command succeeded).
 
 ```javascript
 {
@@ -66,10 +73,6 @@ Body:
   "action": "msetnx",
   "collection": null,
   "index": null,
-  "result": [0|1]
+  "result": 1
 }
 ```
-
-Sets the provided keys to their respective values, only if they do not exist. If a key exists, then the whole operation is aborted and no key is set.
-
-[[_Redis documentation_]](https://redis.io/commands/msetnx)

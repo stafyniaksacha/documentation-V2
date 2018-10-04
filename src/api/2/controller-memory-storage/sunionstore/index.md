@@ -8,8 +8,11 @@ title: sunionstore
 
 {{{since "1.0.0"}}}
 
+Compute the union of multiple sets of unique values and store it in a new set.
 
+If the destination key already exists, it is overwritten.
 
+[[_Redis documentation_]](https://redis.io/commands/sunionstore)
 
 ---
 
@@ -23,7 +26,6 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "destination": "<destination key>",
@@ -31,10 +33,7 @@ Body:
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -49,7 +48,16 @@ Body:
 
 ---
 
+## Body properties
+
+* `destination`: destination for the union result
+* `keys`: array of set identifiers
+
+---
+
 ## Response
+
+Return the number of members stored in the destination set.
 
 ```javascript
 {
@@ -60,12 +68,6 @@ Body:
   "action": "sunionstore",
   "collection": null,
   "index": null,
-  "result": "<number of members in the new set>"
+  "result": 31
 }
 ```
-
-Computes the union of multiple sets of unique values and stores it in a new set at `destination key`.
-
-If the destination key already exists, it is overwritten.
-
-[[_Redis documentation_]](https://redis.io/commands/sunionstore)

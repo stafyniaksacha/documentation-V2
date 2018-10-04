@@ -14,12 +14,6 @@ Increment the number stored at `key` by 1. If the key does not exist, it is set 
 
 ---
 
-## Arguments
-
-* `_id`: key identifier
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -38,6 +32,12 @@ Method: POST
   "_id": "<key>"
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key identifier
 
 ---
 

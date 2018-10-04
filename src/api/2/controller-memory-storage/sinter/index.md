@@ -8,8 +8,9 @@ title: sinter
 
 {{{since "1.0.0"}}}
 
+Return the intersection of the provided sets of unique values.
 
-
+[[_Redis documentation_]](https://redis.io/commands/sinter)
 
 ---
 
@@ -22,9 +23,7 @@ URL: http://kuzzle:7512/ms/_sinter?keys=key1,key2,...
 Method: GET
 ```
 
-
 ### Other protocols
-
 
 ```js
 {
@@ -36,7 +35,15 @@ Method: GET
 
 ---
 
+## Argument
+
+* `keys`: list of set identifiers to intersect
+
+---
+
 ## Response
+
+Return an array of intersected values.
 
 ```javascript
 {
@@ -48,13 +55,9 @@ Method: GET
   "collection": null,
   "index": null,
   "result": [
-    "intersection value1",
-    "intersection value2",
+    "value1",
+    "value2",
     "..."
   ]
 }
 ```
-
-Returns the intersection of the provided sets of unique values.
-
-[[_Redis documentation_]](https://redis.io/commands/sinter)

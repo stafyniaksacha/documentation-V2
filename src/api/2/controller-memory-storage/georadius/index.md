@@ -14,24 +14,6 @@ Return the members (added with [geoadd]({{ site_base_path }}api/2/controller-mem
 
 ---
 
-## Arguments
-
-* `_id`: key containing the geopoints to fetch
-* `distance`: distance from the center of the radius
-* `lat`: latitude of the center of the radius
-* `lon`: longitude of the center of the radius
-* `unit`: unit of the `distance` parameter value. Allowed values: `m`, `km`, `mi`, `ft`
-
-**Options:**
-* `options`: an array of one or multiple of the following values: `withcoord`, `withdist`, `count <count>`, `asc` and `desc`
-  * `asc`: sort the results in ascending order (from the nearest member to the farthest one)
-  * `count`: limit the number of returned results. The count value must be passed as a separate option (HTTP: `&options=count,<count value>`, Other protocols: `options: ['count', <count value>]`)
-  * `desc`: sort the results in descending order (from the farthest member to the nearest one)
-  * `withcoord`: include the position of the matched geopoint, in the following format: `[longitude, latitude]`
-  * `withdist`: include the calculated distance from the matched geopoint to the radius center
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -55,6 +37,25 @@ Method: GET
  "options": ["withcoord", "withdist", "asc"]
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key containing the geopoints to fetch
+* `distance`: distance from the center of the radius
+* `lat`: latitude of the center of the radius
+* `lon`: longitude of the center of the radius
+* `unit`: unit of the `distance` parameter value. Allowed values: `m`, `km`, `mi`, `ft`
+
+### Optional:
+
+  * `options`: an array of one or multiple of the following values: `withcoord`, `withdist`, `count <count>`, `asc` and `desc`
+  * `asc`: sort the results in ascending order (from the nearest member to the farthest one)
+  * `count`: limit the number of returned results. The count value must be passed as a separate option (HTTP: `&options=count,<count value>`, Other protocols: `options: ['count', <count value>]`)
+  * `desc`: sort the results in descending order (from the farthest member to the nearest one)
+  * `withcoord`: include the position of the matched geopoint, in the following format: `[longitude, latitude]`
+  * `withdist`: include the calculated distance from the matched geopoint to the radius center
 
 ---
 

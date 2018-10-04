@@ -8,8 +8,9 @@ title: strlen
 
 {{{since "1.0.0"}}}
 
+Return the length of a value.
 
-
+[[_Redis documentation_]](https://redis.io/commands/strlen)
 
 ---
 
@@ -22,9 +23,7 @@ URL: http://kuzzle:7512/ms/_strlen/<_id>
 Method: GET
 ```
 
-
 ### Other protocols
-
 
 ```js
 {
@@ -36,7 +35,15 @@ Method: GET
 
 ---
 
+## Arguments
+
+* `_id`: key identifier holding a string value
+
+---
+
 ## Response
+
+Return a string length.
 
 ```javascript
 {
@@ -47,10 +54,6 @@ Method: GET
   "action": "strlen",
   "collection": null,
   "index": null,
-  "result": <string length>
+  "result": 6
 }
 ```
-
-Returns the length of a value stored at `key`.
-
-[[_Redis documentation_]](https://redis.io/commands/strlen)

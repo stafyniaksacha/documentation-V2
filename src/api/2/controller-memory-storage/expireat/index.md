@@ -16,12 +16,6 @@ The `timestamp` parameter accepts an [Epoch time](https://en.wikipedia.org/wiki/
 
 ---
 
-## Arguments
-
-* `_id`: key to update
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -34,7 +28,7 @@ Body:
 
 ```js
 {
-  "timestamp": <Epoch time>
+  "timestamp": 1538640821
 }
 ```
 
@@ -46,10 +40,22 @@ Body:
   "action": "expireat",
   "_id": "<key>",
   "body": {
-    "timestamp": <Epoch time>
+    "timestamp": 1538640821
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key to update
+
+---
+
+## Body properties
+
+* `timestamp`: timestamp of when the key expires, in Epoch format (integer)
 
 ---
 

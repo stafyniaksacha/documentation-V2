@@ -13,21 +13,9 @@ Iterates incrementally over fields contained in a hash, using a cursor.
 An iteration starts when the cursor is set to 0.  
 To get the next page of results, simply re-send the request with the updated cursor position provided in the result set.  
 
-The scan terminates when the cursor returned by the server is 0.
+The scan ends when the cursor returned by the server is 0.
 
 [[_Redis documentation_]](https://redis.io/commands/hscan)
-
----
-
-## Arguments
-
-* `_id`: hash key identifier
-* `cursor`: cursor offset
-
-**Options:**
-
-* `count`: return an _approximate_ number of items per result set (the default is 10)
-* `match`: search only keys matching the provided pattern
 
 ---
 
@@ -52,6 +40,18 @@ Method: GET
   "count": 20
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+* `cursor`: cursor offset
+
+### Optional:
+
+* `count`: return an _approximate_ number of items per result set (the default is 10)
+* `match`: search only keys matching the provided pattern
 
 ---
 

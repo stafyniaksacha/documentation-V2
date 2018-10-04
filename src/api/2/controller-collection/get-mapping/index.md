@@ -12,13 +12,6 @@ Return the mapping for the given `collection`.
 
 ---
 
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -39,6 +32,13 @@ Method: GET
   "action": "getMapping"
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
 
 ---
 

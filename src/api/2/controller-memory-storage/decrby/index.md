@@ -14,12 +14,6 @@ Decrement the number stored at `key` by a provided integer value. If the key doe
 
 ---
 
-## Arguments
-
-* `_id`: key to decrement
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -48,6 +42,18 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key to decrement
+
+---
+
+## Body properties
+
+* `value`: the decrement value
 
 ---
 

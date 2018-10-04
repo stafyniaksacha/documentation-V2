@@ -8,7 +8,9 @@ title: ltrim
 
 {{{since "1.0.0"}}}
 
+Trim an existing list so that it will contain only the specified range of elements specified.
 
+[[_Redis documentation_]](https://redis.io/commands/ltrim)
 
 ---
 
@@ -22,18 +24,14 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
-  "start": "<start>",
-  "stop": "<stop>"
+  "start": 0,
+  "stop": -1
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -41,15 +39,32 @@ Body:
   "action": "ltrim",
   "_id": "<key>",
   "body": {
-    "start": "<start>",
-    "stop": "<stop>"
+    "start": 0,
+    "stop": -1
   }
 }
 ```
 
 ---
 
+## Argument
+
+* `_id`: list key identifier
+
+---
+
+## Body properties
+
+* `start`: start index
+* `stop`: end index
+
+The arguments `start` and `stop` can be negative. In that case, the index is calculated from the end of the list, going backward. For instance, `-3` is the third element from the end of the list.
+
+---
+
 ## Response
+
+Return an acknowledgement.
 
 ```javascript
 {
@@ -63,7 +78,3 @@ Body:
   "result": "OK"
 }
 ```
-
-Trims an existing list so that it will contain only the specified range of elements specified.
-
-[[_Redis documentation_]](https://redis.io/commands/ltrim)

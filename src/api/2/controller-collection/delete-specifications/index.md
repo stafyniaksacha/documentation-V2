@@ -16,13 +16,6 @@ The request succeeds even if no specification exist for that data collection.
 
 ---
 
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -42,6 +35,13 @@ Method: DELETE
   "action": "deleteSpecifications",
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
 
 ---
 

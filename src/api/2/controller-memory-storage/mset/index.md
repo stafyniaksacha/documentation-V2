@@ -8,7 +8,9 @@ title: mset
 
 {{{since "1.0.0"}}}
 
+Set the provided keys to their respective values. If a key does not exist, it is created. Otherwise, the key's value is overwritten.
 
+[[_Redis documentation_]](https://redis.io/commands/mset)
 
 ---
 
@@ -22,7 +24,6 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "entries": [
@@ -33,10 +34,7 @@ Body:
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -54,7 +52,17 @@ Body:
 
 ---
 
+## Body properties
+
+* `entries`: an array of objects. Each object describes a new key-value pair to set, using the following properties:
+  * `key`: key identifier
+  * `value`: new value
+
+---
+
 ## Response
+
+Return an acknowledgement.
 
 ```javascript
 {
@@ -68,7 +76,3 @@ Body:
   "result": "OK"
 }
 ```
-
-Sets the provided keys to their respective values. If a key does not exist, it is created. Otherwise, the key's value is overwritten.
-
-[[_Redis documentation_]](https://redis.io/commands/mset)

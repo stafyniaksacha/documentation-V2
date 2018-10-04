@@ -14,16 +14,6 @@ Return a substring of a key's value.
 
 ---
 
-## Arguments
-
-* `_id`: key identifier
-* `start`: substring starting position. 
-* `end`: substring ending position
-
-The arguments `start` and `end` can be negative. In that case, the offset is calculated from the end of the string, going backward. For instance, `-3` is the third character from the end of the string.
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -44,6 +34,16 @@ Method: GET
   "end": -3
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key identifier
+* `start`: substring starting position. 
+* `end`: substring ending position
+
+The arguments `start` and `end` can be negative. In that case, the offset is calculated from the end of the string, going backward. For instance, `-3` is the third character from the end of the string.
 
 ---
 

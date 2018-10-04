@@ -8,15 +8,7 @@ title: updateMyCredentials
 
 {{{since "1.0.0"}}}
 
-Update the current user's credentials for the specified `<strategy>`. The credentials to send will depend on the authentication plugin and the authentication strategy.
-
-
----
-
-## Arguments
-
-* `jwt` / HTTP `Authorization` header: valid authentication token
-* `strategy`: name of the authentication strategy to update
+Update the current user's credentials for the specified authentication strategy. 
 
 ---
 
@@ -33,7 +25,6 @@ Body:
 
 ```js
 {
-  // example with the "local" authentication strategy
   "password": "MyPassword"
 }
 ```
@@ -47,11 +38,27 @@ Body:
   "strategy": "<strategy>",
   "jwt": "<authentication token>",
   "body": {
-    // example with the "local" authentication strategy
     "password": "MyPassword"
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `jwt`: valid authentication token (for the HTTP protocol, the token is to be passed to the `Authorization` header instead)
+* `strategy`: name of the authentication strategy to update
+
+---
+
+## Body properties
+
+The body contains the credential properties to update, and their new values.
+
+The properties that can be updated depend on the chosen authentication strategy.
+
+The API request examples in this page are for the [`local` authentication plugin](https://github.com/kuzzleio/kuzzle-plugin-auth-passport-local).
 
 ---
 

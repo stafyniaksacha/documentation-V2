@@ -8,8 +8,9 @@ title: srandmember
 
 {{{since "1.0.0"}}}
 
+Return one or more members of a set of unique values, at random.  
 
-
+[[_Redis documentation_]](https://redis.io/commands/srandmember)
 
 ---
 
@@ -24,19 +25,31 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
   "action": "srandmember",
   "_id": "<key>",
+  // optional
   "count": "<count>"
 }
 ```
 
 ---
 
+## Arguments
+
+* `_id`: set key identifier
+
+### Optional:
+
+* `count`: return `count` members, at random (default: `1`). If positive, then returned values are unique. If negative, a set member can be returned multiple times.
+
+---
+
 ## Response
+
+If `count` is not set or equal to `1`, return the member as a string:
 
 ```javascript
 {
@@ -44,16 +57,28 @@ Method: GET
   "status": 200,
   "error": null,
   "controller": "ms",
-  "action": "srandmember",
+  "action": "spop",
   "collection": null,
   "index": null,
-  "result": "<member value>"
+  "result": "<random member>"
 }
 ```
 
-Returns one or more members of a set of unique values, at random.  
-If `count` is provided and is positive, the returned values are unique. If `count` is negative, a set member can be returned multiple times.
+If the absolute count value is greater than `1`, then an array of random members is returned instead:
 
-If more than 1 member is returned, the result set will be an array of values instead of a string.
-
-[[_Redis documentation_]](https://redis.io/commands/srandmember)
+```javascript
+{
+  "requestId": "<unique request identifier>",
+  "status": 200,
+  "error": null,
+  "controller": "ms",
+  "action": "spop",
+  "collection": null,
+  "index": null,
+  "result": [
+    "random member 1",
+    "random member 2", 
+    "..."
+  ]
+}
+```

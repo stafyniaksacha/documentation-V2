@@ -9,14 +9,6 @@ title: truncate
 {{{since "1.0.0"}}}
 
 Empties a collection by removing all its documents, while keeping any associated mapping.  
-It is faster than deleting all documents from a collection.
-
----
-
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
 
 ---
 
@@ -40,6 +32,13 @@ Method: DELETE
   "action": "truncate"
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
 
 ---
 

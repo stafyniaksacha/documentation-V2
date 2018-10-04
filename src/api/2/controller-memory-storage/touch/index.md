@@ -8,8 +8,9 @@ title: touch
 
 {{{since "1.0.0"}}}
 
+Alter the last access time of one or multiple keys. A key is ignored if it does not exist.
 
-
+[[_Redis documentation_]](https://redis.io/commands/touch)
 
 ---
 
@@ -23,17 +24,13 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "keys": ["key1", "key2", "..."]
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -47,7 +44,15 @@ Body:
 
 ---
 
+## Arguments
+
+* `keys`: array of key identifiers to alter
+
+---
+
 ## Response
+
+Return the number of altered keys.
 
 ```javascript
 {
@@ -58,10 +63,6 @@ Body:
   "action": "touch",
   "collection": null,
   "index": null,
-  "result": "<number of touched keys>"
+  "result": 3
 }
 ```
-
-Alters the last access time of one or multiple keys. A key is ignored if it does not exist.
-
-[[_Redis documentation_]](https://redis.io/commands/touch)

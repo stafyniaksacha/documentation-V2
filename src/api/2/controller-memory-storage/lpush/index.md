@@ -8,7 +8,11 @@ title: lpush
 
 {{{since "1.0.0"}}}
 
+Prepend the specified values to a list. 
 
+If the key does not exist, it is created holding an empty list before performing the operation.
+
+[[_Redis documentation_]](https://redis.io/commands/lpush)
 
 ---
 
@@ -22,17 +26,13 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "values": ["value1", "value2", "..."]
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -47,7 +47,21 @@ Body:
 
 ---
 
+## Argument
+
+* `_id`: list key identifier
+
+---
+
+## Body properties
+
+* `values`: array of values to push to the list
+
+---
+
 ## Response
+
+Return the updated length of the list.
 
 ```javascript
 {
@@ -58,10 +72,6 @@ Body:
   "action": "lpush",
   "collection": null,
   "index": null,
-  "result": "<updated number of elements in the list>"
+  "result": 4
 }
 ```
-
-Prepends the specified values to a list. If the key does not exist, it is created holding an empty list before performing the operation.
-
-[[_Redis documentation_]](https://redis.io/commands/lpush)

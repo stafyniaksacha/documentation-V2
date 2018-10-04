@@ -8,6 +8,11 @@ title: lrange
 
 {{{since "1.0.0"}}}
 
+Return the list elements between the `start` and `stop` positions.
+
+Offsets start at `0`, and the range is inclusive.
+
+[[_Redis documentation_]](https://redis.io/commands/lrange)
 
 
 ---
@@ -23,20 +28,31 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
   "action": "lrange",
   "_id": "<key>",
-  "start": "<start>",
-  "stop": "<stop>"
+  "start": 0,
+  "stop": -3
 }
 ```
 
 ---
 
+## Argument
+
+* `_id`: list key identifier
+* `start`: starting index
+* `stop`: ending index
+
+The arguments `start` and `stop` can be negative. In that case, the offset is calculated from the end of the list, going backward. For instance, `-3` is the third element from the end of the list.
+
+---
+
 ## Response
+
+Return an array of list elements.
 
 ```javascript
 {
@@ -54,7 +70,3 @@ Method: GET
   ]
 }
 ```
-
-Returns the list elements between the `start` and `stop` positions.
-
-[[_Redis documentation_]](https://redis.io/commands/lrange)

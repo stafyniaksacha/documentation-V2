@@ -15,14 +15,7 @@ If not, a list of errors is returned with the detail of violated rules.
 
 Documents are always valid if no validation rules are defined on the provided index and collection.
 
-This request does **not** store or publish the document.
-
----
-
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
+This request does not store the document.
 
 ---
 
@@ -57,6 +50,19 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+---
+
+## Body properties
+
+Document content to validate.
 
 ---
 

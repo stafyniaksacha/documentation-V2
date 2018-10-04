@@ -14,12 +14,6 @@ Set multiple fields at once in a hash.
 
 ---
 
-## Arguments
-
-* `_id`: hash key identifier
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -56,6 +50,20 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+
+---
+
+## Body properties
+
+* `entries`: an array of objects. Each object describes a new hash field to set, with the following properties:
+  * `field`: hash field name
+  * `value`: hash field value
 
 ---
 

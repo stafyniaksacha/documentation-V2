@@ -14,12 +14,6 @@ Append a value to a key. If the key does not exist, it is created.
 
 ---
 
-## Arguments
-
-* `key`: key to update or create
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -32,7 +26,7 @@ Body:
 
 ```js
 {
-  "value": "value to be appended to the key"
+  "value": "<value>"
 }
 ```
 
@@ -44,10 +38,22 @@ Body:
   "action": "append",
   "_id": "<key>",
   "body": {
-    "value": "value to be appended to the key"
+    "value": "<value>"
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `key`: key to update or create
+
+---
+
+## Body properties
+
+* `value`: the value to append
 
 ---
 

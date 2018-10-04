@@ -8,8 +8,9 @@ title: rpoplpush
 
 {{{since "1.0.0"}}}
 
+Remove the last element of a list, and push it back at the start of another list.
 
-
+[[_Redis documentation_]](https://redis.io/commands/rpoplpush)
 
 ---
 
@@ -23,7 +24,6 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "source": "<key>",
@@ -31,10 +31,7 @@ Body:
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -47,9 +44,18 @@ Body:
 }
 ```
 
+--- 
+
+## Body properties
+
+* `destination`: the destination list to push the value into
+* `source`: the source list from which the value is popped
+
 ---
 
 ## Response
+
+Return the popped/pushed element.
 
 ```javascript
 {
@@ -60,10 +66,6 @@ Body:
   "action": "rpoplpush",
   "collection": null,
   "index": null,
-  "result": "<popped/pushed element>"
+  "result": "<value>"
 }
 ```
-
-Removes the last element of the list at `source` and pushes it back at the start of the list at `destination`.
-
-[[_Redis documentation_]](https://redis.io/commands/rpoplpush)

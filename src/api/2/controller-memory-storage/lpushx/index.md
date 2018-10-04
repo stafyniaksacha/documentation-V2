@@ -8,7 +8,9 @@ title: lpushx
 
 {{{since "1.0.0"}}}
 
+Prepend the specified value to a list, only if the key already exists and if it holds a list.
 
+[[_Redis documentation_]](https://redis.io/commands/lpushx)
 
 ---
 
@@ -22,17 +24,13 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "value": "<value>"
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -47,7 +45,21 @@ Body:
 
 ---
 
+## Argument
+
+* `_id`: list key identifier
+
+---
+
+## Body properties
+
+* `value`: value to push to the list
+
+---
+
 ## Response
+
+Return the updated length of the list.
 
 ```javascript
 {
@@ -58,10 +70,6 @@ Body:
   "action": "lpushx",
   "collection": null,
   "index": null,
-  "result": "<updated number of elements in the list>"
+  "result": 2
 }
 ```
-
-Prepends the specified value to a list, only if the key already exists and if it holds a list.
-
-[[_Redis documentation_]](https://redis.io/commands/lpushx)

@@ -8,8 +8,9 @@ title: zcard
 
 {{{since "1.0.0"}}}
 
+Return the number of elements held by a sorted set.
 
-
+[[_Redis documentation_]](https://redis.io/commands/zcard)
 
 ---
 
@@ -22,9 +23,7 @@ URL: http://kuzzle:7512/ms/_zcard/<_id>
 Method: GET
 ```
 
-
 ### Other protocols
-
 
 ```js
 {
@@ -36,7 +35,15 @@ Method: GET
 
 ---
 
+## Arguments
+
+* `_id`: sorted set identifier
+
+---
+
 ## Response
+
+Return the number of members in the sorted set.
 
 ```javascript
 {
@@ -47,10 +54,6 @@ Method: GET
   "action": "zcard",
   "collection": null,
   "index": null,
-  "result": "<number of elements in the set>"
+  "result": 10
 }
 ```
-
-Returns the number of elements held by a sorted set.
-
-[[_Redis documentation_]](https://redis.io/commands/zcard)

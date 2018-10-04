@@ -8,11 +8,7 @@ title: mDelete
 
 {{{since "1.0.0"}}}
 
-Delete multiple `indexes`.
-
-If no index is specified in the body, then all indexes that the current user is allowed to delete will be removed.
-
-The response contains the list of indexes that were actually deleted.
+Delete multiple indexes.
 
 ---
 
@@ -54,9 +50,19 @@ Body:
 
 ---
 
+## Body properties
+
+If no index is specified in the body, then all indexes that the current user is allowed to delete will be removed.
+
+### Optional:
+
+* `indexes`: an array of index names to delete
+
+---
+
 ## Response
 
-Return a `deleted` array listing all deleted indexes.
+Return an array of indexes that were actually deleted.
 
 ```js
 {

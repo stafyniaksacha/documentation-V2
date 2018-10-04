@@ -14,12 +14,6 @@ Increment the number stored in a hash field by the provided float value.
 
 ---
 
-## Arguments
-
-* `_id`: hash key identifier
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -50,6 +44,19 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: hash key identifier
+
+---
+
+## Body properties
+
+* `field`: the hash field to increment
+* `value`: the float to add to the field value
 
 ---
 

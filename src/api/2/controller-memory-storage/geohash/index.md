@@ -14,13 +14,6 @@ Convert a key's geopoints (see [geoadd]({{ site_base_path }}api/2/controller-mem
 
 ---
 
-## Arguments
-
-* `_id`: key containing the geopoints to convert
-* `members`: list of geopoint names to convert
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -40,6 +33,13 @@ Method: GET
   "members": ["member1", "member2", "..."]
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key containing the geopoints to convert
+* `members`: list of geopoint names to convert
 
 ---
 

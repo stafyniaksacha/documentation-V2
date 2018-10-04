@@ -8,8 +8,9 @@ title: scard
 
 {{{since "1.0.0"}}}
 
+Return the number of members stored in a set of unique values.
 
-
+[[_Redis documentation_]](https://redis.io/commands/scard)
 
 ---
 
@@ -24,7 +25,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -35,7 +35,15 @@ Method: GET
 
 ---
 
+## Argument
+
+* `_id`: set key identifier
+
+---
+
 ## Response
+
+Return the set length.
 
 ```javascript
 {
@@ -46,10 +54,6 @@ Method: GET
   "action": "scard",
   "collection": null,
   "index": null,
-  "result": "<number of members of the set>"
+  "result": 36
 }
 ```
-
-Returns the number of members stored in a set of unique values.
-
-[[_Redis documentation_]](https://redis.io/commands/scard)

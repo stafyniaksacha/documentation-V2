@@ -12,13 +12,6 @@ Check if a collection exists in Kuzzle.
 
 ---
 
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -39,6 +32,13 @@ Method: GET
   "action": "exists"
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
 
 ---
 

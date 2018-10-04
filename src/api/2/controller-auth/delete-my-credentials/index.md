@@ -14,13 +14,6 @@ If the credentials that generated the current JWT are removed, the user will rem
 
 ---
 
-## Arguments
-
-* `jwt` / HTTP `Authorization` header: valid authentication token
-* `strategy`: name of the authentication strategy to delete
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -30,7 +23,6 @@ URL: http://kuzzle:7512/credentials/<strategy>/_me
 Method: DELETE  
 Headers: Authorization: "Bearer <authentication token>"
 ```
-
 
 ### Other protocols
 
@@ -42,6 +34,13 @@ Headers: Authorization: "Bearer <authentication token>"
   "jwt": "<authentication token>"
 }
 ```
+
+---
+
+## Arguments
+
+* `jwt`: valid authentication token (for the HTTP protocol, the token is to be passed to the `Authorization` header instead)
+* `strategy`: name of the authentication strategy to delete
 
 ---
 

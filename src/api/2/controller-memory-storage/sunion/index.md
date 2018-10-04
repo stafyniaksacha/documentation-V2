@@ -8,8 +8,9 @@ title: sunion
 
 {{{since "1.0.0"}}}
 
+Return the union of sets of unique values.
 
-
+[[_Redis documentation_]](https://redis.io/commands/sunion)
 
 ---
 
@@ -24,7 +25,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -35,7 +35,15 @@ Method: GET
 
 ---
 
+## Arguments
+
+* `keys`: array of set identifiers
+
+---
+
 ## Response
+
+Return the result of the union between the provided sets.
 
 ```javascript
 {
@@ -53,7 +61,3 @@ Method: GET
   ]
 }
 ```
-
-Returns the union of sets of unique values.
-
-[[_Redis documentation_]](https://redis.io/commands/sunion)

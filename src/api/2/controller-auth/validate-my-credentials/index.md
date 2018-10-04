@@ -8,18 +8,11 @@ title: validateMyCredentials
 
 {{{since "1.0.0"}}}
 
-Validate the current user's credentials for the specified authentication strategy. 
+Validate provided credentials against a specified authentication strategy. 
 
-This route does not actually create or modify the user's credentials. 
+This route does not actually create or modify credentials. 
 
 The credentials to send will depend on the authentication plugin and authentication strategy.
-
----
-
-## Arguments
-
-* `jwt` / HTTP `Authorization` header: valid authentication token
-* `strategy`: name of the authentication strategy used to validate the provided credentials
 
 ---
 
@@ -36,7 +29,6 @@ Body:
 
 ```js
 {
-  // example with the "local" authentication strategy
   "username": "MyUser",
   "password": "MyPassword"
 }
@@ -56,6 +48,21 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `jwt`: valid authentication token (for the HTTP protocol, the token is to be passed to the `Authorization` header instead)
+* `strategy`: name of the authentication strategy used to validate the provided credentials
+
+---
+
+## Body properties
+
+Credentials to validate. The properties to send will depend on the chosen authentication strategy.
+
+Examples in this page are for the [`local` authentication plugin](https://github.com/kuzzleio/kuzzle-plugin-auth-passport-local).
 
 ---
 

@@ -15,13 +15,6 @@ Return all keys matching the provided pattern.
 
 ---
 
-## Arguments
-
-* `_id`: key identifier
-* `pattern`: match pattern
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -41,6 +34,13 @@ Method: GET
   "pattern": "foo*"
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key identifier
+* `pattern`: match pattern
 
 ---
 

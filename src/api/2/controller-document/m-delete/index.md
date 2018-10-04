@@ -10,19 +10,6 @@ title: mDelete
 
 Delete multiple documents.
 
-Return a [partial error]({{ site_base_path }}api/2/errors/#partialerror) if one or more document cannot be deleted.
-
----
-
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
-**Options:**
-
-* `refresh`: if set to `wait_for`, Kuzzle will not respond until the deletions are indexed
-
 ---
 
 ## Query Syntax
@@ -57,9 +44,28 @@ Body:
 
 ---
 
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+### Optional:
+
+* `refresh`: if set to `wait_for`, Kuzzle will not respond until the deletions are indexed
+
+--- 
+
+## Body properties
+
+* `ids`: an array of document identifiers to delete
+
+---
+
 ## Response
 
 Return an array with the list of successfully deleted document identifiers.
+
+If one or more document deletions fail, the response status is set to `206`, and the `error` object contain a [partial error]({{ site_base_path }}api/2/errors/#partialerror) error.
 
 ```js
 {

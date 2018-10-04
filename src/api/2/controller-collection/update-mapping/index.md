@@ -8,19 +8,7 @@ title: updateMapping
 
 {{{since "1.0.0"}}}
 
-When creating a new data `collection` in the persistent data storage layer, Kuzzle uses a default mapping.
-
-It means that, by default, you won't be able to exploit the full capabilities of our
-persistent data storage layer (currently handled by [ElasticSearch](https://www.elastic.co/products/elasticsearch)), and your searches may suffer from below-average performance, depending on the amount of data you stored in a collection and the complexity of your database.
-
-To solve this matter, Kuzzle's API offers a way to create data mapping and to expose the entire [mapping capabilities of ElasticSearch](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/mapping.html).
-
----
-
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
+Update a data collection mapping.
 
 ---
 
@@ -51,7 +39,6 @@ Body:
 }
 ```
 
-
 ### Other protocols
 
 ```js
@@ -77,6 +64,19 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+---
+
+## Body properties
+
+* `properties`: object describing the data mapping to associate to the new collection, using [Elasticsearch mapping format](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/mapping.html).
 
 ---
 

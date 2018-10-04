@@ -12,18 +12,6 @@ Get a document.
 
 ---
 
-## Arguments
-
-* `collection`: data collection
-* `documentId`: document unique identifier
-* `index`: data index
-
-**Options:**
-
-* `includeTrash`: if true, documents in the [trashcan]({{ site_base_path }}guide/2/essentials/document-metadata/) can be returned
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -35,7 +23,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "index": "<index>",
@@ -46,6 +33,18 @@ Method: GET
   "includeTrash": false
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `documentId`: document unique identifier
+* `index`: data index
+
+### Optional:
+
+* `includeTrash`: if true, documents in the [trashcan]({{ site_base_path }}guide/2/essentials/document-metadata/) can be returned
 
 ---
 

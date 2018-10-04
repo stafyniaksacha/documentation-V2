@@ -12,13 +12,6 @@ Check if the specified keys exist in the database.
 
 [[_Redis documentation_]](https://redis.io/commands/exists)
 
-
----
-
-## Arguments
-
-* `keys`: list of keys to verify
-
 ---
 
 ## Query Syntax
@@ -39,6 +32,12 @@ Method: GET
   "keys": ["key1", "key2", "..."]
 }
 ```
+
+---
+
+## Arguments
+
+* `keys`: list of keys to verify
 
 ---
 

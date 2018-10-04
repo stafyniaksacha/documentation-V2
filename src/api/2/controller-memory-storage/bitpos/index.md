@@ -14,19 +14,6 @@ Return the position of the first bit set to 1 or 0 in a string, or in a substrin
 
 ---
 
-## Arguments
-
-* `_id`: key to examine
-* `bit`: bit to look for. Accepted values: `0`, `1`
-
-**Options:**
-
-* `start`: search starts at the provided offset
-* `end`: search ends at the provided offset
-
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -49,6 +36,18 @@ Method: GET
   "end": <integer>
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key to examine
+* `bit`: bit to look for. Accepted values: `0`, `1`
+
+### Optional:
+
+* `start`: search starts at the provided offset
+* `end`: search ends at the provided offset
 
 ---
 

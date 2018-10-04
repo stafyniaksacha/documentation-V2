@@ -12,13 +12,6 @@ Returns the validation specifications associated to the given index and collecti
 
 ---
 
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -39,6 +32,13 @@ Method: GET
   "action": "getSpecifications"
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
 
 ---
 

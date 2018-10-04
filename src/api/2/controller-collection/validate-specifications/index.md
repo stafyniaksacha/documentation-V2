@@ -63,6 +63,25 @@ Body:
 
 ---
 
+## Body properties
+
+The provided body must have the following structure:
+
+```json
+{
+  "<data index>": {
+    "<data collection>": {
+      "strict": <boolean>,
+      "fields": {
+        // field validation rules
+      }
+    }
+  }
+}
+```
+
+---
+
 ## Response
 
 Return an object with the following properties:

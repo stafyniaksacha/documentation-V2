@@ -15,12 +15,6 @@ Set a timeout (in seconds) on a key. After the timeout has expired, the key is a
 
 ---
 
-## Arguments
-
-* `_id`: key to update
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -33,7 +27,7 @@ Body:
 
 ```js
 {
-  "seconds": "<time to live>"
+  "seconds": 60
 }
 ```
 
@@ -46,10 +40,22 @@ Body:
   "action": "expire",
   "_id": "<key>",
   "body": {
-    "seconds": "<time to live>"
+    "seconds": 60
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key to update
+
+---
+
+## Body properties
+
+* `seconds`: number of seconds before the key expires (integer)
 
 ---
 

@@ -14,12 +14,6 @@ Increment the number stored at `key` by the provided integer value. If the key d
 
 ---
 
-## Arguments
-
-* `_id`: key identifier
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -48,6 +42,18 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key identifier
+
+---
+
+## Body properties
+
+* `value`: the integer value to add to the key value
 
 ---
 

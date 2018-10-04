@@ -8,8 +8,9 @@ title: type
 
 {{{since "1.0.0"}}}
 
+Return the type of the value held by a key.
 
-
+[[_Redis documentation_]](https://redis.io/commands/type)
 
 ---
 
@@ -24,7 +25,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -35,7 +35,15 @@ Method: GET
 
 ---
 
+## Arguments
+
+* `_id`: key identifier
+
+---
+
 ## Response
+
+Return one of the following: `hash`, `list`, `string`, `set`, `zset`.
 
 ```javascript
 {
@@ -46,10 +54,6 @@ Method: GET
   "action": "type",
   "collection": null,
   "index": null,
-  "result": "[hash|list|string|set|zset]"
+  "result": "list"
 }
 ```
-
-Returns the type of the value held by a key.
-
-[[_Redis documentation_]](https://redis.io/commands/type)

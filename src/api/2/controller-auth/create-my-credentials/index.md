@@ -8,14 +8,7 @@ title: createMyCredentials
 
 {{{since "1.0.0"}}}
 
-Create the current user's credentials for the specified `<strategy>`. The credentials to send will depend on the authentication plugin and the authentication strategy.
-
----
-
-## Arguments
-
-* `jwt` / HTTP `Authorization` header: valid authentication token
-* `strategy`: name of the authentication strategy to create
+Create the current user's credentials for the specified authentication strategy.
 
 ---
 
@@ -53,6 +46,19 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `jwt`: valid authentication token (for the HTTP protocol, the token is to be passed to the `Authorization` header instead)
+* `strategy`: name of the authentication strategy to create
+
+---
+
+## Body properties
+
+Credentials to be created. The properties to send will depend on the chosen authentication strategy.
 
 ---
 

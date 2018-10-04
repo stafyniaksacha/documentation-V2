@@ -14,12 +14,6 @@ Add geospatial points to the specified key.
 
 ---
 
-## Arguments
-
-* `_id`: key to update
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -70,6 +64,21 @@ Body:
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key to update
+
+---
+
+## Body properties
+
+* `points`: an array of objects. Each object describes a geographical point, with the following properties:
+  * `lon`: longitude (float)
+  * `lat`: latitude (float)
+  * `name`: point unique identifier
 
 ---
 

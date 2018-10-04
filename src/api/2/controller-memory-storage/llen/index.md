@@ -8,7 +8,9 @@ title: llen
 
 {{{since "1.0.0"}}}
 
+Return the length of a list.
 
+[[_Redis documentation_]](https://redis.io/commands/llen)
 
 ---
 
@@ -23,7 +25,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -34,7 +35,15 @@ Method: GET
 
 ---
 
+## Argument
+
+* `_id`: list key identifier
+
+---
+
 ## Response
+
+Return the length of the list.
 
 ```javascript
 {
@@ -45,10 +54,6 @@ Method: GET
   "action": "llen",
   "collection": null,
   "index": null,
-  "result": "<length of the list>"
+  "result": 7
 }
 ```
-
-Returns the length of a list.
-
-[[_Redis documentation_]](https://redis.io/commands/llen)

@@ -8,7 +8,9 @@ title: linsert
 
 {{{since "1.0.0"}}}
 
+Insert a value in a list, either before or after the reference pivot value.
 
+[[_Redis documentation_]](https://redis.io/commands/linsert)
 
 ---
 
@@ -22,7 +24,6 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "position": "[before|after]",
@@ -31,10 +32,7 @@ Body:
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -51,7 +49,23 @@ Body:
 
 ---
 
+## Argument
+
+* `_id`: list key identifier
+
+---
+
+## Body properties
+
+* `position`: tell whether the value is to be inserted before or after the pivot value. Accepted values: `before`, `after`
+* `pivot`: value in the list used as a pivot
+* `value`: new value to insert in the list
+
+---
+
 ## Response
+
+Return the updated length of the list.
 
 ```javascript
 {
@@ -62,10 +76,6 @@ Body:
   "action": "linsert",
   "collection": null,
   "index": null,
-  "result": "<updated number of items in the list>"
+  "result": 7
 }
 ```
-
-Inserts a value in a list, either before or after the reference pivot value.
-
-[[_Redis documentation_]](https://redis.io/commands/linsert)

@@ -8,8 +8,9 @@ title: zcount
 
 {{{since "1.0.0"}}}
 
+Return the number of elements held by a sorted set with a score within the provided `min` and `max` values.
 
-
+[[_Redis documentation_]](https://redis.io/commands/zcount)
 
 ---
 
@@ -24,7 +25,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -37,7 +37,19 @@ Method: GET
 
 ---
 
+## Arguments
+
+* `_id`: sorted set identifier
+* `min`: minimum score
+* `max`: maximum score
+
+By default, the provided min and max values are inclusive. This behavior can be changed using the syntax described in the Redis [ZRANGEBYSCORE](https://redis.io/commands/zrangebyscore) documentation.
+
+---
+
 ## Response
+
+Return the number of elements within the specified range.
 
 ```javascript
 {
@@ -48,12 +60,6 @@ Method: GET
   "action": "zcount",
   "collection": null,
   "index": null,
-  "result": "<number of elements in the specified range>"
+  "result": 3
 }
 ```
-
-Returns the number of elements held by a sorted set with a score between the provided `min` and `max` values.
-
-By default, the provided min and max values are inclusive. This behavior can be changed using the syntax described in the Redis [ZRANGEBYSCORE](https://redis.io/commands/zrangebyscore) documentation.
-
-[[_Redis documentation_]](https://redis.io/commands/zcount)

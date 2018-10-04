@@ -8,8 +8,9 @@ title: setex
 
 {{{since "1.0.0"}}}
 
+Set a value and a time to live (in seconds) on a key. If the key already exists, it is overwritten.
 
-
+[[_Redis documentation_]](https://redis.io/commands/setex)
 
 ---
 
@@ -23,18 +24,14 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "value": "<value>",
-  "seconds": "<time to live>"
+  "seconds": 60
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -43,14 +40,30 @@ Body:
   "_id": "<key>",
   "body": {
     "value": "<value>",
-    "seconds": "<time to live>"
+    "seconds": 60
   }
 }
 ```
 
 ---
 
+## Argument
+
+* `_id`: key identifier
+
+---
+
+## Body properties
+
+* `seconds`: expiration duration, in seconds
+* `value`: new key value
+
+
+---
+
 ## Response
+
+Return an acknowledgement.
 
 ```javascript
 {
@@ -64,7 +77,3 @@ Body:
   "result": "OK"
 }
 ```
-
-Sets a value and a time to live (in seconds) on a key. If the key already exists, it is overwritten.
-
-[[_Redis documentation_]](https://redis.io/commands/setex)

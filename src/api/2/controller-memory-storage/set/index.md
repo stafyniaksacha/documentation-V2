@@ -8,8 +8,9 @@ title: set
 
 {{{since "1.0.0"}}}
 
+Create a key holding the provided value, or overwrite it if it already exists.
 
-
+[[_Redis documentation_]](https://redis.io/commands/set)
 
 ---
 
@@ -23,23 +24,15 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "value": "<value>",
-
-  // the following arguments are all optional
-  "ex": "<seconds>",
-  "px": "<milliseconds>",
-  "nx": "[false|true]",
-  "xx": "[false|true]"
+  "ex": 60,
+  "nx": true
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -48,18 +41,37 @@ Body:
   "_id": "<key>",
   "body": {
     "value": "<value>",
-
-    "ex": "<seconds>",
-    "px": "<milliseconds>",
-    "nx": "[false|true]",
-    "xx": "[false|true]"
+    "ex": 60,
+    "nx": true
   }
 }
 ```
 
+
+---
+
+## Argument
+
+* `_id`: key identifier
+
+---
+
+## Body properties
+
+### Optional:
+
+* `ex`: set the specified expire time, in seconds
+* `px`: set the specified expire time, in milliseconds
+* `nx`: if true, only set the key if it does not already exist
+* `xx`: if true, only set the key if it already exists
+
+**Note:** `ex` and `px` options are mutually exclusive, and setting values to both lead to a `BadRequestError` error. Same thing goes for `nx` and `xx`.
+
 ---
 
 ## Response
+
+Return an acknowledgement.
 
 ```javascript
 {
@@ -73,16 +85,3 @@ Body:
   "result": "OK"
 }
 ```
-
-Creates a key holding the provided value, or overwrites it if it already exists.
-
-Additional options can be provided:
-
-* `ex`: set the specified expire time, in seconds
-* `px`: set the specified expire time, in milliseconds
-* `nx`: only set the key if it does not already exist
-* `xx`: only set the key if it already exists
-
-**Note:** setting `ex` and `px` options lead to a `BadRequestError` as these options are mutually exclusive. Same thing goes for `nx` and `xx`.
-
-[[_Redis documentation_]](https://redis.io/commands/set)

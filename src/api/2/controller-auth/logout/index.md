@@ -14,12 +14,6 @@ If there were any, real-time subscriptions are cancelled.
 
 ---
 
-## Arguments
-
-* `jwt` / HTTP `Authorization` header: valid authentication token
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -40,6 +34,12 @@ Headers: Authorization: "Bearer <authentication token>"
   "jwt": "<authentication token>"
 }
 ```
+
+---
+
+## Arguments
+
+* `jwt`: valid authentication token (for the HTTP protocol, the token is to be passed to the `Authorization` header instead)
 
 ---
 

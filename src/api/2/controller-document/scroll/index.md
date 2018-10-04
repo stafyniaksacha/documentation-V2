@@ -15,18 +15,6 @@ to documents (index, update or delete) will only affect later search requests.
 
 ---
 
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-* `scrollId`: cursor unique identifier, obtained by either a search or a scroll query
-
-**Options:**
-
-* `scroll`: refresh the cursor duration, using the [time to live](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/common-options.html#time-units) syntax.
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -46,6 +34,18 @@ Method: GET
   "scroll": "<time to live>"
 }
 ```
+
+---
+
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+* `scrollId`: cursor unique identifier, obtained by either a search or a scroll query
+
+### Optional:
+
+* `scroll`: refresh the cursor duration, using the [time to live](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/common-options.html#time-units) syntax.
 
 ---
 

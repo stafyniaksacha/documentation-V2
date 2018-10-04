@@ -10,19 +10,6 @@ title: mCreateOrReplace
 
 Create or replace multiple documents.
 
-Return a [partial error]({{ site_base_path }}api/2/errors/#partialerror) if one or more documents cannot be created or replaced.
-
----
-
-## Arguments
-
-* `collection`: data collection
-* `index`: data index
-
-**Options:**
-
-* `refresh`: if set to `wait_for`, Kuzzle will not respond until the created/replaced documents are indexed
-
 ---
 
 ## Query Syntax
@@ -83,6 +70,25 @@ Body:
 
 ---
 
+## Arguments
+
+* `collection`: data collection
+* `index`: data index
+
+### Optional:
+
+* `refresh`: if set to `wait_for`, Kuzzle will not respond until the created/replaced documents are indexed
+
+---
+
+## Body properties
+
+* `documents`: an array of object. Each object describes a document to create or replace, by exposing the following properties:
+  * `_id`: document unique identifier
+  * `body`: document content
+
+---
+
 ## Response
 
 Return a `hits` array, containing the list of created documents, in the same order than the one provided in the query.
@@ -93,6 +99,10 @@ Each created document is an object with the following properties:
 * `_source`: document content
 * `_version`: version number of the document 
 * `created`: a boolean telling whether a document is created 
+
+If one or more document creations fail, the response status is set to `206`, and the `error` object contain a [partial error]({{ site_base_path }}api/2/errors/#partialerror) error.
+
+### Example
 
 ```javascript
 {

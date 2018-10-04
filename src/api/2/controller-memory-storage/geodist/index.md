@@ -16,18 +16,6 @@ The returned distance is expressed in meters by default.
 
 ---
 
-## Arguments
-
-* `_id`: key containing the geopoints to compare
-* `member1`: first geopoint name
-* `member2`: second geopoint name
-
-**Options:**
-
-* `unit`: the unit used for the returned calculated distance. Accepted values: `m`, `km`, `mi`, `ft`
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -49,6 +37,18 @@ Method: GET
   "unit": "ft"
 }
 ```
+
+---
+
+## Arguments
+
+* `_id`: key containing the geopoints to compare
+* `member1`: first geopoint name
+* `member2`: second geopoint name
+
+### Optional:
+
+* `unit`: the unit used for the returned calculated distance. Accepted values: `m`, `km`, `mi`, `ft`
 
 ---
 

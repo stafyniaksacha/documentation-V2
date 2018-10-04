@@ -15,12 +15,6 @@ The `autoRefresh` flag, when set to true, forces Kuzzle to perform a
 
 ---
 
-## Arguments
-
-* `index`: data index
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -39,6 +33,12 @@ Method: GET
   "action": "getAutoRefresh"
 }
 ```
+
+---
+
+## Arguments
+
+* `index`: data index
 
 ---
 

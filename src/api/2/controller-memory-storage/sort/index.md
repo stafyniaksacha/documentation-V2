@@ -8,8 +8,10 @@ title: sort
 
 {{{since "1.0.0"}}}
 
+Sort and return elements contained in a list, a set of unique values or a sorted set.  
+By default, sorting is numeric and elements are compared by their value, interpreted as double precision floating point number.
 
-
+[[_Redis documentation_]](https://redis.io/commands/sort)
 
 ---
 
@@ -23,7 +25,6 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   // optional arguments
@@ -36,10 +37,7 @@ Body:
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -57,9 +55,32 @@ Body:
 }
 ```
 
+
+---
+
+## Arguments
+
+* `_id`: list, set or sorted set key identifier
+
+---
+
+## Body properties
+
+### Optional:
+
+* `alpha`: perform an alphanumerical sort instead of a numeric one
+* `by`: instead of sorting by values directly, sort by values contained in external keys, using a pattern completed by values of the list/set/sorted set to sort
+* `direction`: sort in ascendant or descendant order
+* `get`: instead of returning the sorted values directly, return the values contained in external keys, using patterns completed by the sorted values
+* `limit`: limit the result set to a range of matching elements (similar to _SELECT LIMIT offset, count_ in SQL). Format: `[<offset(int)>, <count(int)>]`
+* `store`: instead of returning the result set, store it in a list at `destination` key
+
+
 ---
 
 ## Response
+
+Return the sorted elements.
 
 ```javascript
 {
@@ -77,17 +98,3 @@ Body:
   ]
 }
 ```
-
-Sorts and returns elements contained in a list, a set of unique values or a sorted set.  
-By default, sorting is numeric and elements are compared by their value interpreted as double precision floating point number.
-
-Optional arguments may be provided:
-
-* `alpha`: performs an alphanumerical sort instead of a numeric one
-* `by`: instead of sorting by values directly, sorts by values contained in external keys, using a pattern completed by values of the list/set/sorted set to sort
-* `direction`: sort in ascendant or descendant order
-* `get`: instead of returning the sorted values directly, returns the values contained in external keys, using patterns completed by the sorted values
-* `limit`: limits the result set to a range of matching elements (similar to _SELECT LIMIT offset, count_ in SQL). Format: `[<offset(int)>, <count(int)>]`
-* `store`: instead of returning the result set, stores it in a list at `destination` key
-
-[[_Redis documentation_]](https://redis.io/commands/sort)

@@ -8,7 +8,9 @@ title: ttl
 
 {{{since "1.0.0"}}}
 
+Return the remaining time to live of a key, in seconds.
 
+[[_Redis documentation_]](https://redis.io/commands/ttl)
 
 
 ---
@@ -24,7 +26,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -35,7 +36,15 @@ Method: GET
 
 ---
 
+## Arguments
+
+* `_id`: key identifier
+
+---
+
 ## Response
+
+Return the remaining key TTL, in seconds, or a negative value if the key does not exist or if it is persistent.
 
 ```javascript
 {
@@ -46,10 +55,6 @@ Method: GET
   "action": "ttl",
   "collection": null,
   "index": null,
-  "result": "<remaining time to live, in seconds>"
+  "result": 76
 }
 ```
-
-Returns the remaining time to live of a key, in seconds, or a negative value if the key does not exist or if it is persistent.
-
-[[_Redis documentation_]](https://redis.io/commands/ttl)

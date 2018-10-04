@@ -8,8 +8,9 @@ title: object
 
 {{{since "1.0.0"}}}
 
+Inspect the low-level properties of a key.
 
-
+[[_Redis documentation_]](https://redis.io/commands/object)
 
 ---
 
@@ -24,7 +25,6 @@ Method: GET
 
 ### Other protocols
 
-
 ```js
 {
   "controller": "ms",
@@ -36,7 +36,16 @@ Method: GET
 
 ---
 
+## Argument
+
+* `_id`: key identifier
+* `subcommand`: the object property to inspect. Allowed values: `refcount`, `encoding`, `idletime`
+
+---
+
 ## Response
+
+If `subcommand` is set to `refcount` or `idletime`, then an integer is returned:
 
 ```javascript
 {
@@ -47,10 +56,21 @@ Method: GET
   "action": "object",
   "collection": null,
   "index": null,
-  "result": <object inspection result>
+  "result": 62993
 }
 ```
 
-Inspects the low-level properties of a key.
+If `subcommand` is set to `encoding`, then a string is returned:
 
-[[_Redis documentation_]](https://redis.io/commands/object)
+```javascript
+{
+  "requestId": "<unique request identifier>",
+  "status": 200,
+  "error": null,
+  "controller": "ms",
+  "action": "object",
+  "collection": null,
+  "index": null,
+  "result": "ziplist"
+}
+```

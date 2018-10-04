@@ -8,7 +8,9 @@ title: renamenx
 
 {{{since "1.0.0"}}}
 
+Rename a key, only if the new name is not already used.
 
+[[_Redis documentation_]](https://redis.io/commands/renamenx)
 
 
 ---
@@ -23,17 +25,13 @@ Method: POST
 Body:
 ```
 
-
 ```js
 {
   "newkey": "<new key name>"
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -46,9 +44,24 @@ Body:
 }
 ```
 
+
+---
+
+## Argument
+
+* `_id`: key identifier
+
+---
+
+## Body properties
+
+* `newkey`: the new key name
+
 ---
 
 ## Response
+
+Return either `0` (command failed), or `1` (command succeeded).
 
 ```javascript
 {
@@ -59,10 +72,6 @@ Body:
   "action": "renamenx",
   "collection": null,
   "index": null,
-  "result": [0|1]
+  "result": 1
 }
 ```
-
-Renames a key to `newkey`, only if `newkey` does not already exist.
-
-[[_Redis documentation_]](https://redis.io/commands/renamenx)

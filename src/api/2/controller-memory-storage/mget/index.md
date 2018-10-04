@@ -8,7 +8,9 @@ title: mget
 
 {{{since "1.0.0"}}}
 
+Return the values of the provided keys.
 
+[[_Redis documentation_]](https://redis.io/commands/mget)
 
 ---
 
@@ -21,9 +23,7 @@ URL: http://kuzzle:7512/ms/_mget?keys=key1,key2,...
 Method: GET
 ```
 
-
 ### Other protocols
-
 
 ```js
 {
@@ -35,7 +35,15 @@ Method: GET
 
 ---
 
+## Argument
+
+* `keys`: a list of keys to get
+
+---
+
 ## Response
+
+Return the list of corresponding key values, in the same order than the one provided in the query.
 
 ```javascript
 {
@@ -53,7 +61,3 @@ Method: GET
   ]
 }
 ```
-
-Returns the values of the provided keys.
-
-[[_Redis documentation_]](https://redis.io/commands/mget)

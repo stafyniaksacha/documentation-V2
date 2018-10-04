@@ -8,8 +8,9 @@ title: srem
 
 {{{since "1.0.0"}}}
 
+Remove members from a set of unique values.
 
-
+[[_Redis documentation_]](https://redis.io/commands/srem)
 
 ---
 
@@ -23,17 +24,13 @@ Method: DELETE
 Body:
 ```
 
-
 ```js
 {
   "members": ["member1", "member2", "..."]
 }
 ```
 
-
-
 ### Other protocols
-
 
 ```js
 {
@@ -48,7 +45,22 @@ Body:
 
 ---
 
+## Argument
+
+* `_id`: set key identifier
+
+---
+
+## Body properties
+
+* `members`: list of member values to remove
+
+
+---
+
 ## Response
+
+Return the number of removed members.
 
 ```javascript
 {
@@ -59,10 +71,6 @@ Body:
   "action": "srem",
   "collection": null,
   "index": null,
-  "result": "<number of removed members>"
+  "result": 3
 }
 ```
-
-Removes members from a set of unique values.
-
-[[_Redis documentation_]](https://redis.io/commands/srem)

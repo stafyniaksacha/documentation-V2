@@ -46,7 +46,6 @@ Body:
 {
   "controller": "collection",
   "action": "updateSpecifications",
-
   "body": {
     "myindex": {
       "mycollection": {
@@ -58,6 +57,25 @@ Body:
     }
   }
 
+}
+```
+
+---
+
+## Body properties
+
+The provided body must have the following structure:
+
+```json
+{
+  "<data index>": {
+    "<data collection>": {
+      "strict": <boolean>,
+      "fields": {
+        // field validation rules
+      }
+    }
+  }
 }
 ```
 

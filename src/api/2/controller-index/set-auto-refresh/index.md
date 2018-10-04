@@ -17,12 +17,6 @@ The `autoRefresh` flag, when set to true, tells Kuzzle to perform an immediate
 
 ---
 
-## Arguments
-
-* `index`: data index to configure
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -51,6 +45,18 @@ Method: POST
   }
 }
 ```
+
+---
+
+## Arguments
+
+* `index`: data index to configure
+
+---
+
+## Body properties
+
+* `autoRefresh`: a boolean value describing the state of the index `autoRefresh` flag
 
 ---
 

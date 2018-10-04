@@ -12,12 +12,6 @@ Check if the given index exists in Kuzzle.
 
 ---
 
-## Arguments
-
-* `index`: index name to test for existence
-
----
-
 ## Query Syntax
 
 ### HTTP
@@ -36,6 +30,12 @@ Method: GET
   "action": "exists"
 }
 ```
+
+---
+
+## Arguments
+
+* `index`: index name to test for existence
 
 ---
 
